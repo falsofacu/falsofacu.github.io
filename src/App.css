@@ -1,38 +1,163 @@
-.App {
-  text-align: center;
+:root {
+  --bg-color1: #faaf1f;
+  --bg-color2: #e64360;
+  --bg-color3: #1f36fa;
+  --bg-color4: #43dce6;
+  --bg-color5: #fa1fe5;
+  --bg-color6: #6d43e6;
+
+  scroll-behavior: smooth;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  box-sizing: border-box;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  background-color: black;
+  color: white;
+  font-family: Coolvetica, sans-serif;
+  font-size: 25px;
+  letter-spacing: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+header {
+  height: 100vh;
+  width: 100%;
+}
+
+.stroked {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0.01px white;
+}
+
+.reveal {
+  color: transparent;
+}
+
+.cooltext {
+  font-family: Coolvetica, sans-serif;
+}
+
+.reset-button {
+  background: none repeat scroll 0 0 transparent;
+  border: medium none;
+  border-spacing: 0;
+  font-family: "PT Sans Narrow", sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.42rem;
+  list-style: none outside none;
+  padding: 0;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0;
+  outline: none;
+  color: inherit;
+}
+
+.reset-button:focus {
+  outline: none;
+  outline-offset: -4px;
+}
+
+#color-btn {
+  display: block;
+  margin: auto auto 6vh auto;
+  padding: 10vh 0 0 0;
+  border-bottom: 1px solid white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 28px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#color-btn:hover {
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+#color-btn #c {
+  color: #f22376;
+}
+
+#color-btn #o {
+  color: #fef126;
+}
+
+#color-btn #l {
+  color: #51c672;
+}
+
+#color-btn #o2 {
+  color: #388fbc;
+}
+
+#color-btn #r {
+  color: #ff9b67;
+}
+
+/* AFTER BUTTON */
+
+#name-wrap {
+  position: absolute;
+  bottom: 5vh; /* animate when color*/
+}
+
+#first-name {
+  font-family: Povet, sans-serif;
+  font-size: 12vw;
+}
+
+#last-name {
+  font-family: MadeInfinity-Thin, sans-serif;
+  mix-blend-mode: difference;
+  font-size: 22vw;
+  margin-top: -9vw;
+  padding-left: 0.3vw;
+}
+
+/* ANIMATIONS */
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: scale(1.05);
   }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulse-animation {
+  animation-name: pulse;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+.press-animation:active {
+  transform: translate(-50%, -50%);
+  transform: scale(0.99);
+}
+
+/*Local font imports*/
+@font-face {
+  font-family: Povet;
+  src: url("./fonts/Povet-Sans.otf") format("opentype");
+}
+
+@font-face {
+  font-family: MadeInfinity-Light;
+  src: url("./fonts/MADEINFINITY_Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: MadeInfinity-Thin;
+  src: url("./fonts/MADEINFINITY_Thin.otf") format("opentype");
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
