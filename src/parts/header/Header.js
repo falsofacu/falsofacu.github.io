@@ -1,5 +1,4 @@
 import React from "react";
-import KUTE from "kute.js";
 import "./Header.css";
 import { ColorBtn } from "./headerParts";
 import { Name } from "./headerParts";

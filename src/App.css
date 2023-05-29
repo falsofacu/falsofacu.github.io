@@ -23,11 +23,6 @@ body {
   letter-spacing: 5px;
 }
 
-header {
-  height: 100vh;
-  width: 100%;
-}
-
 .stroked {
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 0.01px white;
@@ -65,85 +60,6 @@ header {
 .reset-button:focus {
   outline: none;
   outline-offset: -4px;
-}
-
-#color-btn {
-  position: absolute;
-  top: 12%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 28px;
-  color: white;
-  z-index: 1;
-}
-
-#color-btn:hover {
-  cursor: pointer;
-}
-
-#color-btn #c {
-  color: #f22376;
-}
-
-#color-btn #o {
-  color: #fef126;
-}
-
-#color-btn #l {
-  color: #51c672;
-}
-
-#color-btn #o2 {
-  color: #388fbc;
-}
-
-#color-btn #r {
-  color: #ff9b67;
-}
-
-#blob1 {
-  position: relative;
-  z-index: -1;
-}
-
-#blob1-1 {
-  display: none;
-}
-
-#blobs-wrap {
-  position: absolute;
-  top: 12%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-}
-
-/* AFTER BUTTON */
-
-#name-wrap {
-  position: absolute;
-  bottom: 5vh; /* animate when color*/
-}
-
-#first-name {
-  font-family: Povet, sans-serif;
-  font-size: 12vw;
-}
-
-#last-name {
-  font-family: MadeInfinity-Thin, sans-serif;
-  mix-blend-mode: difference;
-  font-size: 22vw;
-  margin-top: -9vw;
-  padding-left: 0.3vw;
-}
-
-/* ANIMATIONS */
-
-.press-animation:active {
-  transform: translate(-50%, -50%);
-  transform: scale(0.99);
 }
 
 /*Local font imports*/
