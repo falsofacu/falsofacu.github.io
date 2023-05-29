@@ -75,7 +75,6 @@ const blob2 = (
   </svg>
 );
 
-
 //////////////////////////
 //Color. button animations
 //////////////////////////
@@ -147,29 +146,35 @@ export class ColorBtn extends React.Component {
     );
 
     btnZoom = KUTE.fromTo(
-      '#btn-wrap',
-      {transform: {scale: 1}},
-      {transform: {scale: 1.2}},
-      {repeat: 3, duration: 150, yoyo: true, easing: KUTE.Easing.easingCircularIn}
+      "#btn-wrap",
+      { transform: { scale: 1 } },
+      { transform: { scale: 1.2 } },
+      {
+        repeat: 3,
+        duration: 150,
+        yoyo: true,
+        easing: KUTE.Easing.easingCircularIn,
+      }
     );
 
     setInterval(() => {
-      btnZoom.start();
-      blob1Zoom.start();
-      blob1Tween.start();
-      document.getElementById("blob1-1").style.display = "block";
-      navigator.userActivation.hasBeenActive && kickAudio.play();
+      if (!document.hidden) {
+        btnZoom.start();
+        blob1Zoom.start();
+        blob1Tween.start();
+        document.getElementById("blob1-1").style.display = "block";
+        navigator.userActivation.hasBeenActive && kickAudio.play();
 
-      setTimeout(() => {
-        blob2Zoom.start();
-        blob2Tween.start();
-        document.getElementById("blob2-1").style.display = "block";
-      }, 300);
+        setTimeout(() => {
+          blob2Zoom.start();
+          blob2Tween.start();
+          document.getElementById("blob2-1").style.display = "block";
+        }, 300);
+      }
     }, 3000);
   }
 
-  componentDidUpdate() {
-  }
+  componentDidUpdate() {}
 
   handleClick() {
     if (this.state.clicked < 2) {
