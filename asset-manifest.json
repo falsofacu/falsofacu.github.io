@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.13eefcdf.css",
-    "main.js": "/static/js/main.a6cdcf62.js",
+    "main.css": "/static/css/main.1858cdf6.css",
+    "main.js": "/static/js/main.5375e2fd.js",
     "static/js/787.a5e18501.chunk.js": "/static/js/787.a5e18501.chunk.js",
+    "static/media/doubleKick.mp3": "/static/media/doubleKick.a2994b85a86959af1666.mp3",
     "static/media/MADEINFINITY_Light.otf": "/static/media/MADEINFINITY_Light.51747b6940844698ff01.otf",
     "static/media/MADEINFINITY_Thin.otf": "/static/media/MADEINFINITY_Thin.dde67d4f431549bde6a9.otf",
     "static/media/Povet-Sans.otf": "/static/media/Povet-Sans.7171d4f5b40054425ddf.otf",
-    "static/media/kick.mp3": "/static/media/kick.3913d7ec03e55d90581d.mp3",
     "index.html": "/index.html",
-    "main.13eefcdf.css.map": "/static/css/main.13eefcdf.css.map",
-    "main.a6cdcf62.js.map": "/static/js/main.a6cdcf62.js.map",
+    "main.1858cdf6.css.map": "/static/css/main.1858cdf6.css.map",
+    "main.5375e2fd.js.map": "/static/js/main.5375e2fd.js.map",
     "787.a5e18501.chunk.js.map": "/static/js/787.a5e18501.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.13eefcdf.css",
-    "static/js/main.a6cdcf62.js"
+    "static/css/main.1858cdf6.css",
+    "static/js/main.5375e2fd.js"
   ]
 }
