@@ -58,10 +58,6 @@ header {
   position: relative;
 }
 
-#blob1-1 {
-  display: none;
-}
-
 #blob2-wrap {
   position: absolute;
   top: 15%;
@@ -72,10 +68,6 @@ header {
 
 #blob2 {
   position: relative;
-}
-
-#blob2-1 {
-  display: none;
 }
 
 /* NAME */
