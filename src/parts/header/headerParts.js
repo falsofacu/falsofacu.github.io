@@ -1,4 +1,5 @@
 import { blob1, blob2, startBlob } from "../../graphics/allBlobs";
+import { Context } from "../../App";
 import doubleKick from "../../sounds/doubleKick.mp3";
 import swoosh from "../../sounds/swoosh.mp3";
 import "./Header.css";
@@ -7,7 +8,7 @@ import {
   initializeBlobAnimations,
   initializeStartAnimations,
 } from "./btnAnimations";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 //Color button
 
@@ -28,7 +29,7 @@ const ColorBtn = () => {
 
   // Component State
 
-  const [clicked, setClicked] = useState(0);
+  const [clicked, setClicked] = useContext(Context);
 
   // Component Methods
 
@@ -37,12 +38,11 @@ const ColorBtn = () => {
       setClicked(clicked + 1);
       clearInterval(btnIntervalCode);
     }
-    if (clicked === 0) { //this is wrong though, it should be 1 but the state doesn't update yet
+    if (clicked === 0) { //this is wrong? it should be 1 but the state doesn't update yet
       blobStartTween.start();
       blobStartZoom.start();
       swooshAudio.play();
     }
-    console.log(clicked);
   };
 
   const playIdleAnimations = () => {
@@ -50,7 +50,7 @@ const ColorBtn = () => {
       btnPulse.start();
       blob1Tween.start();
       blob1Zoom.start();
-      navigator.userActivation.hasBeenActive && kickAudio.play();
+      navigator.userActivation.hasBeenActive && kickAudio.play(); //!This doesn't work in Firefox
       setTimeout(() => {
         blob2Zoom.start();
         blob2Tween.start();
@@ -104,16 +104,23 @@ const ColorBtn = () => {
 //Name Facundo Tabárez
 
 const Name = () => {
+
+  const [clicked, setClicked] = useContext(Context);
+
   return (
     <>
-      {/* <p className="cooltext hidden">I'm</p> */}
+      <p className="cooltext hidden">I'm</p>
       <div id="name-wrap">
-        <h1 id="first-name">FACUNDO</h1>
-        <h1 id="last-name">TABÁREZ</h1>
+        <h1 id="first-name-1">FACUNDO</h1>
+        <h1 id="last-name-1">TABÁREZ</h1>
+        <h1 id="first-name-2">FACUNDO</h1>
+        <h1 id="last-name-2">TABÁREZ</h1>
       </div>
-      {/* <p className="cooltext hidden">and I make stuff.</p> */}
+      <p className="cooltext hidden">and I make stuff.</p>
     </>
   );
 };
+
+
 
 export { ColorBtn, Name };

@@ -54,17 +54,31 @@ header {
   min-height: 67%;
 }
 
-#first-name {
+#first-name-1, #first-name-2 {
+  position: absolute;
   font-family: Povet, sans-serif;
   font-size: 12vw;
+  z-index: -1;
 }
 
-#last-name {
-  margin-top: -9vw; /* Font spacing*/
+#last-name-1, #last-name-2 {
+  position: absolute;
+  margin-top: 5vw; /* Font spacing*/
   padding-left: 0.3vw; /* Font align correction*/
   mix-blend-mode: difference;
   font-family: MadeInfinity-Thin, sans-serif;
   font-size: 22vw;
+  z-index: -1;
+}
+
+#first-name-2 {
+  display: none;
+  -webkit-text-stroke: 0.1px white;
+  color: transparent;
+}
+#last-name-2 {
+  display: none;
+  mix-blend-mode: normal !important;
 }
 
 /* ANIMATIONS */
