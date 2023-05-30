@@ -1,29 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useState, useEffect } from "react";
 import KUTE from "kute.js";
 import "./Header.css";
 import doubleKick from "../../sounds/doubleKick.mp3";
 import { blob1 } from "../../graphics/allBlobs";
 import { blob2 } from "../../graphics/allBlobs";
 
-//Color button
-
 const ColorBtn = () => {
   // Component declarations
   /// "Color" state
-  let btnPulse, blob1Tween, blob1Zoom, blob2Tween, blob2Zoom;
+  let blob1Tween;
+  let blob1Zoom;
+  let blob2Tween;
+  let blob2Zoom;
+  let btnPulse;
   /// "Stop" state
-  let blobStartTween, blobStartZoom;
+  let blobStartTween;
+  let blobStartZoom;
   /// "Next" state
   let blob;
-  /// Other declarations
-  let btnIntervalCode;
-  const colorBtnText = ["color.", "stop.", "next."];
+
+  /// Sounds
   const kickAudio = new Audio(doubleKick);
 
-  // Component State
+  /// Other declarations
+  let btnIntervalCode;
+
+  // Component state
+  const [btnText, setBtnText] = useState("color.");
   const [clicked, setClicked] = useState(0);
 
+  const colorBtnText = ["color.", "stop.", "next."];
+
   // Component Methods
+
   const handleClick = () => {
     if (clicked < 2) {
       setClicked(clicked + 1);
@@ -123,17 +133,4 @@ const ColorBtn = () => {
   );
 };
 
-const Name = () => {
-  return (
-    <>
-      {/* <p className="cooltext hidden">I'm</p> */}
-      <div id="name-wrap">
-        <h1 id="first-name">FACUNDO</h1>
-        <h1 id="last-name">TABÁREZ</h1>
-      </div>
-      {/* <p className="cooltext hidden">and I make stuff.</p> */}
-    </>
-  );
-};
-
-export {ColorBtn, Name};
+export default ColorBtn;

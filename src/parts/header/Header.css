@@ -26,26 +26,6 @@ header {
   cursor: pointer;
 }
 
-#color-btn #c {
-  color: #f22376;
-}
-
-#color-btn #o {
-  color: #fef126;
-}
-
-#color-btn #l {
-  color: #51c672;
-}
-
-#color-btn #o2 {
-  color: #388fbc;
-}
-
-#color-btn #r {
-  color: #ff9b67;
-}
-
 #blob1-wrap {
   position: absolute;
   top: 15%;
@@ -56,6 +36,7 @@ header {
 
 #blob1 {
   position: relative;
+  transform: scale(0.01);
 }
 
 #blob2-wrap {
@@ -68,6 +49,7 @@ header {
 
 #blob2 {
   position: relative;
+  transform: scale(0.01);
 }
 
 /* NAME */

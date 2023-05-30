@@ -1,7 +1,6 @@
 import React from "react";
 import "./Header.css";
-import { ColorBtn } from "./headerParts";
-import { Name } from "./headerParts";
+import { ColorBtn, Name } from "./headerParts";
 
 class Header extends React.Component {
   constructor(props) {
