@@ -1,9 +1,11 @@
-import { blob1, blob2 } from "../../graphics/allBlobs";
+import { blob1, blob2, startBlob } from "../../graphics/allBlobs";
 import doubleKick from "../../sounds/doubleKick.mp3";
+import swoosh from "../../sounds/swoosh.mp3";
 import "./Header.css";
 import {
   initializeBtnAnimations,
   initializeBlobAnimations,
+  initializeStartAnimations,
 } from "./btnAnimations";
 import React, { useState, useEffect } from "react";
 
@@ -17,11 +19,12 @@ const ColorBtn = () => {
   /// "Stop" state
   let blobStartTween, blobStartZoom;
   /// "Next" state
-  let blob;
+  //let blob;
   /// Other declarations
   let btnIntervalCode;
   const colorBtnText = ["color.", "stop.", "next."];
   const kickAudio = new Audio(doubleKick);
+  const swooshAudio = new Audio(swoosh);
 
   // Component State
 
@@ -33,8 +36,13 @@ const ColorBtn = () => {
     if (clicked < 2) {
       setClicked(clicked + 1);
       clearInterval(btnIntervalCode);
-      // TODO: Play state 2 animations
     }
+    if (clicked === 0) { //this is wrong though, it should be 1 but the state doesn't update yet
+      blobStartTween.start();
+      blobStartZoom.start();
+      swooshAudio.play();
+    }
+    console.log(clicked);
   };
 
   const playIdleAnimations = () => {
@@ -55,18 +63,18 @@ const ColorBtn = () => {
   useEffect(() => {
     [blob1Zoom, blob1Tween, blob2Tween, blob2Zoom] = initializeBlobAnimations();
     btnPulse = initializeBtnAnimations();
+    [blobStartTween, blobStartZoom] = initializeStartAnimations();
 
-    setTimeout(() => {
-      if (!document.hidden) {
-        playIdleAnimations();
-      }
-    }, 500);
-
-    btnIntervalCode = setInterval(() => {
-      if (!document.hidden) {
-        playIdleAnimations();
-      }
-    }, 3000);
+    //First time play after 1s
+    setTimeout(()=> {
+      playIdleAnimations();
+      //Then play every 3s
+      btnIntervalCode = setInterval(() => {
+        if (!document.hidden) {
+          playIdleAnimations();
+        }
+      }, 3000);
+    },1000)
 
     return () => {
       clearInterval(btnIntervalCode);
@@ -86,8 +94,9 @@ const ColorBtn = () => {
           {colorBtnText[clicked]}
         </button>
       </div>
-      <div id="blob1-wrap">{blob1}</div>
-      <div id="blob2-wrap">{blob2}</div>
+      <div id="blob1-wrap" className="blob-wrap">{blob1}</div>
+      <div id="blob2-wrap" className="blob-wrap">{blob2}</div>
+      <div id="start-blob-wrap" className="blob-wrap">{startBlob}</div>
     </>
   );
 };

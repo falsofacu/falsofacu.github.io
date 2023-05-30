@@ -49,4 +49,22 @@ const initializeBlobAnimations = () => {
   ];
 };
 
-export {initializeBtnAnimations, initializeBlobAnimations};
+const initializeStartAnimations = () => {
+  const startBlobTween = KUTE.fromTo(
+    '#start-blob-1',
+    { path: '#start-blob-1' },
+    { path: '#start-blob-2' },
+    { repeat: 10, duration: 1000, yoyo: true }
+  )
+
+  const startBlobZoom = KUTE.fromTo(
+    '#start-blob',
+    { transform: {scale: 0.001} },
+    { transform: {scale: 10} },
+    { duration: 1200, easing: KUTE.Easing.easingExponentialIn, delay: 300 }
+  )
+
+  return [startBlobTween, startBlobZoom];
+}
+
+export {initializeBtnAnimations, initializeBlobAnimations, initializeStartAnimations};
