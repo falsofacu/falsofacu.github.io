@@ -8,6 +8,7 @@ import {
   initializeBlobAnimations,
   initializeStartAnimations,
 } from "./btnAnimations";
+import { initializeFadeInAnimation, initializeFadeOutAnimation } from "./nameAnimations";
 import React, { useState, useEffect, useContext } from "react";
 
 //Color button
@@ -19,15 +20,13 @@ const ColorBtn = () => {
   let btnPulse, blob1Zoom, blob1Tween, blob2Tween, blob2Zoom;
   /// "Stop" state
   let blobStartTween, blobStartZoom;
-  /// "Next" state
-  //let blob;
   /// Other declarations
   let btnIntervalCode;
   const colorBtnText = ["color.", "stop.", "next."];
   const kickAudio = new Audio(doubleKick);
   const swooshAudio = new Audio(swoosh);
 
-  // Component State
+  // Component Context
 
   const [clicked, setClicked] = useContext(Context);
 
@@ -38,7 +37,7 @@ const ColorBtn = () => {
       setClicked(clicked + 1);
       clearInterval(btnIntervalCode);
     }
-    if (clicked === 0) { //this is wrong? it should be 1 but the state doesn't update yet
+    if (clicked === 0) {
       blobStartTween.start();
       blobStartZoom.start();
       swooshAudio.play();
@@ -66,7 +65,7 @@ const ColorBtn = () => {
     [blobStartTween, blobStartZoom] = initializeStartAnimations();
 
     //First time play after 1s
-    setTimeout(()=> {
+    setTimeout(() => {
       playIdleAnimations();
       //Then play every 3s
       btnIntervalCode = setInterval(() => {
@@ -74,7 +73,7 @@ const ColorBtn = () => {
           playIdleAnimations();
         }
       }, 3000);
-    },1000)
+    }, 1000);
 
     return () => {
       clearInterval(btnIntervalCode);
@@ -94,9 +93,15 @@ const ColorBtn = () => {
           {colorBtnText[clicked]}
         </button>
       </div>
-      <div id="blob1-wrap" className="blob-wrap">{blob1}</div>
-      <div id="blob2-wrap" className="blob-wrap">{blob2}</div>
-      <div id="start-blob-wrap" className="blob-wrap">{startBlob}</div>
+      <div id="blob1-wrap" className="blob-wrap">
+        {blob1}
+      </div>
+      <div id="blob2-wrap" className="blob-wrap">
+        {blob2}
+      </div>
+      <div id="start-blob-wrap" className="blob-wrap">
+        {startBlob}
+      </div>
     </>
   );
 };
@@ -105,7 +110,22 @@ const ColorBtn = () => {
 
 const Name = () => {
 
+  let firstNameAnimation, lastNameAnimation, firstName2Animation, lastName2Animation;
+
   const [clicked, setClicked] = useContext(Context);
+
+  useEffect(()=> {
+    firstNameAnimation = initializeFadeOutAnimation('#first-name-1', 1000);
+    lastNameAnimation = initializeFadeOutAnimation('#last-name-1', 1000);
+    firstName2Animation = initializeFadeInAnimation('#first-name-2', 1000);
+    lastName2Animation = initializeFadeInAnimation('#last-name-2', 1000);
+    if(clicked === 1){
+      firstNameAnimation.start();
+      lastNameAnimation.start();
+      firstName2Animation.start();
+      lastName2Animation.start();
+    }
+  }, [clicked])
 
   return (
     <>
@@ -120,7 +140,5 @@ const Name = () => {
     </>
   );
 };
-
-
 
 export { ColorBtn, Name };

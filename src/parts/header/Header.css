@@ -19,7 +19,7 @@ header {
   font-size: 28px;
   color: white;
   border-bottom: 1px solid white;
-  z-index: 1;
+  z-index: 10;
 }
 
 #color-btn:hover {
@@ -30,7 +30,7 @@ header {
 
 .blob-wrap {
   position: absolute;
-  top: 15%;
+  top: 17%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: -1;
@@ -42,10 +42,10 @@ header {
 }
 
 #start-blob {
-  transform: scale(0.001); /* !important */
+  transform: scale(0.001);
 }
 
-/* NAME */
+/* Name */
 
 #name-wrap {
   position: relative;
@@ -69,14 +69,24 @@ header {
   z-index: -1;
 }
 
+#first-name-1 {
+  opacity: 1;
+}
+
+#last-name-1 {
+  opacity: 1;
+}
+
 #first-name-2 {
-  display: none;
+  opacity: 0;
   -webkit-text-stroke: 0.1px white;
   color: transparent;
+  z-index: 1;
 }
 #last-name-2 {
-  display: none;
+  opacity: 0;
   mix-blend-mode: normal !important;
+  z-index: 1;
 }
 
 /* ANIMATIONS */

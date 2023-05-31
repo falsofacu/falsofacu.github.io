@@ -41,30 +41,29 @@ const initializeBlobAnimations = () => {
     { path: "#blob2-2" },
     { repeat: 2, duration: 400, yoyo: true }
   );
-  return [
-    blob1Tween,
-    blob1Zoom,
-    blob2Tween,
-    blob2Zoom,
-  ];
+  return [blob1Tween, blob1Zoom, blob2Tween, blob2Zoom];
 };
 
 const initializeStartAnimations = () => {
   const startBlobTween = KUTE.fromTo(
-    '#start-blob-1',
-    { path: '#start-blob-1' },
-    { path: '#start-blob-2' },
+    "#start-blob-1",
+    { path: "#start-blob-1" },
+    { path: "#start-blob-2" },
     { repeat: 10, duration: 1000, yoyo: true }
-  )
+  );
 
   const startBlobZoom = KUTE.fromTo(
-    '#start-blob',
-    { transform: {scale: 0.001} },
-    { transform: {scale: 10} },
+    "#start-blob",
+    { transform: { scale: 0.001 } },
+    { transform: { scale: 10 } },
     { duration: 1200, easing: KUTE.Easing.easingExponentialIn, delay: 300 }
-  )
+  );
 
   return [startBlobTween, startBlobZoom];
-}
+};
 
-export {initializeBtnAnimations, initializeBlobAnimations, initializeStartAnimations};
+export {
+  initializeBtnAnimations,
+  initializeBlobAnimations,
+  initializeStartAnimations
+};

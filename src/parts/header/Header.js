@@ -13,10 +13,10 @@ class Header extends React.Component {
 
   render() {
     return (
-      <header>
-        <ColorBtn />
-        <Name />
-      </header>
+        <header>
+          <ColorBtn />
+          <Name />
+        </header>
     );
   }
 }
