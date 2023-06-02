@@ -1,34 +1,6 @@
-:root {
-  --bg-color1: #faaf1f;
-  --bg-color2: #e64360;
-  --bg-color3: #1f36fa;
-  --bg-color4: #43dce6;
-  --bg-color5: #fa1fe5;
-  --bg-color6: #6d43e6;
-
-  scroll-behavior: smooth;
-}
-
-#root {
-  overflow: hidden;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-body {
-  background-color: black;
-  color: white;
-  font-family: Coolvetica, sans-serif;
-  font-size: 25px;
-  letter-spacing: 5px;
-}
-
 .stroked {
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 0.01px white;
+  -webkit-text-stroke: 1px white;
 }
 
 .hidden {
@@ -59,25 +31,4 @@ body {
 .reset-button:focus {
   outline: none;
   outline-offset: -4px;
-}
-
-/*Local font imports*/
-@font-face {
-  font-family: Povet;
-  src: url("./fonts/Povet-Sans.otf") format("opentype");
-}
-
-@font-face {
-  font-family: MadeInfinity-Light;
-  src: url("./fonts/MADEINFINITY_Light.otf") format("opentype");
-}
-
-@font-face {
-  font-family: MadeInfinity-Thin;
-  src: url("./fonts/MADEINFINITY_Thin.otf") format("opentype");
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }

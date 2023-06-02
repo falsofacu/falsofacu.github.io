@@ -11,14 +11,14 @@ const initializeFadeInAnimation = (id, duration) => {
   return fadeInAnimation;
 };
 const initializeFadeOutAnimation = (id, duration) => {
-    const fadeInAnimation = KUTE.fromTo(
+    const fadeOutAnimation = KUTE.fromTo(
       id,
       { opacity: 1 },
       { opacity: 0 },
       { duration: duration }
     );
 
-  return fadeInAnimation;
+  return fadeOutAnimation;
 };
 
 export { initializeFadeInAnimation, initializeFadeOutAnimation };

@@ -69,11 +69,7 @@ header {
   z-index: -1;
 }
 
-#first-name-1 {
-  opacity: 1;
-}
-
-#last-name-1 {
+#first-name-1, #last-name-1 {
   opacity: 1;
 }
 

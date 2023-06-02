@@ -1,13 +1,61 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+}
+
+:root {
+  --color1: #faaf1f;
+  --color2: #e64360;
+  --color3: #1f36fa;
+  --color4: #43dce6;
+  --color5: #fa1fe5;
+  --color6: #6d43e6;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: Coolvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+  font-size: 25px;
+  letter-spacing: 5px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  scroll-behavior: smooth;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/*Local font imports*/
+@font-face {
+  font-family: Povet;
+  src: url("./fonts/Povet-Sans.otf") format("opentype");
+}
+
+@font-face {
+  font-family: MadeInfinity-Light;
+  src: url("./fonts/MADEINFINITY_Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: MadeInfinity-Thin;
+  src: url("./fonts/MADEINFINITY_Thin.otf") format("opentype");
+}
+
+
+
+
+
+#tt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% -50%);
+  font-size: 30px;
+  font-family: Coolvetica;
 }
