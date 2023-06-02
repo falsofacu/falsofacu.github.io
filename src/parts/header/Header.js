@@ -14,10 +14,10 @@ class Header extends React.Component {
 
   render() {
     return (
-        <header>
+        <section id="presentation">
           <ColorBtn />
           <Name />
-        </header>
+        </section>
     );
   }
 }

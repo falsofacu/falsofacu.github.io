@@ -1,34 +1,18 @@
-.stroked {
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1px white;
+/* Background Text */
+
+.reveal {
+    position: absolute;
+    opacity: 0;
+  }
+
+.bg-text {
+  position: absolute; /* could be "fixed" */
+  transform: translate(-50%, -40%);
+  font-family: DexaRound, sans-serif;
+  font-size: 10vw;
+  z-index: -10;
+  outline: 1px solid red;
 }
 
-.hidden {
-  display: none;
-}
-
-.cooltext {
-  font-family: Coolvetica, sans-serif;
-}
-
-.reset-button {
-  background: none repeat scroll 0 0 transparent;
-  border: medium none;
-  border-spacing: 0;
-  font-family: "PT Sans Narrow", sans-serif;
-  font-size: 16px;
-  font-weight: normal;
-  line-height: 1.42rem;
-  list-style: none outside none;
-  padding: 0;
-  text-align: left;
-  text-decoration: none;
-  text-indent: 0;
-  outline: none;
-  color: inherit;
-}
-
-.reset-button:focus {
-  outline: none;
-  outline-offset: -4px;
+#good1 {
 }

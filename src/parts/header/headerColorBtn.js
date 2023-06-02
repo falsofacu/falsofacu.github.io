@@ -2,7 +2,6 @@ import { blob1, blob2, startBlob } from "../../graphics/allBlobs";
 import { Context } from "../../App";
 import doubleKick from "../../sounds/doubleKick.mp3";
 import swoosh from "../../sounds/swoosh.mp3";
-import "./Header.css";
 import {
   initializeBtnAnimations,
   initializeBlobAnimations,

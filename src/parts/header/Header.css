@@ -1,4 +1,4 @@
-header {
+#presentation {
   position: relative;
   height: 100vh;
   width: 100%;
@@ -10,13 +10,14 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 33%;
+  height: 33vh;
 }
 
 #color-btn {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 28px;
+  font-size: 32px;
+  line-height: 1.7rem;
   color: white;
   border-bottom: 1px solid white;
   z-index: 10;
@@ -47,25 +48,27 @@ header {
 
 /* Name */
 
-#name-wrap {
+#presentation-wrap {
   position: relative;
   min-height: 67%;
 }
 
-#first-name-1, #first-name-2 {
+.first-name {
   position: absolute;
   font-family: Povet, sans-serif;
-  font-size: 12vw;
+  font-size: 12.8vw;
+  letter-spacing: 0.2vw;
   z-index: -1;
 }
 
-#last-name-1, #last-name-2 {
+.last-name {
   position: absolute;
-  margin-top: 5vw; /* Font spacing*/
+  margin-top: 5.5vw; /* Font spacing*/
   padding-left: 0.3vw; /* Font align correction*/
   mix-blend-mode: difference;
   font-family: MadeInfinity-Thin, sans-serif;
-  font-size: 22vw;
+  font-size: 21.5vw;
+  letter-spacing: 1.25vw;
   z-index: -1;
 }
 
@@ -85,9 +88,20 @@ header {
   z-index: 1;
 }
 
-/* ANIMATIONS */
+/* Reveal */
 
-.press-animation:active {
-  transform: translate(-50%, -50%);
-  transform: scale(0.99);
+#reveal1 {
+  top: -5vw;
+  font-size: 5.5vw;
+  padding-left: 0.5vw;
+  margin-bottom: -1.5vw;
 }
+
+#reveal2 {
+  position: absolute;
+  top: 27.5vw;
+  font-size: 8vw;
+  padding-left: 0.5vw;
+}
+
+

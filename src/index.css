@@ -31,6 +31,41 @@ code {
     monospace;
 }
 
+.stroked {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px white;
+}
+
+.hidden {
+  display: none;
+}
+
+.cooltext {
+  font-family: Coolvetica, sans-serif;
+}
+
+.reset-button {
+  background: none repeat scroll 0 0 transparent;
+  border: medium none;
+  border-spacing: 0;
+  font-family: "PT Sans Narrow", sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  list-style: none outside none;
+  padding: 0;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0;
+  outline: none;
+  color: inherit;
+}
+
+.reset-button:focus {
+  outline: none;
+  outline-offset: -4px;
+}
+
+
 /*Local font imports*/
 @font-face {
   font-family: Povet;
@@ -47,15 +82,17 @@ code {
   src: url("./fonts/MADEINFINITY_Thin.otf") format("opentype");
 }
 
-
-
-
-
-#tt {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50% -50%);
-  font-size: 30px;
+@font-face {
   font-family: Coolvetica;
+  src: url("./fonts/Coolvetica.otf") format("opentype");
+}
+
+@font-face {
+  font-family: DexaRound;
+  src: url("./fonts/DexaRound_ExtraBold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: DexaRound_Italic;
+  src: url("./fonts/DexaRound_ExtraBold_Italic.otf") format("opentype");
 }
