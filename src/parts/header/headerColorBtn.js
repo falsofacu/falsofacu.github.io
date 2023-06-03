@@ -1,5 +1,5 @@
 import { blob1, blob2, startBlob } from "../../graphics/allBlobs";
-import { Context } from "../../App";
+import { clickedContext, colorContext } from "../../App";
 import doubleKick from "../../sounds/doubleKick.mp3";
 import swoosh from "../../sounds/swoosh.mp3";
 import {
@@ -40,13 +40,14 @@ const ColorBtn = () => {
 
   // Component Context
 
-  const [clicked, setClicked] = useContext(Context);
+  const [clicked, setClicked] = useContext(clickedContext);
+  const [bgTxtColor, setTxtColor] = useContext(colorContext);
 
   // Component Methods
 
   const handleClick = useCallback(() => {
-    if (clicked < 2) {
       setClicked(clicked + 1);
+    if (clicked < 2) {
       clearInterval(btnIntervalCode.current);
     }
     if (clicked === 0) {
@@ -75,6 +76,21 @@ const ColorBtn = () => {
     }
   }, []);
 
+  
+
+  const changeColors = () => {
+      if (bgTxtColor === "var(--color2)") {
+        document.getElementById("body").style.backgroundColor = "var(--color3)";
+        setTxtColor("var(--color4)");
+      } else if (bgTxtColor === "var(--color4)") {
+        document.getElementById("body").style.backgroundColor = "var(--color5)";
+        setTxtColor("var(--color6)");
+      } else {
+        document.getElementById("body").style.backgroundColor = "var(--color1)";
+        setTxtColor("var(--color2)");
+      }
+  };
+
   // Component initialization
 
   useEffect(() => {
@@ -100,6 +116,13 @@ const ColorBtn = () => {
     }, 1000);
   }, []);
 
+  useEffect(() => {
+    if(clicked > 2){ //When button says "next."
+      changeColors();
+      console.log(clicked);
+    }
+  }, [clicked])
+
   //Component Render
 
   return (
@@ -110,7 +133,7 @@ const ColorBtn = () => {
           className="reset-button press-animation"
           onClick={handleClick}
         >
-          {colorBtnText[clicked]}
+          {clicked > 2 ? colorBtnText[2] : colorBtnText[clicked] } 
         </button>
       </div>
       <div id="blob1-wrap" className="blob-wrap">
