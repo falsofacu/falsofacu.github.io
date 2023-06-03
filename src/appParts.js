@@ -16,7 +16,7 @@ const Background = () => {
   //Animation options
   const revealDuration = 1000;
   const revealDelay = 1500;
-  const bgTextSpeed = 5000;
+  const bgTextSpeed = 7500;
   const autoColorStop = useRef(3); //Stop automatic color change after num
 
   let timesColorChanged = useRef(0);
