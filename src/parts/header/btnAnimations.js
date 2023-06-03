@@ -62,8 +62,20 @@ const initializeStartAnimations = () => {
   return [startBlobTween, startBlobZoom];
 };
 
+const initializeLoadAnimation = (id, duration, delay = 0) => {
+  const loadAnim = KUTE.fromTo(
+    '#' + id,
+    {},
+    {},
+    {duration: duration, delay: delay, easing: "linear", repeat: Infinity}
+  );
+
+  return loadAnim;
+}
+
 export {
   initializeBtnAnimations,
   initializeBlobAnimations,
-  initializeStartAnimations
+  initializeStartAnimations,
+  initializeLoadAnimation
 };

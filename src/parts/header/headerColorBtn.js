@@ -45,6 +45,7 @@ const ColorBtn = () => {
 
   // Component Methods
 
+  //* In this function "clicked" context isn't updated yet
   const handleClick = useCallback(() => {
       setClicked(clicked + 1);
     if (clicked < 2) {
@@ -135,6 +136,8 @@ const ColorBtn = () => {
         >
           {clicked > 2 ? colorBtnText[2] : colorBtnText[clicked] } 
         </button>
+        {/* Loading anim */}
+          {clicked === 1 ? <button id="loading-anim" className="reset-button press-animation">stop.</button> : null}
       </div>
       <div id="blob1-wrap" className="blob-wrap">
         {blob1}

@@ -17,6 +17,7 @@ const Background = () => {
   const revealDuration = 1000;
   const revealDelay = 1500;
   const bgTextSpeed = 7500;
+  const changeColorTime = 5000; //Can't be less because start blob doesn't get destroyed, to change, make blob faster or destroy earlier
   const autoColorStop = useRef(3); //Stop automatic color change after num
 
   let timesColorChanged = useRef(0);
@@ -27,7 +28,6 @@ const Background = () => {
   let vibes1ScrollAnim = useRef();
   let vibes2ScrollAnim = useRef();
 
-  let changeColorTime = 3000; //Can't be less because start blob doesn't get destroyed, to change, make blob faster or destroy earlier
   let colorTimeoutCode = useRef(0);
 
   let [showBgText, setShowBgText] = useState(false);

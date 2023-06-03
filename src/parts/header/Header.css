@@ -13,7 +13,7 @@
   height: 33vh;
 }
 
-#color-btn {
+#color-btn, #loading-anim {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 32px;
@@ -26,6 +26,31 @@
 #color-btn:hover {
   cursor: pointer;
 }
+
+#loading-anim {
+  position: absolute;
+  pointer-events: none; /* Let's me click the button beneath it */
+  color: black !important;
+  border-bottom: 1px solid black;
+  -webkit-text-stroke: 2px black;
+  animation: load 5s linear infinite; /* TODO: add delay? */
+}
+
+/* Button Animations*/
+
+button:active {
+  transform: scale(0.98);
+}
+
+@keyframes load {
+  0% {
+    clip-path: polygon(0 0,  0% 0%, 0% 110%, 0% 110%);
+    }
+    100% {
+    clip-path: polygon(0 0,  110% 0%, 110% 110%, 0% 110%);
+    }
+  }
+
 
 /* Blobs */
 
@@ -113,7 +138,3 @@
 }
 
 /* Animations */
-
-button:active {
-  transform: scale(0.98);
-}
