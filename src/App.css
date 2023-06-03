@@ -7,7 +7,6 @@
   align-items: center;
   position: absolute;
   top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   z-index: -10;
@@ -15,10 +14,12 @@
 
 #good-container {
   transform: translateY(-100%); /* Start animation off screen */
+  left: -3.5vw; /* Fixes "GOOD" from "disappearing prematurely" */
 }
 
 #vibes-container {
   transform: translateY(100%); /* Start animation off screen */
+  left: -4.5vw; /* Fixes "VIBES" from "appearing prematurely" */
   margin-top: 27vw;
 }
 
