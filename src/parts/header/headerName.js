@@ -1,4 +1,4 @@
-import { Context } from "../../App";
+import { clickedContext } from "../../App";
 import {
   initializeFadeInAnimation,
   initializeFadeOutAnimation,
@@ -21,7 +21,7 @@ const Name = () => {
 
 
   //Context
-  const [clicked, setClicked] = useContext(Context); //Activation state
+  const [clicked, setClicked] = useContext(clickedContext); //Activation state
 
   //Functions
   const initializeNameAnimations = () => {
