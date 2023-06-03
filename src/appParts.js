@@ -1,20 +1,33 @@
 import { colorContext, clickedContext } from "./App";
 import React, { useState, useEffect, useContext, useRef } from "react";
-import { initializeTextScroll, initializeTextScrollBackwards } from "./appAnimations";
+import {
+  initializeStartScroll,
+  initializeStartScrollBackwards,
+  initializeTextScroll,
+  initializeTextScrollBackwards,
+} from "./appAnimations";
 
 //TODO: Fine tune the animation time
 
+//Primera vez que apreto click tengo que mover
+// horizontalmente Good container para que entre en pantalla
+
 const Background = () => {
-  let bgTxtAnim1 = useRef();
-  let bgTxtAnim2 = useRef();
-  let bgTxtAnim3 = useRef();
-  let bgTxtAnim4 = useRef();
+  //Animation options
+  const revealDuration = 1000;
+  const revealDelay = 1500;
+  const bgTextSpeed = 5000;
+  const autoColorStop = useRef(3); //Stop automatic color change after num
 
-  const bgTextSpeed = 3000;
+  let timesColorChanged = useRef(0);
+  let goodRevealAnim = useRef();
+  let vibesRevealAnim = useRef();
+  let good1ScrollAnim = useRef();
+  let good2ScrollAnim = useRef();
+  let vibes1ScrollAnim = useRef();
+  let vibes2ScrollAnim = useRef();
 
-  let colorChangedTimes = useRef(0);
-  const autoColorStop = useRef(3);
-  let changeColorTime = 5000;
+  let changeColorTime = 3000; //Can't be less because start blob doesn't get destroyed, to change, make blob faster or destroy earlier
   let colorTimeoutCode = useRef(0);
 
   let [showBgText, setShowBgText] = useState(false);
@@ -37,26 +50,41 @@ const Background = () => {
         document.getElementById("body").style.backgroundColor = "var(--color1)";
         setBgTxtColor("var(--color2)");
       }
-      colorChangedTimes.current++;
+      timesColorChanged.current = timesColorChanged.current + 1;
     }, changeColorTime);
   };
 
   const initializeAnimations = () => {
-    bgTxtAnim1.current = initializeTextScroll("good1", bgTextSpeed);
-    bgTxtAnim2.current = initializeTextScroll("good2", bgTextSpeed);
-    bgTxtAnim3.current = initializeTextScrollBackwards("vibes1", bgTextSpeed);
-    bgTxtAnim4.current = initializeTextScrollBackwards("vibes2", bgTextSpeed);
+    goodRevealAnim.current = initializeStartScroll(
+      "good-container",
+      revealDuration,
+      revealDelay
+    );
+    vibesRevealAnim.current = initializeStartScrollBackwards(
+      "vibes-container",
+      revealDuration,
+      revealDelay
+    );
+    good1ScrollAnim.current = initializeTextScroll("good1", bgTextSpeed);
+    good2ScrollAnim.current = initializeTextScroll("good2", bgTextSpeed);
+    vibes1ScrollAnim.current = initializeTextScrollBackwards(
+      "vibes1",
+      bgTextSpeed
+    );
+    vibes2ScrollAnim.current = initializeTextScrollBackwards(
+      "vibes2",
+      bgTextSpeed
+    );
   };
 
   const startAnimations = () => {
-    bgTxtAnim1.current.start();
-    bgTxtAnim2.current.start();
-    bgTxtAnim3.current.start();
-    bgTxtAnim4.current.start();
+    goodRevealAnim.current.start();
+    vibesRevealAnim.current.start();
+    good1ScrollAnim.current.start();
+    good2ScrollAnim.current.start();
+    vibes1ScrollAnim.current.start();
+    vibes2ScrollAnim.current.start();
   };
-
-  //First useEfect
-  useEffect(() => {}, []);
 
   //Play start animations
   useEffect(() => {
@@ -67,7 +95,7 @@ const Background = () => {
       changeColors();
     } else if (
       clicked === 2 ||
-      colorChangedTimes.current === autoColorStop.current
+      timesColorChanged.current === autoColorStop.current
     ) {
       clearTimeout(colorTimeoutCode.current); //Stop color change
     }
@@ -102,27 +130,28 @@ const Background = () => {
         </span>
       </div>
 
-          <div id="vibes-container">
-      <span
-        id="vibes1"
-        className="bg-text non-selectable"
-        style={{
-          color: bgTxtColor,
-          visibility: showBgText ? "visible" : "hidden",
-        }}
-      >
-        ●VIBES
-      </span>
-      <span
-        id="vibes2"
-        className="bg-text non-selectable"
-        style={{
-          color: bgTxtColor,
-          visibility: showBgText ? "visible" : "hidden",
-        }}
-      >
-        ●VIBES
-      </span></div>
+      <div id="vibes-container">
+        <span
+          id="vibes1"
+          className="bg-text non-selectable"
+          style={{
+            color: bgTxtColor,
+            visibility: showBgText ? "visible" : "hidden",
+          }}
+        >
+          ●VIBES
+        </span>
+        <span
+          id="vibes2"
+          className="bg-text non-selectable"
+          style={{
+            color: bgTxtColor,
+            visibility: showBgText ? "visible" : "hidden",
+          }}
+        >
+          ●VIBES
+        </span>
+      </div>
     </>
   );
 };

@@ -3,6 +3,7 @@ import {
   initializeFadeInAnimation,
   initializeFadeOutAnimation,
   initializeHeightAnimation,
+  initializeSlideAnimation,
 } from "./textAnimations";
 import React, { useEffect, useContext } from "react";
 
@@ -12,12 +13,19 @@ import React, { useEffect, useContext } from "react";
 
 const Name = () => {
   //Declarations
-  let firstName1Animation,
-    lastName1Animation,
-    firstName2Animation,
-    lastName2Animation;
-  let presentationAnimation, reveal1Animation, reveal2Animation;
-  let animationTime = 1000;
+  let firstName1Anim,
+    lastName1Anim,
+    firstName2Anim,
+    lastName2Anim;
+  let presentationAnim, revealImAnim, revealStuffAnim;
+
+  //Animation variables
+  const slideAllUpDuration = 500;
+  const slideAllUpDelay = 1000;
+  const firstNameFadeDuration = 500;
+  const lastNameFadeDuration = 1000;
+  const firstNameFadeDelay = 1000;
+  const revealDelay = 1350;
 
 
   //Context
@@ -25,52 +33,54 @@ const Name = () => {
 
   //Functions
   const initializeNameAnimations = () => {
-    firstName1Animation = initializeFadeOutAnimation(
+    firstName1Anim = initializeFadeOutAnimation(
       "#first-name-1",
-      animationTime
+      firstNameFadeDuration,
+      firstNameFadeDelay
     );
-    lastName1Animation = initializeFadeOutAnimation(
+    lastName1Anim = initializeFadeOutAnimation(
       "#last-name-1",
-      animationTime
+      lastNameFadeDuration
     );
-    firstName2Animation = initializeFadeInAnimation(
+    firstName2Anim = initializeFadeInAnimation(
       "#first-name-2",
-      animationTime
+      firstNameFadeDuration,
+      firstNameFadeDelay
     );
-    lastName2Animation = initializeFadeInAnimation(
+    lastName2Anim = initializeFadeInAnimation(
       "#last-name-2",
-      animationTime
+      lastNameFadeDuration
     );
   };
 
-  //*
-  //* FIX AND UNDERSTAND THIS
-  //*
-
-  //! What you're looking for
-
   const initializePresentationAnimations = () => {
-    const presentationElement = document.getElementById("presentation");
-    presentationAnimation = initializeHeightAnimation(
+    //* This part reduces the btn-wrap from 33% to 16.5%
+    // Since KUTE.js doesn't work with percentages I get the parent's height in px,
+    // calculate 16.5% of it and animate that size change in #btn-wrap
+    const parentElement = document.getElementById("presentation"); 
+    presentationAnim = initializeHeightAnimation(
       "#btn-wrap",
-      (0.165 * presentationElement.clientHeight), //(16.5%) half of previous size
-      animationTime
+      (0.165 * parentElement.clientHeight),
+      slideAllUpDuration,
+      slideAllUpDelay
     );
-    reveal1Animation = initializeFadeInAnimation("#reveal1", animationTime);
-    reveal2Animation = initializeFadeInAnimation("#reveal2", animationTime);
+
+    //* Slide in animation when name finishes going up
+    revealImAnim = initializeSlideAnimation("im-reveal", 200, revealDelay);
+    revealStuffAnim = initializeSlideAnimation("stuff-reveal", 400, revealDelay);
   };
 
   const playNameAnimations = () => {
-    firstName1Animation.start();
-    lastName1Animation.start();
-    firstName2Animation.start();
-    lastName2Animation.start();
+    firstName1Anim.start();
+    lastName1Anim.start();
+    firstName2Anim.start();
+    lastName2Anim.start();
   };
 
   const playPresentationAnimations = () => {
-    presentationAnimation.start();
-    reveal1Animation.start();
-    reveal2Animation.start();
+    presentationAnim.start();
+    revealImAnim.start();
+    revealStuffAnim.start();
   };
 
   //!FOR SOME REASON I HAVE TO INITIALIZE THE ANIMATIONS IN THE SAME PLACE THAT I USE THEM IN
@@ -88,7 +98,7 @@ const Name = () => {
   //Render
   return (
       <div id="presentation-wrap">
-        <p id="reveal1" className="cooltext reveal">
+        <p id="im-reveal" className="cooltext reveal">
           I’m
         </p>
         <h1 id="first-name-1" className="first-name">
@@ -103,7 +113,7 @@ const Name = () => {
         <h1 id="last-name-2" className="last-name non-selectable">
           TABÁREZ
         </h1>
-        <p id="reveal2" className="cooltext reveal">
+        <p id="stuff-reveal" className="cooltext reveal">
           and I make stuff.
         </p>
       </div>

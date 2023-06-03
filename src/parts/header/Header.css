@@ -59,16 +59,19 @@
 
 .first-name {
   position: absolute;
+  top: 0;
+  left: 0;
   font-family: Povet, sans-serif;
   font-size: 12.8vw;
   letter-spacing: 0.2vw;
   z-index: -1;
+
 }
 
 .last-name {
   position: absolute;
-  margin-top: 5.5vw; /* Font spacing*/
-  padding-left: 0.3vw; /* Font align correction*/
+  top: 5.5vw;
+  left: 0.3vw;
   mix-blend-mode: difference;
   font-family: MadeInfinity-Thin, sans-serif;
   font-size: 21.5vw;
@@ -94,18 +97,23 @@
 
 /* Reveal */
 
-#reveal1 {
+#im-reveal {
+  position: absolute;
   top: -5vw;
-  font-size: 5.5vw;
-  padding-left: 0.5vw;
+  left: 0.5vw;
   margin-bottom: -1.5vw;
+  font-size: 5.5vw;
 }
 
-#reveal2 {
+#stuff-reveal {
   position: absolute;
   top: 27.5vw;
+  left: 0.5vw;
   font-size: 8vw;
-  padding-left: 0.5vw;
 }
 
+/* Animations */
 
+button:active {
+  transform: scale(0.98);
+}

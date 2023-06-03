@@ -46,7 +46,7 @@ code {
 }
 
 .reveal {
-  position: absolute;
+  /* position: absolute; /*! Uncomment this if anything breaks */
   opacity: 0;
 }
 
