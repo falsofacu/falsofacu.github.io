@@ -1,18 +1,37 @@
 /* Background Text */
 
-.reveal {
-    position: absolute;
-    opacity: 0;
-  }
-
-.bg-text {
-  position: absolute; /* could be "fixed" */
-  transform: translate(-50%, -40%);
-  font-family: DexaRound, sans-serif;
-  font-size: 10vw;
+#bg-text-container {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
   z-index: -10;
-  outline: 1px solid red;
 }
 
+.bg-text {
+  display: block;
+  position: relative;
+  font-family: DexaRound, sans-serif;
+  font-size: 31vw;
+  letter-spacing: -1.6vw;
+}
+
+
 #good1 {
+  /* animation: RightToLeft 3s infinite linear; */
+}
+
+#good2 {
+  /* animation: RightToLeft 3s infinite linear; */
+}
+
+/**/
+
+@keyframes  RightToLeft {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }

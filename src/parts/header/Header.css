@@ -46,6 +46,10 @@
   transform: scale(0.001);
 }
 
+#start-blob-wrap {
+  z-index: -20; /* just in case, behind the bgText*/
+}
+
 /* Name */
 
 #presentation-wrap {

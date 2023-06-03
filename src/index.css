@@ -40,6 +40,16 @@ code {
   display: none;
 }
 
+.transparent {
+  opacity: 0;
+  color: transparent;
+}
+
+.reveal {
+  position: absolute;
+  opacity: 0;
+}
+
 .cooltext {
   font-family: Coolvetica, sans-serif;
 }

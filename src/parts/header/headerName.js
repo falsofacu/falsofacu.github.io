@@ -6,8 +6,6 @@ import {
 } from "./textAnimations";
 import React, { useState, useEffect, useContext } from "react";
 
-//Initialize root vars
-
 //* Name Facundo Tabárez
 
 //? Destroyed the startblob and changed body bg color to the same color in appParts { Background }
@@ -20,6 +18,7 @@ const Name = () => {
     lastName2Animation;
   let presentationAnimation, reveal1Animation, reveal2Animation;
   let animationTime = 1000;
+
 
   //Context
   const [clicked, setClicked] = useContext(Context); //Activation state
@@ -44,11 +43,17 @@ const Name = () => {
     );
   };
 
+  //*
+  //* FIX AND UNDERSTAND THIS
+  //*
+
+  //! What you're looking for
+
   const initializePresentationAnimations = () => {
-    const parentElement = document.getElementById("presentation");
+    const presentationElement = document.getElementById("presentation");
     presentationAnimation = initializeHeightAnimation(
       "#btn-wrap",
-      (0.165 * parentElement.clientHeight), //16.5% of parent element (half)
+      (0.165 * presentationElement.clientHeight), //(16.5%) half of previous size
       animationTime
     );
     reveal1Animation = initializeFadeInAnimation("#reveal1", animationTime);
@@ -77,9 +82,6 @@ const Name = () => {
     if (clicked === 1) {
       playNameAnimations();
       playPresentationAnimations();
-    }
-    else if(clicked === 2) {
-      console.log("cleared")
     }
   }, [clicked]);
 

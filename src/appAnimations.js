@@ -1,11 +1,12 @@
 import KUTE from "kute.js";
 
 const initializeBgTextAnimation = (id, duration) => {
+  const elementWidth = document.getElementById(id).offsetWidth;
   const bgTextAnimation = KUTE.fromTo(
-    id,
-    { translate: [-500, 1000], rotate: -20  },
-    { translate: [1000, -90], rotate: -20  },
-    { repeat: 9999, duration: duration}
+    "#" + id,
+    { translateX: 0 },
+    { translateX: -elementWidth },
+    { repeat: Infinity, duration: duration, easing: "linear" }
   );
   return bgTextAnimation;
 };
