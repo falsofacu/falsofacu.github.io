@@ -1,10 +1,8 @@
 import { Context } from "./App";
 import React, { useState, useEffect, useContext, useRef } from "react";
-import { initializeBgTextAnimation } from "./appAnimations";
+import { initializeTextScroll } from "./appAnimations";
 
-//TODO: Activate text animations when clicked
-//TODO: Animate the background text
-//TODO: Background text not selectable
+//TODO: Add "vibes" with reverted animation
 //TODO: Fine tune the animation time
 
 const Background = () => {
@@ -18,6 +16,7 @@ const Background = () => {
   let colorTimeoutCode = useRef(0);
 
   let [bgTxtColor, setTxtColor] = useState("var(--color2)");
+  let [showBgText, setShowBgText] = useState(false);
 
   const [clicked, setClicked] = useContext(Context);
 
@@ -40,8 +39,8 @@ const Background = () => {
   };
 
   const initializeAnimations = () => {
-    bgTxtAnim1.current = initializeBgTextAnimation('good1', bgTextSpeed);
-    bgTxtAnim2.current = initializeBgTextAnimation("good2", bgTextSpeed);
+    bgTxtAnim1.current = initializeTextScroll('good1', bgTextSpeed);
+    bgTxtAnim2.current = initializeTextScroll("good2", bgTextSpeed);
   };
 
   const startAnimations = () => {
@@ -55,6 +54,7 @@ const Background = () => {
   //Play start animations
   useEffect(() => {
     if (clicked === 1) {
+      setShowBgText(true);
       initializeAnimations();
       startAnimations();
       changeColors();
@@ -67,22 +67,17 @@ const Background = () => {
   }, [clicked]);
 
   useEffect(() => {
-    clicked === 1 && changeColors();
+    clicked === 1 && changeColors(); 
   }, [bgTxtColor]);
 
   return (
     <div id="bg-text-container">
-      {clicked === 1 ? ( //* Change this for testing
-        <>
-          <span id="good1" className="bg-text" style={{ color: bgTxtColor }}>
+          <span id="good1" className="bg-text non-selectable" style={{ color: bgTxtColor, visibility: showBgText ? "visible" : "hidden" }}>
             ●GOOD
           </span>
-          <span id="good2" className="bg-text" style={{ color: bgTxtColor }}>
+          <span id="good2" className="bg-text non-selectable" style={{ color: bgTxtColor, visibility: showBgText ? "visible" : "hidden"  }}>
             ●GOOD
           </span>
-        </>
-      ) : null}
-
       {/* <span id="vibes1" className="bg-text" style={{color: bgTxtColor}}>
         VIBES
       </span>

@@ -4,7 +4,7 @@ import {
   initializeFadeOutAnimation,
   initializeHeightAnimation,
 } from "./textAnimations";
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 
 //* Name Facundo Tabárez
 
@@ -97,10 +97,10 @@ const Name = () => {
         <h1 id="last-name-1" className="last-name">
           TABÁREZ
         </h1>
-        <h1 id="first-name-2" className="first-name">
+        <h1 id="first-name-2" className="first-name non-selectable">
           FACUNDO
         </h1>
-        <h1 id="last-name-2" className="last-name">
+        <h1 id="last-name-2" className="last-name non-selectable">
           TABÁREZ
         </h1>
         <p id="reveal2" className="cooltext reveal">
