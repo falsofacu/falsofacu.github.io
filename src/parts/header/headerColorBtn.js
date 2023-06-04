@@ -14,6 +14,7 @@ import React, {
   useRef,
   useState,
 } from "react";
+import Metronome from "./metronomeSound";
 
 //Create audio
 const kickAudio = new Audio(doubleKick);
@@ -31,6 +32,7 @@ const ColorBtn = () => {
   let blob2Tween = useRef();
   let blob2Zoom = useRef();
   let [startBlobLife, setStartBlobLife] = useState(true);
+  const blobLifeTime = 2500; //Less than ((60 / bpm) * 1000) * 4 (2667)
   /// "Stop" state
   let blobStartTween = useRef();
   let blobStartZoom = useRef();
@@ -42,6 +44,7 @@ const ColorBtn = () => {
 
   const [clicked, setClicked] = useContext(clickedContext);
   const [bgTxtColor, setTxtColor] = useContext(colorContext);
+  const [mtmSpeed, setMtmSpeed] = useContext(colorContext);
 
   // Component Methods
 
@@ -59,10 +62,10 @@ const ColorBtn = () => {
       setTimeout(() => {
         setStartBlobLife(false);
         document.getElementById("body").style.backgroundColor = "var(--color1)"
-      }, 2900);
+      }, blobLifeTime);
       swooshAudio.play();
     }
-  }, [clicked]);
+  });
 
   const playIdleAnimations = useCallback(() => {
     if (!document.hidden) {
@@ -76,8 +79,6 @@ const ColorBtn = () => {
       }, 300);
     }
   }, []);
-
-  
 
   const changeColors = () => {
       if (bgTxtColor === "var(--color2)") {
@@ -150,6 +151,7 @@ const ColorBtn = () => {
           {startBlob}
         </div>
       )}
+      <Metronome />
     </>
   );
 };

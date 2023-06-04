@@ -6,6 +6,7 @@ import {
   initializeSlideAnimation,
 } from "./textAnimations";
 import React, { useEffect, useContext } from "react";
+import facundoOutline from '../../graphics/FacundoSVG';
 
 //* Name Facundo Tabárez
 
@@ -107,7 +108,8 @@ const Name = () => {
         <h1 id="last-name-1" className="last-name">
           TABÁREZ
         </h1>
-        <h1 id="first-name-2" className="first-name non-selectable">
+        {facundoOutline}
+        <h1 id="first-name-21" className="first-name non-selectable">
           FACUNDO
         </h1>
         <h1 id="last-name-2" className="last-name non-selectable">
