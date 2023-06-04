@@ -3,10 +3,10 @@ import { clickedContext, colorContext } from "../../App";
 import doubleKick from "../../sounds/doubleKick.mp3";
 import swoosh from "../../sounds/swoosh.mp3";
 import {
-  initializeBtnAnimations,
-  initializeBlobAnimations,
-  initializeStartAnimations,
-} from "./btnAnimations";
+  initializePulseAnimation,
+  initializeTweenAnimation,
+  initializeZoomAnimation
+} from '../animations'
 import React, {
   useEffect,
   useContext,
@@ -44,7 +44,6 @@ const ColorBtn = () => {
 
   const [clicked, setClicked] = useContext(clickedContext);
   const [bgTxtColor, setTxtColor] = useContext(colorContext);
-  const [mtmSpeed, setMtmSpeed] = useContext(colorContext);
 
   // Component Methods
 
@@ -96,15 +95,13 @@ const ColorBtn = () => {
   // Component initialization
 
   useEffect(() => {
-    [
-      blob1Zoom.current,
-      blob1Tween.current,
-      blob2Tween.current,
-      blob2Zoom.current,
-    ] = initializeBlobAnimations();
-    btnPulse.current = initializeBtnAnimations();
-    [blobStartTween.current, blobStartZoom.current] =
-      initializeStartAnimations();
+    blob1Zoom.current = initializeZoomAnimation("blob1");
+    blob2Zoom.current = initializeZoomAnimation("blob2");
+    blob1Tween.current = initializeTweenAnimation("blob1-1", "blob1-2");
+    blob2Tween.current = initializeTweenAnimation("blob2-1", "blob2-2");
+    btnPulse.current = initializePulseAnimation("btn-wrap");
+    blobStartZoom.current = initializeZoomAnimation("start-blob", 1200, 0.001)
+    blobStartTween.current = initializeTweenAnimation("start-blob-1", "start-blob-2", 1000, 10)
 
     //First time play after 1s
     setTimeout(() => {

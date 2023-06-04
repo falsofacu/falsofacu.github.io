@@ -5,26 +5,20 @@ import {
   initializeStartScrollBackwards,
   initializeTextScroll,
   initializeTextScrollBackwards,
-} from "./appAnimations";
-
-//TODO: Fine tune the animation time
-
-//Primera vez que apreto click tengo que mover
-// horizontalmente Good container para que entre en pantalla
+} from "./parts/animations";
 
 const Background = () => {
 
-  const [clicked, setClicked] = useContext(clickedContext);
+  const [clicked] = useContext(clickedContext);
   let [bgTxtColor, setBgTxtColor] = useContext(colorContext);
-  const [mtmSpeed, setMtmSpeed] = useContext(metronomeSpeedContext);
+  const [mtmSpeed] = useContext(metronomeSpeedContext);
 
   //Animation options
   const revealDuration = 1000;
   const revealDelay = 1500;
   const bgTextSpeed = 7500;
-  //TODO: Make start blob destroy earlier
   const changeColorTime = (mtmSpeed * 4);
-  const autoColorStop = useRef(3); //Stop automatic color change after num
+  const autoColorStop = useRef(3); //! Not working
   let timesColorChanged = useRef(0);
   let goodRevealAnim = useRef();
   let vibesRevealAnim = useRef();
@@ -36,6 +30,7 @@ const Background = () => {
   let colorTimeoutCode = useRef(0);
 
   let [showBgText, setShowBgText] = useState(false);
+  
   const changeColors = () => {
     //TODO: Make this a function in another file so I can reuse in color btn
     //TODO: Is it bad to modify body like this?

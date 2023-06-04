@@ -4,12 +4,11 @@ import {
   initializeFadeOutAnimation,
   initializeHeightAnimation,
   initializeSlideAnimation,
-} from "./textAnimations";
+} from "../animations";
 import React, { useEffect, useContext } from "react";
 import facundoOutline from '../../graphics/FacundoSVG';
 
 //* Name Facundo Tabárez
-
 //? Destroyed the startblob and changed body bg color to the same color in appParts { Background }
 
 const Name = () => {
@@ -30,26 +29,26 @@ const Name = () => {
 
 
   //Context
-  const [clicked, setClicked] = useContext(clickedContext); //Activation state
+  const [clicked] = useContext(clickedContext); //Activation state
 
   //Functions
   const initializeNameAnimations = () => {
     firstName1Anim = initializeFadeOutAnimation(
-      "#first-name-1",
+      "first-name-1",
       firstNameFadeDuration,
       firstNameFadeDelay
     );
     lastName1Anim = initializeFadeOutAnimation(
-      "#last-name-1",
+      "last-name-1",
       lastNameFadeDuration
     );
     firstName2Anim = initializeFadeInAnimation(
-      "#first-name-2",
+      "first-name-2",
       firstNameFadeDuration,
       firstNameFadeDelay
     );
     lastName2Anim = initializeFadeInAnimation(
-      "#last-name-2",
+      "last-name-2",
       lastNameFadeDuration
     );
   };
@@ -60,7 +59,7 @@ const Name = () => {
     // calculate 16.5% of it and animate that size change in #btn-wrap
     const parentElement = document.getElementById("presentation"); 
     presentationAnim = initializeHeightAnimation(
-      "#btn-wrap",
+      "btn-wrap",
       (0.165 * parentElement.clientHeight),
       slideAllUpDuration,
       slideAllUpDelay
