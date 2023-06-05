@@ -108,9 +108,9 @@ const Name = () => {
           TABÁREZ
         </h1>
         {facundoOutline}
-        <h1 id="first-name-21" className="first-name non-selectable">
+        {/* <h1 id="first-name-2" className="first-name non-selectable">
           FACUNDO
-        </h1>
+        </h1> */}
         <h1 id="last-name-2" className="last-name non-selectable">
           TABÁREZ
         </h1>

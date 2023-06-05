@@ -12,7 +12,13 @@
   --color6: #6d43e6;
 }
 
+#root {
+  width: 100vw;
+}
+
 body {
+  width: 100%;
+  height: auto;
   background-color: black;
   color: white;
   font-family: Coolvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -22,7 +28,7 @@ body {
   letter-spacing: 5px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 

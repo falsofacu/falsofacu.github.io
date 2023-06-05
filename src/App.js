@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Header from "./parts/header/Header";
+import Projects from "./parts/projects/Projects";
+import Contact from "./parts/contact/Contact";
 import "./App.css";
 import { Background } from "./appParts";
 
@@ -21,6 +23,8 @@ function App() {
           <Background />
           <Header />
         </metronomeSpeedContext.Provider>
+          <Projects />
+          <Contact />
       </colorContext.Provider>
     </clickedContext.Provider>
   );

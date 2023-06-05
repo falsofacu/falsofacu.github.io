@@ -1,0 +1,7 @@
+#contact {
+    position: relative;
+    width: auto;
+    height: 100vh;
+    margin: 5vw;
+    z-index: 10;
+}
