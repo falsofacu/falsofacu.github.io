@@ -3,7 +3,8 @@ import Header from "./parts/header/Header";
 import Projects from "./parts/projects/Projects";
 import Contact from "./parts/contact/Contact";
 import "./App.css";
-import { Background } from "./appParts";
+import "./parts/customScrollBar.css"
+import { Background } from "./parts/Background";
 
 export const clickedContext = React.createContext();
 export const colorContext = React.createContext();

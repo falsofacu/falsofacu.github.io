@@ -88,6 +88,8 @@ const ColorBtn = () => {
       //Delete blob and change bg to color
       setTimeout(() => {
         setStartBlobLife(false);
+        //TODO: Change overflow scroll
+        document.getElementById("body").style.overflowY = "scroll";
       }, blobLifeTime.current);
     }
   });
@@ -183,13 +185,13 @@ const ColorBtn = () => {
     initializeAnimations();
     //First time play after 1s
     btnTimeoutCode.current = setTimeout(() => {
-        playIdleAnimations();
-        //Then play every 3s
-        btnIntervalCode.current = setInterval(() => {
-          if (!document.hidden) {
-            playIdleAnimations();
-          }
-        }, 3000);
+      playIdleAnimations();
+      //Then play every 3s
+      btnIntervalCode.current = setInterval(() => {
+        if (!document.hidden) {
+          playIdleAnimations();
+        }
+      }, 3000);
     }, 1000);
   }, []);
 

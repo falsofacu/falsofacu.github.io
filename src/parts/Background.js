@@ -1,12 +1,12 @@
-import { colorContext, clickedContext, metronomeSpeedContext } from "./App";
+import { colorContext, clickedContext, metronomeSpeedContext } from "../App";
 import React, { useState, useEffect, useContext, useRef } from "react";
 import {
   initializeStartScroll,
   initializeStartScrollBackwards,
   initializeTextScroll,
   initializeTextScrollBackwards,
-} from "./parts/animations";
-import changeColors from "./parts/changeColors";
+} from "./animations";
+import changeColors from "./changeColors";
 
 const Background = () => {
 
