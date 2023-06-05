@@ -1,7 +1,7 @@
 const facundoOutline = (
   <svg
     id="first-name-2"
-    class="first-name non-selectable"
+    className="first-name non-selectable"
     xmlns="http://www.w3.org/2000/svg"
     xlink="http://www.w3.org/1999/xlink"
     width="1383"

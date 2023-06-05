@@ -48,6 +48,7 @@ code {
 .reveal {
   /* position: absolute; /*! Uncomment this if anything breaks */
   opacity: 0;
+  z-index: 5;
 }
 
 .non-selectable {

@@ -6,11 +6,12 @@ import {
   initializeTextScroll,
   initializeTextScrollBackwards,
 } from "./parts/animations";
+import changeColors from "./parts/changeColors";
 
 const Background = () => {
 
-  const [clicked] = useContext(clickedContext);
-  let [bgTxtColor, setBgTxtColor] = useContext(colorContext);
+  const [clicked, setClicked] = useContext(clickedContext);
+  let [bgTxtColor, setTxtColor] = useContext(colorContext);
   const [mtmSpeed] = useContext(metronomeSpeedContext);
 
   //Animation options
@@ -18,7 +19,7 @@ const Background = () => {
   const revealDelay = 1500;
   const bgTextSpeed = 7500;
   const changeColorTime = (mtmSpeed * 4);
-  const autoColorStop = useRef(3); //! Not working
+  const autoColorStop = useRef(6);
   let timesColorChanged = useRef(0);
   let goodRevealAnim = useRef();
   let vibesRevealAnim = useRef();
@@ -31,22 +32,10 @@ const Background = () => {
 
   let [showBgText, setShowBgText] = useState(false);
   
-  const changeColors = () => {
-    //TODO: Make this a function in another file so I can reuse in color btn
-    //TODO: Is it bad to modify body like this?
-    //TODO: Change this to a setInterval
+  const changeColorsAtTime = () => {
     colorTimeoutCode.current = setTimeout(() => {
-      if (bgTxtColor === "var(--color2)") {
-        document.getElementById("body").style.backgroundColor = "var(--color3)";
-        setBgTxtColor("var(--color4)");
-      } else if (bgTxtColor === "var(--color4)") {
-        document.getElementById("body").style.backgroundColor = "var(--color5)";
-        setBgTxtColor("var(--color6)");
-      } else {
-        document.getElementById("body").style.backgroundColor = "var(--color1)";
-        setBgTxtColor("var(--color2)");
-      }
-      timesColorChanged.current = timesColorChanged.current + 1;
+      changeColors(bgTxtColor, setTxtColor);
+      timesColorChanged.current++;
     }, changeColorTime);
   };
 
@@ -88,17 +77,22 @@ const Background = () => {
       setShowBgText(true);
       initializeAnimations();
       startAnimations();
-      changeColors();
-    } else if (
-      clicked === 2 ||
-      timesColorChanged.current === autoColorStop.current
-    ) {
-      clearTimeout(colorTimeoutCode.current); //Stop color change
+      changeColorsAtTime();
+    } 
+    else if (clicked === 2) {
+      clearTimeout(colorTimeoutCode.current);
     }
   }, [clicked]);
 
   useEffect(() => {
-    clicked === 1 && changeColors();
+    if(clicked === 1) {
+      clicked === 1 && changeColorsAtTime();
+      if (timesColorChanged.current >= autoColorStop.current ) {
+        clearTimeout(colorTimeoutCode.current);
+        setClicked(clicked + 1)
+        console.log(clicked);
+      }
+    }
   }, [bgTxtColor]);
 
   return (

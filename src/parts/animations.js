@@ -20,13 +20,14 @@ const initializeZoomAnimation = (
   id,
   duration = 1200,
   initialScale = 0.01,
-  targetScale = 10
+  targetScale = 10,
+  delay = 0
 ) => {
   const zoomAnim = KUTE.fromTo(
     "#" + id,
     { transform: { scale: initialScale } },
     { transform: { scale: targetScale } },
-    { duration: duration, easing: KUTE.Easing.easingCircularIn }
+    { duration: duration, delay: delay, easing: KUTE.Easing.easingCircularIn }
   );
   return zoomAnim;
 };
@@ -41,6 +42,7 @@ const initializeTweenAnimation = (id, id2, duration = 400, repeat = 2) => {
   return tweenAnim;
 };
 
+//TODO: Implement this?
 const initializeLoadAnimation = (id, duration, delay = 0) => {
   const loadAnim = KUTE.fromTo(
     "#" + id,
