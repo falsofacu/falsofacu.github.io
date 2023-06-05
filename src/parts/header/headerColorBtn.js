@@ -223,12 +223,12 @@ const ColorBtn = () => {
           </button>
         ) : null}
       </div>
-      <div className="blob-wrap">{blob1}</div>
-      <div className="blob-wrap">{blob2}</div>
-      <div className="blob-wrap">{blob3}</div>
-      <div className="blob-wrap">{blob4}</div>
       {startBlobLife && (
         <>
+          <div className="blob-wrap">{blob1}</div>
+          <div className="blob-wrap">{blob2}</div>
+          <div className="blob-wrap">{blob3}</div>
+          <div className="blob-wrap">{blob4}</div>
           <div id="start-blob-wrap" className="blob-wrap">
             {startBlob3}
           </div>
