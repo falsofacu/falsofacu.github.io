@@ -18,6 +18,11 @@
   width: 100vw;
 }
 
+body:empty {
+  content: "Loading";
+  color: red;
+}
+
 body {
   width: 100vw;
   height: auto;

@@ -1,4 +1,20 @@
 /* Background Text */
+#loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: fadeinout 3s linear infinite;
+}
+
+@keyframes fadeinout {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
 
 #good-container, #vibes-container{
   position: fixed;
@@ -30,3 +46,4 @@
   font-size: 31vw;
   letter-spacing: -1.2vw;
 }
+

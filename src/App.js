@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
+import Loading from "./parts/Loading";
 import Header from "./parts/header/Header";
 import Projects from "./parts/projects/Projects";
 import Contact from "./parts/contact/Contact";
@@ -12,26 +13,39 @@ export const metronomeSpeedContext = React.createContext();
 
 function App() {
   //Set global App state
+  const [isRendering, setIsRendering] = useState(true);
   const [clicked, setClicked] = useState(0);
   const [bgTxtColor, setBgTxtColor] = useState("var(--color2)");
   //TODO: Change the css anim duration automatically maybe change the anim to KUTE.js
   const [mtmSpeed, setMtmSpeed] = useState((60 / 90) * 1000); //Value in Beats per milisecond, change second value to change BPM
 
+  useLayoutEffect(() => {
+    setTimeout(() => {
+      setIsRendering(false);
+    }, 1000);
+  }, []);
+
   return (
-    <clickedContext.Provider value={[clicked, setClicked]}>
-      <colorContext.Provider value={[bgTxtColor, setBgTxtColor]}>
-        <metronomeSpeedContext.Provider value={[mtmSpeed, setMtmSpeed]}>
-          <Background />
-          <Header />
-        </metronomeSpeedContext.Provider>
-        {clicked > 0 ? (
-          <>
-            <Projects />
-            <Contact />
-          </>
-        ) : null}
-      </colorContext.Provider>
-    </clickedContext.Provider>
+    <>
+      {isRendering ? (
+        <Loading />
+      ) : (
+        <clickedContext.Provider value={[clicked, setClicked]}>
+          <colorContext.Provider value={[bgTxtColor, setBgTxtColor]}>
+            <metronomeSpeedContext.Provider value={[mtmSpeed, setMtmSpeed]}>
+              <Background />
+              <Header />
+            </metronomeSpeedContext.Provider>
+            {clicked > 0 ? (
+              <>
+                <Projects />
+                <Contact />
+              </>
+            ) : null}
+          </colorContext.Provider>
+        </clickedContext.Provider>
+      )}
+    </>
   );
 }
 
