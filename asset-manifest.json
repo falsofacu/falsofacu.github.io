@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.40ff1416.css",
-    "main.js": "/static/js/main.02d059b5.js",
+    "main.css": "/static/css/main.d18c5f6a.css",
+    "main.js": "/static/js/main.7bd5ae83.js",
     "static/js/787.a5e18501.chunk.js": "/static/js/787.a5e18501.chunk.js",
     "static/media/swoosh.mp3": "/static/media/swoosh.381d019cbe3cf8216383.mp3",
     "static/media/Coolvetica.otf": "/static/media/Coolvetica.3d81d0e1fdbd5f69b232.otf",
@@ -14,12 +14,12 @@
     "static/media/metronome1.mp3": "/static/media/metronome1.3a806ebd766735ce9611.mp3",
     "static/media/metronome2.mp3": "/static/media/metronome2.f48b0507c1b5cffab7bc.mp3",
     "index.html": "/index.html",
-    "main.40ff1416.css.map": "/static/css/main.40ff1416.css.map",
-    "main.02d059b5.js.map": "/static/js/main.02d059b5.js.map",
+    "main.d18c5f6a.css.map": "/static/css/main.d18c5f6a.css.map",
+    "main.7bd5ae83.js.map": "/static/js/main.7bd5ae83.js.map",
     "787.a5e18501.chunk.js.map": "/static/js/787.a5e18501.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.40ff1416.css",
-    "static/js/main.02d059b5.js"
+    "static/css/main.d18c5f6a.css",
+    "static/js/main.7bd5ae83.js"
   ]
 }
