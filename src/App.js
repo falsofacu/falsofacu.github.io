@@ -3,7 +3,7 @@ import Header from "./parts/header/Header";
 import Projects from "./parts/projects/Projects";
 import Contact from "./parts/contact/Contact";
 import "./App.css";
-import "./parts/customScrollBar.css"
+import "./parts/customScrollBar.css";
 import { Background } from "./parts/Background";
 
 export const clickedContext = React.createContext();
@@ -24,8 +24,12 @@ function App() {
           <Background />
           <Header />
         </metronomeSpeedContext.Provider>
-          <Projects />
-          <Contact />
+        {clicked > 0 ? (
+          <>
+            <Projects />
+            <Contact />
+          </>
+        ) : null}
       </colorContext.Provider>
     </clickedContext.Provider>
   );

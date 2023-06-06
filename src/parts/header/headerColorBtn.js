@@ -223,23 +223,27 @@ const ColorBtn = () => {
           </button>
         ) : null}
       </div>
-      {startBlobLife && (
+        {startBlobLife && (
+          <div id="all-blobs">
+            <div className="blob-wrap">{blob1}</div>
+            <div className="blob-wrap">{blob2}</div>
+            <div className="blob-wrap">{blob3}</div>
+            <div className="blob-wrap">{blob4}</div>
+            <div className="start-blob-wrap blob-wrap">
+              {startBlob3}
+            </div>
+            <div className="start-blob-wrap blob-wrap">
+              {startBlob2}
+            </div>
+            <div className="start-blob-wrap blob-wrap">
+              {startBlob1}
+            </div>
+          </div>
+        )}
+      {/* {startBlobLife && (
         <>
-          <div className="blob-wrap">{blob1}</div>
-          <div className="blob-wrap">{blob2}</div>
-          <div className="blob-wrap">{blob3}</div>
-          <div className="blob-wrap">{blob4}</div>
-          <div id="start-blob-wrap" className="blob-wrap">
-            {startBlob3}
-          </div>
-          <div id="start-blob-wrap" className="blob-wrap">
-            {startBlob2}
-          </div>
-          <div id="start-blob-wrap" className="blob-wrap">
-            {startBlob1}
-          </div>
         </>
-      )}
+      )} */}
       <Metronome />
     </>
   );

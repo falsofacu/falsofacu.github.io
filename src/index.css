@@ -10,8 +10,8 @@
   --color4: #43dce6;
   --color5: #fa1fe5;
   --color6: #6d43e6;
-  --color7: #002029;
-  --color8: #005066;
+  --color7: #100e17;
+  --color8: #5918df;
 }
 
 #root {
@@ -21,16 +21,16 @@
 body {
   width: 100vw;
   height: auto;
+  overflow-x: hidden; /* Separate for JS issues */
+  overflow-y: hidden; 
   background-color: black;
   color: white;
-  font-family: Coolvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  font-family: 'Arial', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
   "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
   sans-serif;
   font-size: 25px;
-  letter-spacing: 5px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
   scroll-behavior: smooth;
 }
 

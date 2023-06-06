@@ -1,5 +1,5 @@
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 0.5vw;
   background-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -11,7 +11,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: #FFF;
   border-radius: 3px;
   padding: 3px;
 }

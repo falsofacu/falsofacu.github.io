@@ -1,6 +1,6 @@
 #presentation {
   position: relative;
-  height: 100vh;
+  height: auto;
   width: 100vw;
 }
 
@@ -10,7 +10,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   height: 33vh;
+  z-index: 5;
 }
 
 #color-btn,
@@ -54,12 +56,22 @@ button:active {
 
 /* Blobs */
 
+#all-blobs {
+  position: absolute;
+  top: 16.5vh;
+  left: 50%;
+  z-index: 0;
+}
+
 .blob-wrap {
   position: absolute;
-  top: 17%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: -1;
+}
+
+.start-blob-wrap {
+  position: absolute;
 }
 
 .blob {
@@ -71,15 +83,11 @@ button:active {
   transform: scale(0.001);
 }
 
-#start-blob-wrap {
-  z-index: -1 !important; /* just in case, behind the bgText*/
-}
-
 /* Name */
 
 #presentation-wrap {
   position: relative;
-  min-height: 67%;
+  height: 38vw;
 }
 
 .first-name {
@@ -133,6 +141,7 @@ button:active {
   left: 0.5vw;
   margin-bottom: -1.5vw;
   font-size: 5.5vw;
+  letter-spacing: 5px;
 }
 
 #stuff-reveal {
@@ -140,4 +149,5 @@ button:active {
   top: 27.5vw;
   left: 0.5vw;
   font-size: 8vw;
+  letter-spacing: 5px;
 }

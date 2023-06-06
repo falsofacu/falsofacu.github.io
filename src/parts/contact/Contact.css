@@ -3,5 +3,6 @@
     width: auto;
     height: 100vh;
     margin: 5vw;
-    z-index: 10;
+    overflow: hidden;
+    z-index: 5;
 }

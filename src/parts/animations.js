@@ -106,7 +106,7 @@ const initializeTextScroll = (id, duration, delay = 0) => {
     "#" + id,
     { translateX: 0 },
     { translateX: -elementWidth },
-    { repeat: Infinity, duration: duration, delay: delay }
+    { duration: duration, repeat: Infinity,  delay: delay}
   );
   return bgTextAnim;
 };
@@ -144,6 +144,19 @@ const initializeStartScrollBackwards = (id, duration, delay = 0) => {
   return startScrollAnim;
 };
 
+const initializeTranslateY = (id, duration, distance = 0, delay = 0) => {
+  if(distance === 0){
+    distance = document.getElementById(id).offsetHeight;
+  }
+  const translateYAnim = KUTE.fromTo(
+    "#" + id,
+    {translateY: distance},
+    {translateY: 0},
+    {duration: duration, delay: delay}
+  )
+  return translateYAnim;
+}
+
 export {
   initializeFadeInAnimation,
   initializeFadeOutAnimation,
@@ -157,4 +170,5 @@ export {
   initializeTextScrollBackwards,
   initializeStartScroll,
   initializeStartScrollBackwards,
+  initializeTranslateY
 };

@@ -12,8 +12,12 @@
     <title>Facundo Tabárez</title>
   </head>
   <body id="body">
-    <noscript>You need to enable JavaScript to run this app.</noscript>
     <script>window.onbeforeunload = function () {window.scrollTo(0, 0);};</script>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script>
+      const scrollPosition = window.scrollY;
+      console.log(scrollPosition);
+      </script>
     <div id="root"></div>
   </body>
 </html>
