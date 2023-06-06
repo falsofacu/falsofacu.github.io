@@ -19,13 +19,16 @@ const Projects = () => {
 
     return (
         <section id="projects" className="glass">
-            {/* <div id="p1" className="proj"><iframe src="falsofacu.github.io" height="500" width="800"/></div> */}
-            <div id="p1" className="proj">PROJ 1</div>
-            <div id="p2" className="proj">PROJ 2</div>
-            <div id="p3" className="proj">PROJ 3</div>
-            <div id="p4" className="proj">PROJ 4</div>
-            <div id="p5" className="proj">PROJ 5</div>
-            <div id="p6" className="proj">PROJ 6</div>
+            {/* <div id="proj1" className="project-wrap">
+                <iframe src="https://falsofacu.github.io" height="230" width="230"/>
+            </div> */}
+            <div id="proj1" className="project-wrap">PROJ 1</div>
+            <div id="proj2" className="project-wrap">PROJ 2</div>
+            <div id="proj3" className="project-wrap">PROJ 3</div>
+            <div id="proj4" className="project-wrap">PROJ 4</div>
+            <div id="proj5" className="project-wrap">PROJ 5</div>
+            <div id="proj6" className="project-wrap">PROJ 6</div>
+            <h1 class="under-construction">Under construction</h1>
         </section>
     );
 }
