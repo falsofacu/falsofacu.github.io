@@ -19,7 +19,7 @@ const Background = () => {
   const revealDelay = 1500;
   const bgTextSpeed = 7500;
   const changeColorTime = (mtmSpeed * 4);
-  const autoColorStop = useRef(6);
+  const autoColorStop = useRef(3);
   let timesColorChanged = useRef(0);
   let goodRevealAnim = useRef();
   let vibesRevealAnim = useRef();
@@ -34,7 +34,7 @@ const Background = () => {
   
   const changeColorsAtTime = () => {
     colorTimeoutCode.current = setTimeout(() => {
-      changeColors(bgTxtColor, setTxtColor);
+      changeColors(bgTxtColor, setTxtColor, clicked);
       timesColorChanged.current++;
     }, changeColorTime);
   };
