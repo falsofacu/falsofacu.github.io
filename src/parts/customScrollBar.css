@@ -16,9 +16,6 @@
   padding: 3px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-}
-
 @supports (scrollbar-color: red blue) {
   * {
     scrollbar-color: #707070 #404040;
