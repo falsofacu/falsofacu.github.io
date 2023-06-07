@@ -1,5 +1,4 @@
-const facundoOutline = (
-  <svg
+<svg
     id="first-name-2"
     className="first-name non-selectable"
     xmlns="http://www.w3.org/2000/svg"
@@ -11,14 +10,11 @@ const facundoOutline = (
       transform="translate(3.5 151.84)"
       font-size="162.48"
       fill="none"
-      stroke="#FFF"
+      stroke="#fff"
       stroke-linejoin="round"
       stroke-width="7"
-      font-family="PovetSans, Povet"
+      font-family="PovetSans"
     >
       FACUNDO
     </text>
   </svg>
-);
-
-export default facundoOutline;

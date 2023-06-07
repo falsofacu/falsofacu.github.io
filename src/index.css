@@ -93,6 +93,11 @@ code {
 }
 
 @font-face {
+  font-family: PovetSans;
+  src: url("./fonts/Povet-Sans.otf") format("opentype");
+}
+
+@font-face {
   font-family: MadeInfinity-Light;
   src: url("./fonts/MADEINFINITY_Light.otf") format("opentype");
 }
