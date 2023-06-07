@@ -1,5 +1,6 @@
 import React, { useLayoutEffect, useState } from "react";
 import Loading from "./parts/Loading";
+import NavBar from "./parts/navBar/NavBar";
 import Header from "./parts/header/Header";
 import Projects from "./parts/projects/Projects";
 import Contact from "./parts/contact/Contact";
@@ -31,6 +32,7 @@ function App() {
         <Loading />
       ) : (
         <clickedContext.Provider value={[clicked, setClicked]}>
+          {clicked > 0 ? <NavBar /> : null}
           <colorContext.Provider value={[bgTxtColor, setBgTxtColor]}>
             <metronomeSpeedContext.Provider value={[mtmSpeed, setMtmSpeed]}>
               <Background />

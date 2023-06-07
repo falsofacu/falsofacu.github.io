@@ -86,11 +86,10 @@ const Background = () => {
 
   useEffect(() => {
     if(clicked === 1) {
-      clicked === 1 && changeColorsAtTime();
+      changeColorsAtTime();
       if (timesColorChanged.current >= autoColorStop.current ) {
         clearTimeout(colorTimeoutCode.current);
         setClicked(clicked + 1)
-        console.log(clicked);
       }
     }
   }, [bgTxtColor]);

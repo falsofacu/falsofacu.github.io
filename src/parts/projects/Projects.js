@@ -1,20 +1,19 @@
 import React, { useEffect } from "react";
-import { clickedContext } from "../../App";
 import "./Projects.css";
 import { initializeTranslateY } from "../animations";
-import App from "../../App";
 
 const Projects = () => {
 
-    let mountAnimation;
+    let mountAnim;
+    let windowScrollAnim;
 
     const initializeAnimations = () => {
-        mountAnimation = initializeTranslateY('projects', 1000)
+        mountAnim = initializeTranslateY('projects', 1800, 800);
     }
 
     useEffect(() => {
         initializeAnimations();
-        mountAnimation.start();
+        mountAnim.start();
     }, [])
 
     return (
@@ -27,7 +26,6 @@ const Projects = () => {
             <div id="proj3" className="project-wrap">PROJ 3</div>
             <div id="proj4" className="project-wrap">PROJ 4</div>
             <div id="proj5" className="project-wrap">PROJ 5</div>
-            <div id="proj6" className="project-wrap">PROJ 6</div>
             <h1 className="under-construction">Under construction</h1>
         </section>
     );

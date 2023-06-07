@@ -52,7 +52,7 @@ const Contact = () => {
           <img id="mail" className="contact-icon" src={mailIcon}></img>
         </a>
         {/* 
-            NO LINKEDIN YET, if you got here you deserve it
+            NO LINKEDIN YET, if you got here well whatever
         <a href="https://www.linkedin.com/in/facundotabarez/" target="_blank" onClick={handleLinkedInClick}  title="in/facundotabarez/">
           <img
             id="likedin"

@@ -1,12 +1,14 @@
 #projects {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    align-content: space-around;
+    justify-content: flex-start;
     align-items: center;
+    gap: 3vw 6vw;
 
     position: relative;
     width: auto;
-    height: 95vh;
+    height: 93vh;
     margin: 3vw;
     padding: 3vw;
     transform: translateY(100%);

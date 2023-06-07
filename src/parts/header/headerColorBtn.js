@@ -196,7 +196,7 @@ const ColorBtn = () => {
   }, []);
 
   useEffect(() => {
-    if (clicked >= 2) {
+    if (clicked >= 3) {
       //When button says "next."
       changeColors(bgTxtColor, setTxtColor, clicked);
       setStartBlobLife(false);

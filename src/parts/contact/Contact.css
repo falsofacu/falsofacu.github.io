@@ -2,29 +2,31 @@
     position: relative;
     overflow: hidden;
     z-index: 5;
-
-    background: rgba(0, 0, 0, 0.0);
+    width: 100vw;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    background-color: rgba(0, 0, 0, 0.75);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 #contact > h1 {
     position: relative;
-    padding: 10px;
     left: 50%;
+    padding-top: 30px;
     text-align: center;
-    font-size: 2.5vw;
+    font-size: 32px;
     transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    /* border-radius: 6px; */
 }
 
 #contact-sites-container {
     display: flex;
     justify-content: space-evenly;
-    padding: 5vw 0;
+    padding: 3vw 0;
+    width: 50vw;
+    margin: auto;
 }
 
 #contact-sites-container > a  {
@@ -37,7 +39,7 @@
 }
 
 .contact-icon {
-    width: 60px;
+    width: 4vw;
     color: white;
     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
 }
