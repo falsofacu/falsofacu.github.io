@@ -1,5 +1,11 @@
 const changeColors = (bgTxtColor, setTxtColor, clicked = 0) => {
-  if (bgTxtColor === "var(--color2)") {
+
+  //Prevents bug when clicking twice too fast
+  if (clicked === 2) {
+    document.getElementById("body").style.backgroundColor = "var(--color1)";
+    document.getElementById("root").style.backgroundColor = "var(--color1)";
+  }
+  else if (bgTxtColor === "var(--color2)") {
     document.getElementById("body").style.backgroundColor = "var(--color3)";
     document.getElementById("root").style.backgroundColor = "var(--color3)";
     setTxtColor("var(--color4)");

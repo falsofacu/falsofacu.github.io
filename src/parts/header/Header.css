@@ -12,6 +12,7 @@
   justify-content: center;
   position: relative;
   height: 33vh;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.35));
   z-index: 5;
 }
 
@@ -88,6 +89,8 @@ button:active {
 #presentation-wrap {
   position: relative;
   height: 38vw;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.35));
+  z-index: 5;
 }
 
 .first-name {

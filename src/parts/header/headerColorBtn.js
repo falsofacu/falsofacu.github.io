@@ -196,9 +196,10 @@ const ColorBtn = () => {
   }, []);
 
   useEffect(() => {
-    if (clicked >= 3) {
+    if (clicked >= 2) {
       //When button says "next."
       changeColors(bgTxtColor, setTxtColor, clicked);
+      setStartBlobLife(false);
     }
   }, [clicked]);
 
@@ -223,23 +224,17 @@ const ColorBtn = () => {
           </button>
         ) : null}
       </div>
-        {startBlobLife && (
-          <div id="all-blobs">
-            <div className="blob-wrap">{blob1}</div>
-            <div className="blob-wrap">{blob2}</div>
-            <div className="blob-wrap">{blob3}</div>
-            <div className="blob-wrap">{blob4}</div>
-            <div className="start-blob-wrap blob-wrap">
-              {startBlob3}
-            </div>
-            <div className="start-blob-wrap blob-wrap">
-              {startBlob2}
-            </div>
-            <div className="start-blob-wrap blob-wrap">
-              {startBlob1}
-            </div>
-          </div>
-        )}
+      {startBlobLife && (
+        <div id="all-blobs">
+          <div className="blob-wrap">{blob1}</div>
+          <div className="blob-wrap">{blob2}</div>
+          <div className="blob-wrap">{blob3}</div>
+          <div className="blob-wrap">{blob4}</div>
+          <div className="start-blob-wrap blob-wrap">{startBlob3}</div>
+          <div className="start-blob-wrap blob-wrap">{startBlob2}</div>
+          <div className="start-blob-wrap blob-wrap">{startBlob1}</div>
+        </div>
+      )}
       {/* {startBlobLife && (
         <>
         </>
