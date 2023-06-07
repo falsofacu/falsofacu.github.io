@@ -28,7 +28,7 @@ const Projects = () => {
             <div id="proj4" className="project-wrap">PROJ 4</div>
             <div id="proj5" className="project-wrap">PROJ 5</div>
             <div id="proj6" className="project-wrap">PROJ 6</div>
-            <h1 class="under-construction">Under construction</h1>
+            <h1 className="under-construction">Under construction</h1>
         </section>
     );
 }
