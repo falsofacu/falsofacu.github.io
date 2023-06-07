@@ -23,7 +23,7 @@ function App() {
   useLayoutEffect(() => {
     setTimeout(() => {
       setIsRendering(false);
-    }, 1000);
+    }, 2500);
   }, []);
 
   return (

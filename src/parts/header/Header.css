@@ -1,7 +1,6 @@
 #presentation {
   position: relative;
   height: auto;
-  width: 100vw;
 }
 
 /* Button */
@@ -12,10 +11,10 @@
   justify-content: center;
   position: relative;
   height: 33vh;
-  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.35));
-  z-index: 5;
   margin-top: 25px;
   margin-bottom: -10px;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.35));
+  z-index: 5;
 }
 
 #color-btn,
@@ -50,10 +49,10 @@ button:active {
 
 @keyframes load {
   0% {
-    clip-path: polygon(0 0, 0% 0%, 0% 110%, 0% 110%);
+    clip-path: polygon(0 0, 0% 0%, 0% 120%, 0% 120%);
   }
   100% {
-    clip-path: polygon(0 0, 110% 0%, 110% 110%, 0% 110%);
+    clip-path: polygon(0 0, 120% 0%, 120% 120%, 0% 120%);
   }
 }
 
@@ -155,4 +154,28 @@ button:active {
   left: 0.5vw;
   font-size: 8vw;
   letter-spacing: 5px;
+}
+
+/* Firefox interprets fonts differently so the sizes get out of wack */
+@-moz-document url-prefix() {
+  .last-name {
+    top: 4.25vw;
+    left: 0;
+    font-family: MadeInfinity-Light, sans-serif;
+    font-weight: 100;
+    letter-spacing: 1vw;
+  }
+
+  #first-name-1 {
+    letter-spacing: -0.05vw;
+  }
+
+  #first-name-2 {
+    top: 1.1vw;
+    left: 0.7vw;
+  }
+
+  #im-reveal, #stuff-reveal {
+    left: 0.75vw;
+  }
 }

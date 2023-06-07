@@ -52,7 +52,7 @@ const ColorBtn = () => {
   let blob3Tween = useRef();
   let blob4Tween = useRef();
   let timesPulsePlayed = useRef(0);
-  //! Has to be 2667 for 90bpm
+  //* Has to be 2667 for 90bpm
   const blobLifeTime = useRef(2667); //2667 = (((60 / bpm) * 1000) * 4 ()
   /// "Stop"
   let blobStart1Tween = useRef();
@@ -148,7 +148,14 @@ const ColorBtn = () => {
   const playIdleAnimations = useCallback(() => {
     if (!document.hidden) {
       btnPulse.current.start();
-      navigator.userActivation.hasBeenActive && kickAudio.play(); //!This doesn't work on Firefox
+
+      if('userActivation' in navigator) {
+        navigator.userActivation.hasBeenActive && kickAudio.play(); //!This doesn't work on Firefox
+      }
+      else {
+        //Firefox compatibility
+        document.hasFocus() && kickAudio.play();
+      }
 
       if (timesPulsePlayed.current % 2 === 0) {
         blob1Zoom.current.start();

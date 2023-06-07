@@ -11,6 +11,7 @@
   height: auto;
   margin: 3vw;
   padding: 3vw;
+  background-color: rgba(255, 255, 255, 0.05);
   transform: translateY(100%);
   overflow: hidden;
   z-index: 5;
@@ -50,6 +51,5 @@
   .project-wrap {
     width: 85vw;
     height: 70vh;
-    background-color: rgba(0, 0, 0, 0.5);
   }
 }

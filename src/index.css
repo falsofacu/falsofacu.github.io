@@ -19,18 +19,7 @@ html {
   scroll-padding-top: 50px;
 }
 
-#root {
-  width: 100vw;
-}
-
-body:empty {
-  content: "Loading";
-  color: red;
-}
-
 body {
-  width: 100vw;
-  height: auto;
   overflow-x: hidden; /* Separate for JS issues */
   overflow-y: hidden; 
   background-color: black;
@@ -48,22 +37,11 @@ code {
     monospace;
 }
 
-.stroked {
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1px white;
-}
-
 .hidden {
   display: none;
 }
 
-.transparent {
-  opacity: 0;
-  color: transparent;
-}
-
 .reveal {
-  /* position: absolute; /*! Uncomment this if anything breaks */
   opacity: 0;
   z-index: 5;
 }
