@@ -9,7 +9,6 @@ import {
 import changeColors from "./changeColors";
 
 const Background = () => {
-
   const [clicked, setClicked] = useContext(clickedContext);
   let [bgTxtColor, setTxtColor] = useContext(colorContext);
   const [mtmSpeed] = useContext(metronomeSpeedContext);
@@ -18,7 +17,7 @@ const Background = () => {
   const revealDuration = 1000;
   const revealDelay = 1500;
   const bgTextSpeed = 40000;
-  const changeColorTime = (mtmSpeed * 4);
+  const changeColorTime = mtmSpeed * 4;
   const autoColorStop = useRef(3);
   let timesColorChanged = useRef(0);
   let goodRevealAnim = useRef();
@@ -31,7 +30,7 @@ const Background = () => {
   let colorTimeoutCode = useRef(0);
 
   let [showBgText, setShowBgText] = useState(false);
-  
+
   const changeColorsAtTime = () => {
     colorTimeoutCode.current = setTimeout(() => {
       changeColors(bgTxtColor, setTxtColor, clicked);
@@ -78,18 +77,26 @@ const Background = () => {
       initializeAnimations();
       startAnimations();
       changeColorsAtTime();
-    } 
-    else if (clicked === 2) {
+    } else if (clicked === 2) {
       clearTimeout(colorTimeoutCode.current);
+      //Fixes bug were background color stays black if clicked twice too fast
+      if (
+        getComputedStyle(document.getElementById("body")).backgroundColor ===
+        "rgb(0, 0, 0)"
+      ) {
+        document.getElementById("body").style.backgroundColor = "var(--color1)";
+        document.getElementById("root").style.backgroundColor = "var(--color1)";
+        setTxtColor("var(--color2)");
+      }
     }
   }, [clicked]);
 
   useEffect(() => {
-    if(clicked === 1) {
+    if (clicked === 1) {
       changeColorsAtTime();
-      if (timesColorChanged.current >= autoColorStop.current ) {
+      if (timesColorChanged.current >= autoColorStop.current) {
         clearTimeout(colorTimeoutCode.current);
-        setClicked(clicked + 1)
+        setClicked(clicked + 1);
       }
     }
   }, [bgTxtColor]);
