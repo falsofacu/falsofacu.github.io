@@ -1,38 +1,55 @@
 #projects {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: space-around;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 3vw 6vw;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 3vw 6vw;
 
-    position: relative;
-    width: auto;
-    height: 93vh;
-    margin: 3vw;
-    padding: 3vw;
-    transform: translateY(100%);
-    overflow: hidden;
-    z-index: 5;
+  position: relative;
+  width: auto;
+  height: auto;
+  margin: 3vw;
+  padding: 3vw;
+  transform: translateY(100%);
+  overflow: hidden;
+  z-index: 5;
 }
 
 .glass {
-    background: rgba(255, 255, 255, 0.0);
-    border-radius: 12px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-  }
-
-.project-wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 25vw;
-    height: 40vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    overflow: hidden;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 12px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-  
+.project-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25vw;
+  height: 36vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .project-wrap {
+    width: 40vw;
+    height: 40vh;
+  }
+}
+
+@media (max-width: 700px) {
+  #projects {
+    flex-direction: column;
+  }
+
+  .project-wrap {
+    width: 85vw;
+    height: 70vh;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
