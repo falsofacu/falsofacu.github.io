@@ -1,0 +1,23 @@
+.blobs {
+  overflow: hidden;
+}
+
+.blob-wrap {
+  position: absolute;
+  top: 17%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.start-blob-wrap {
+  position: absolute;
+}
+
+.blob {
+  position: relative;
+  transform: scale(0.01);
+}
+
+.start-blob {
+  transform: scale(0.001);
+}

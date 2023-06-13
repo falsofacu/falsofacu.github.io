@@ -1,6 +1,6 @@
 import KUTE from "kute.js";
 
-const initializePulseAnimation = (id, duration = 150) => {
+const initializePulseAnim = (id, duration = 150) => {
   const pulseAnim = KUTE.fromTo(
     "#" + id,
     { transform: { scale: 1 } },
@@ -16,7 +16,7 @@ const initializePulseAnimation = (id, duration = 150) => {
   return pulseAnim;
 };
 
-const initializeZoomAnimation = (
+const initializeZoomAnim = (
   id,
   duration = 1200,
   initialScale = 0.01,
@@ -32,7 +32,7 @@ const initializeZoomAnimation = (
   return zoomAnim;
 };
 
-const initializeTweenAnimation = (id, id2, duration = 400, repeat = 2) => {
+const initializeTweenAnim = (id, id2, duration = 400, repeat = 2) => {
   const tweenAnim = KUTE.fromTo(
     "#" + id,
     { path: "#" + id },
@@ -43,7 +43,7 @@ const initializeTweenAnimation = (id, id2, duration = 400, repeat = 2) => {
 };
 
 //TODO: Implement this?
-const initializeLoadAnimation = (id, duration, delay = 0) => {
+const initializeLoadAnim = (id, duration, delay = 0) => {
   const loadAnim = KUTE.fromTo(
     "#" + id,
     {},
@@ -54,7 +54,7 @@ const initializeLoadAnimation = (id, duration, delay = 0) => {
   return loadAnim;
 };
 
-const initializeFadeInAnimation = (id, duration, delay = 0) => {
+const initializeFadeInAnim = (id, duration, delay = 0) => {
   const fadeInAnim = KUTE.to(
     "#" + id,
     { opacity: 1 },
@@ -64,7 +64,7 @@ const initializeFadeInAnimation = (id, duration, delay = 0) => {
   return fadeInAnim;
 };
 
-const initializeFadeOutAnimation = (id, duration, delay = 0) => {
+const initializeFadeOutAnim = (id, duration, delay = 0) => {
   const fadeOutAnim = KUTE.to(
     "#" + id,
     { opacity: 0 },
@@ -74,7 +74,7 @@ const initializeFadeOutAnimation = (id, duration, delay = 0) => {
   return fadeOutAnim;
 };
 
-const initializeHeightAnimation = (id, amount, duration, delay = 0) => {
+const initializeHeightAnim = (id, amount, duration, delay = 0) => {
   const translateYAnim = KUTE.to(
     "#" + id,
     { height: amount },
@@ -87,7 +87,7 @@ const initializeHeightAnimation = (id, amount, duration, delay = 0) => {
   return translateYAnim;
 };
 
-const initializeSlideAnimation = (id, duration, delay = 0) => {
+const initializeSlideAnim = (id, duration, delay = 0) => {
   const elementWidth = document.getElementById(id).offsetWidth;
 
   const slideAnim = KUTE.fromTo(
@@ -100,7 +100,7 @@ const initializeSlideAnimation = (id, duration, delay = 0) => {
   return slideAnim;
 };
 
-const initializeTextScroll = (id, duration, delay = 0) => {
+const initializeTextScrollAnim = (id, duration, delay = 0) => {
   const elementWidth = document.getElementById(id).offsetWidth;
   const bgTextAnim = KUTE.fromTo(
     "#" + id,
@@ -111,7 +111,7 @@ const initializeTextScroll = (id, duration, delay = 0) => {
   return bgTextAnim;
 };
 
-const initializeTextScrollBackwards = (id, duration, delay = 1000) => {
+const initializeTextScrollAnimBackwards = (id, duration, delay = 1000) => {
   const elementWidth = document.getElementById(id).offsetWidth;
   const bgTextAnim = KUTE.fromTo(
     "#" + id,
@@ -122,7 +122,7 @@ const initializeTextScrollBackwards = (id, duration, delay = 1000) => {
   return bgTextAnim;
 };
 
-const initializeStartScroll = (id, duration, delay = 0) => {
+const initializeStartScrollAnim = (id, duration, delay = 0) => {
   const elementHeight = document.getElementById(id).offsetHeight;
   const startScrollAnim = KUTE.fromTo(
     "#" + id,
@@ -133,7 +133,7 @@ const initializeStartScroll = (id, duration, delay = 0) => {
   return startScrollAnim;
 };
 
-const initializeStartScrollBackwards = (id, duration, delay = 0) => {
+const initializeStartScrollAnimBackwards = (id, duration, delay = 0) => {
   const elementHeight = document.getElementById(id).offsetHeight;
   const startScrollAnim = KUTE.fromTo(
     "#" + id,
@@ -144,7 +144,7 @@ const initializeStartScrollBackwards = (id, duration, delay = 0) => {
   return startScrollAnim;
 };
 
-const initializeTranslateY = (id, duration, distance = 0, delay = 0) => {
+const initializeTranslateYAnim = (id, duration, distance = 0, delay = 0) => {
   if(distance === 0){
     distance = document.getElementById(id).offsetHeight;
   }
@@ -158,17 +158,17 @@ const initializeTranslateY = (id, duration, distance = 0, delay = 0) => {
 }
 
 export {
-  initializeFadeInAnimation,
-  initializeFadeOutAnimation,
-  initializeHeightAnimation,
-  initializeSlideAnimation,
-  initializePulseAnimation,
-  initializeTweenAnimation,
-  initializeZoomAnimation,
-  initializeLoadAnimation,
-  initializeTextScroll,
-  initializeTextScrollBackwards,
-  initializeStartScroll,
-  initializeStartScrollBackwards,
-  initializeTranslateY
+  initializeFadeInAnim,
+  initializeFadeOutAnim,
+  initializeHeightAnim,
+  initializeSlideAnim,
+  initializePulseAnim,
+  initializeTweenAnim,
+  initializeZoomAnim,
+  initializeLoadAnim,
+  initializeTextScrollAnim,
+  initializeTextScrollAnimBackwards,
+  initializeStartScrollAnim,
+  initializeStartScrollAnimBackwards,
+  initializeTranslateYAnim
 };

@@ -1,63 +1,65 @@
-import { colorContext, clickedContext, metronomeSpeedContext } from "../App";
-import React, { useState, useEffect, useContext, useRef } from "react";
-import {
-  initializeStartScroll,
-  initializeStartScrollBackwards,
-  initializeTextScroll,
-  initializeTextScrollBackwards,
-} from "./animations";
-import changeColors from "./changeColors";
+import { useState, useEffect, useContext, useRef } from "react";
+import { clickedContext } from "../App";
+import {initializeStartScrollAnim, initializeStartScrollAnimBackwards, initializeTextScrollAnim, initializeTextScrollAnimBackwards} from "./animations";
+import Blobs from "./Blobs/Blobs";
 
 const Background = () => {
-  const [clicked, setClicked] = useContext(clickedContext);
-  let [bgTxtColor, setTxtColor] = useContext(colorContext);
-  const [mtmSpeed] = useContext(metronomeSpeedContext);
-
-  //Animation options
-  const revealDuration = 1000;
-  const revealDelay = 1500;
-  const bgTextSpeed = 40000;
-  const changeColorTime = mtmSpeed * 4;
-  const autoColorStop = useRef(3);
-  let timesColorChanged = useRef(0);
+  //Consts
+  const colors = useRef({
+    1: "var(--color1)",
+    2: "var(--color2)",
+    3: "var(--color3)",
+    4: "var(--color4)",
+    5: "var(--color5)",
+    6: "var(--color6)",
+    7: "var(--color7)",
+    8: "var(--color8)",
+  });
+  //Animations
   let goodRevealAnim = useRef();
   let vibesRevealAnim = useRef();
   let good1ScrollAnim = useRef();
   let good2ScrollAnim = useRef();
   let vibes1ScrollAnim = useRef();
   let vibes2ScrollAnim = useRef();
+  //Animation options
+  const startDuration = useRef(1000);
+  const startDelay = useRef(1500);
+  const textSpeed = useRef(40000);
+  const colorChangeDelay = useRef(2667); //mtmspeed * 4
+  const stopAfterChanges = useRef(3);
+  
+  //State
+  let [started, setStarted] = useState(false);
+  let [color, setColor] = useState("#000");
+  let [txtColor, setTxtColor] = useState(colors.current[2]);
+  let [colorChangedTimes, setColorChangedTimes] = useState(0);
+  let [colorsIntervalCode, setColorsIntervalCode] = useState(0);
+  
+  //Context
+  const [clicked, setClicked] = useContext(clickedContext);
 
-  let colorTimeoutCode = useRef(0);
-
-  let [showBgText, setShowBgText] = useState(false);
-
-  const changeColorsAtTime = () => {
-    colorTimeoutCode.current = setTimeout(() => {
-      changeColors(bgTxtColor, setTxtColor, clicked);
-      timesColorChanged.current++;
-    }, changeColorTime);
-  };
-
+  //Functions
   const initializeAnimations = () => {
-    goodRevealAnim.current = initializeStartScroll(
+    goodRevealAnim.current = initializeStartScrollAnim(
       "good-container",
-      revealDuration,
-      revealDelay
+      startDuration.current,
+      startDelay.current
     );
-    vibesRevealAnim.current = initializeStartScrollBackwards(
+    vibesRevealAnim.current = initializeStartScrollAnimBackwards(
       "vibes-container",
-      revealDuration,
-      revealDelay
+      startDuration.current,
+      startDelay.current
     );
-    good1ScrollAnim.current = initializeTextScroll("good1", bgTextSpeed);
-    good2ScrollAnim.current = initializeTextScroll("good2", bgTextSpeed);
-    vibes1ScrollAnim.current = initializeTextScrollBackwards(
+    good1ScrollAnim.current = initializeTextScrollAnim("good1", textSpeed.current);
+    good2ScrollAnim.current = initializeTextScrollAnim("good2", textSpeed.current);
+    vibes1ScrollAnim.current = initializeTextScrollAnimBackwards(
       "vibes1",
-      bgTextSpeed
+      textSpeed.current
     );
-    vibes2ScrollAnim.current = initializeTextScrollBackwards(
+    vibes2ScrollAnim.current = initializeTextScrollAnimBackwards(
       "vibes2",
-      bgTextSpeed
+      textSpeed.current
     );
   };
 
@@ -70,46 +72,99 @@ const Background = () => {
     vibes2ScrollAnim.current.start();
   };
 
-  //Play start animations
+  const changeColors = () => {
+    setColor((prevColor) => {
+      switch (prevColor) {
+        case "#000":
+          return colors.current[1];
+        case colors.current[1]:
+          return colors.current[3];
+        case colors.current[3]:
+          return colors.current[5];
+        case colors.current[5]:
+          return clicked >= 2 ? colors.current[7] : colors.current[1];
+        case colors.current[7]:
+          return colors.current[1];
+        default:
+          return prevColor;
+      }
+    });
+    setTxtColor((prevTxtColor) => {
+      switch (prevTxtColor) {
+        case "#FFF":
+          return colors.current[2];
+        case colors.current[2]:
+          return colors.current[4];
+        case colors.current[4]:
+          return colors.current[6];
+        case colors.current[6]:
+          return clicked >= 2 ? colors.current[8] : colors.current[2];
+        case colors.current[8]:
+          return colors.current[2];
+        default:
+          return prevTxtColor;
+      }
+    });
+  };
+
+  const setChangeColorsInterval = (counter = colorChangedTimes, delay = colorChangeDelay.current, stopAfter = stopAfterChanges.current) => {
+    const intervalCode = setInterval(() => {
+      if (counter < stopAfter) {
+        changeColors();
+        counter++;
+        setColorChangedTimes(prevState => prevState + 1);
+      }
+    }, delay);
+    setColorsIntervalCode(intervalCode);
+  };
+
   useEffect(() => {
-    if (clicked === 1) {
-      setShowBgText(true);
+    if (started) {
       initializeAnimations();
       startAnimations();
-      changeColorsAtTime();
-    } else if (clicked === 2) {
-      clearTimeout(colorTimeoutCode.current);
-      //Fixes bug were background color stays black if clicked twice too fast
-      if (
-        getComputedStyle(document.getElementById("body")).backgroundColor ===
-        "rgb(0, 0, 0)"
-      ) {
-        document.getElementById("body").style.backgroundColor = "var(--color1)";
-        document.getElementById("root").style.backgroundColor = "var(--color1)";
-        setTxtColor("var(--color2)");
-      }
+    }
+  }, [started]);
+
+  useEffect(() => {
+    if (colorChangedTimes >= stopAfterChanges.current){
+      setClicked(prevState => prevState + 1)
+      clearInterval(colorsIntervalCode);
+    }
+  }, [colorChangedTimes])
+
+  useEffect(() => {
+    switch (clicked) {
+      case 0:
+        break;
+      case 1:
+        setStarted(!started);
+        setTimeout(()=> {
+          setColor(colors.current[1]);
+        }, 2000)
+        setChangeColorsInterval();
+        break;
+      case 2:
+        clearInterval(colorsIntervalCode);
+        break;
+      case 3:
+        changeColors(); //!SIDOGJIDLGIHDGSHIODG
+        break;
+      default:
+        changeColors();
+        break;
     }
   }, [clicked]);
 
-  useEffect(() => {
-    if (clicked === 1) {
-      changeColorsAtTime();
-      if (timesColorChanged.current >= autoColorStop.current) {
-        clearTimeout(colorTimeoutCode.current);
-        setClicked(clicked + 1);
-      }
-    }
-  }, [bgTxtColor]);
-
   return (
-    <>
+    <div id="background" style={{backgroundColor: color, color: txtColor}}>
+      <Blobs />
       <div id="good-container">
         <span
           id="good1"
           className="bg-text non-selectable"
           style={{
-            color: bgTxtColor,
-            visibility: showBgText ? "visible" : "hidden",
+            color: txtColor,
+            visibility: started ? "visible" : "hidden",
           }}
         >
           ●GOOD
@@ -118,8 +173,8 @@ const Background = () => {
           id="good2"
           className="bg-text non-selectable"
           style={{
-            color: bgTxtColor,
-            visibility: showBgText ? "visible" : "hidden",
+            color: txtColor,
+            visibility: started ? "visible" : "hidden",
           }}
         >
           ●GOOD
@@ -131,8 +186,8 @@ const Background = () => {
           id="vibes1"
           className="bg-text non-selectable"
           style={{
-            color: bgTxtColor,
-            visibility: showBgText ? "visible" : "hidden",
+            color: txtColor,
+            visibility: started ? "visible" : "hidden",
           }}
         >
           ●VIBES
@@ -141,15 +196,15 @@ const Background = () => {
           id="vibes2"
           className="bg-text non-selectable"
           style={{
-            color: bgTxtColor,
-            visibility: showBgText ? "visible" : "hidden",
+            color: txtColor,
+            visibility: started ? "visible" : "hidden",
           }}
         >
           ●VIBES
         </span>
       </div>
-    </>
+    </div>
   );
 };
 
-export { Background };
+export default Background;

@@ -3,27 +3,23 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    top: 0;
     width: 100vw;
     height: 35px;
     padding-left: 1vw;
     padding-right: 2vw;
     border: 1px solid rgba(0, 0, 0, 0.3);
-    font-family: MadeInfinity-Thin;
+    font-family: "MadeInfinity-Thin";
     font-size: 20px;
     background-color: rgba(0, 0, 0, 0.75);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(15px);
     animation: startNav 3s 1;
     z-index: 10;
 }
 
-nav > div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2vw;
+nav > div > a {
+    padding: 0 0.5vw;
 }
 
 a, a:hover, a:focus, a:active {
@@ -34,8 +30,10 @@ a, a:hover, a:focus, a:active {
 a > span:hover{
     color: var(--color1);
     border-bottom: 1px solid white;
-    
-    /* border-bottom: 1px solid #EEE; */
+}
+
+#nav-logo {
+    margin-top: 5px;
 }
 
 @keyframes startNav {

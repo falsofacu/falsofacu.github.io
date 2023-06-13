@@ -1,0 +1,136 @@
+#presentation-text-wrap {
+  position: relative;
+  height: auto;
+  font-family: "Coolvetica", sans-serif;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.35));
+}
+
+/* Button */
+#btn-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.35));
+}
+
+#presentation-btn, #loading-anim{
+  height: 33vh;
+  text-decoration: underline 1px;
+  text-underline-offset: 2px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+#loading-anim {
+  position: absolute;
+  pointer-events: none;
+  color: #161616;
+  text-decoration: underline 1px;
+  text-underline-offset: 2px;
+  -webkit-text-stroke: 2px #161616;
+  animation: load 2.66666666667s linear 6;
+}
+
+#presentation-btn:active {
+  transform: scale(0.98);
+}
+
+@keyframes load {
+  0% {
+    clip-path: polygon(0 0, 0% 0%, 0% 120%, 0% 120%);
+  }
+  100% {
+    clip-path: polygon(0 0, 120% 0%, 120% 120%, 0% 120%);
+  }
+}
+
+/* Text */
+
+.first-name {
+  top: 0;
+  left: 0;
+  font-family: "PovetSans", sans-serif;
+  font-size: 12.6vw;
+  letter-spacing: 0.2vw;
+}
+
+.last-name {
+  position: relative;
+  display: inline-block;
+  top: -9.1vw;
+  left: 0.3vw;
+  mix-blend-mode: difference;
+  font-family: MadeInfinity-Thin, sans-serif;
+  font-size: 21vw;
+  letter-spacing: 1.25vw;
+}
+
+#first-name-1,
+#last-name-1 {
+  opacity: 1;
+}
+
+#first-name-2 {
+  position: absolute;
+  left: -0.3vw;
+  width: 72vw;
+  height: auto;
+  opacity: 0;
+}
+
+#last-name-2 {
+  position: absolute;
+  top: 5.5vw;
+  mix-blend-mode: normal !important;
+  opacity: 0;
+}
+
+#im-reveal {
+  position: absolute;
+  top: -5vw;
+  left: 0.5vw;
+  margin-bottom: -1.5vw;
+  font-size: 5.5vw;
+  letter-spacing: 0.3vw;
+}
+
+#stuff-reveal {
+  position: absolute;
+  top: 27.5vw;
+  left: 0.5vw;
+  font-size: 8vw;
+  letter-spacing: 0.35vw;
+}
+
+/* Firefox interprets fonts differently so the sizes get out of wack */
+@-moz-document url-prefix() {
+  .last-name {
+    top: -10.6vw;
+    left: 0;
+    font-size: 21vw;
+    letter-spacing: 1.25vw;
+    font-family: MadeInfinity-Light, sans-serif;
+    font-weight: 100;
+  }
+
+  #last-name-2 {
+    top: 4vw;
+  }
+
+  #first-name-1 {
+    letter-spacing: -0.05vw;
+  }
+
+  #first-name-2 {
+    width: 72.5vw;
+    left: 0;
+  }
+
+  #im-reveal, #stuff-reveal {
+    left: 0.75vw;
+  }
+
+  #stuff-reveal {
+    top: 26.6vw;
+  }
+}

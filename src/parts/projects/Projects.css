@@ -7,14 +7,11 @@
   gap: 3vw 6vw;
 
   position: relative;
-  width: auto;
-  height: auto;
   margin: 3vw;
   padding: 3vw;
   background-color: rgba(255, 255, 255, 0.05);
   transform: translateY(100%);
   overflow: hidden;
-  z-index: 5;
 }
 
 .glass {
@@ -30,16 +27,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 25vw;
   height: 36vh;
+  width: 24.5vw;
   background-color: rgba(0, 0, 0, 0.5);
   overflow: hidden;
 }
 
+.under-construction{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 1vw;
+  font-size: 4.5vw;
+  background-color: black;
+  transform: translate(-50%, -50%);
+}
+
 @media (max-width: 900px) {
   .project-wrap {
-    width: 40vw;
     height: 40vh;
+    width: 40vw;
   }
 }
 
@@ -49,7 +56,7 @@
   }
 
   .project-wrap {
-    width: 85vw;
     height: 70vh;
+    width: 85vw;
   }
 }
