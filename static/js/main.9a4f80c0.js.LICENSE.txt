@@ -43,7 +43,3 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
-//! I THINK IT'S A USEREF PROBLEM
-
-//!FOR SOME REASON I HAVE TO INITIALIZE THE ANIMATIONS IN THE SAME PLACE THAT I USE THEM IN
