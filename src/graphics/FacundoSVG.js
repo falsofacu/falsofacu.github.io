@@ -9,12 +9,12 @@ const facundoOutline = (
   >
     <text
       transform="translate(3.5 151.84)"
-      font-size="162.48"
+      fontSize="162.48"
       fill="none"
       stroke="#FFF"
-      stroke-linejoin="round"
-      stroke-width="7"
-      font-family="PovetSans, Povet"
+      strokeLinejoin="round"
+      strokeWidth="7"
+      fontFamily="PovetSans, Povet"
     >
       FACUNDO
     </text>

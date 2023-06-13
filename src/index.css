@@ -80,12 +80,6 @@ code {
   color: inherit;
 }
 
-.reset-button:focus {
-  outline: none;
-  outline-offset: -4px;
-}
-
-
 /*Local font imports*/
 @font-face {
   font-family: Povet;

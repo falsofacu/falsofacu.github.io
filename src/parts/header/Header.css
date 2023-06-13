@@ -33,7 +33,6 @@
 }
 
 #loading-anim {
-  position: absolute;
   pointer-events: none; /* Let's me click the button beneath it */
   color: #161616;
   border-bottom: 1px solid #161616;

@@ -53,6 +53,7 @@ const Name = () => {
     );
   };
 
+  //! This shouldn't be here it's a button anim
   const initializePresentationAnimations = () => {
     //* This part reduces the btn-wrap from 33% to 16.5%
     // Since KUTE.js doesn't work with percentages I get the parent's height in px,

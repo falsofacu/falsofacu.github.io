@@ -1,4 +1,3 @@
-/* Background Text */
 #loading {
   position: absolute;
   top: 45%; /* Percieved center */
@@ -16,6 +15,7 @@
   }
 }
 
+/* Background Text */
 #good-container, #vibes-container{
   position: fixed;
   display: flex;
