@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
+import React, { useState, useEffect, useContext, useRef, useCallback } from "react";
 import "./Blobs.css"
 import { clickedContext } from "../../App";
 import {
@@ -9,6 +9,8 @@ import {
   createBlobTypeS3,
 } from "../../media/images/allBlobs";
 import { initializeZoomAnim, initializeTweenAnim } from "../animations";
+
+import { stringify, parse } from "flatted";
 
 const Blobs = () => {
   
@@ -26,16 +28,16 @@ const Blobs = () => {
   let blob2Zoom = useRef();
   let blob3Zoom = useRef();
   let blob4Zoom = useRef();
-  let blob1Tween = useRef();
-  let blob2Tween = useRef();
-  let blob3Tween = useRef();
-  let blob4Tween = useRef();
+  // let blob1Tween = useRef();
+  // let blob2Tween = useRef();
+  // let blob3Tween = useRef();
+  // let blob4Tween = useRef();
   let blobStart1Zoom = useRef();
   let blobStart2Zoom = useRef();
   let blobStart3Zoom = useRef();
-  let blobStart1Tween = useRef();
-  let blobStart2Tween = useRef();
-  let blobStart3Tween = useRef();
+  // let blobStart1Tween = useRef();
+  // let blobStart2Tween = useRef();
+  // let blobStart3Tween = useRef();
   //Animation options
   const zoomDuration = useRef(1200);
   const tweenDuration = useRef(500);
@@ -53,40 +55,40 @@ const Blobs = () => {
   let [clicked, setClicked] = useContext(clickedContext);
 
   //Functions
-  //! This is the biggest optimization problem with the page
-  const initializeAnimations = () => {
+  //! Removed tween animations because they are too expensive
+  const initializeAnimations = useCallback(() => {
     blob1Zoom.current = initializeZoomAnim("blob1");
     blob2Zoom.current = initializeZoomAnim("blob2");
     blob3Zoom.current = initializeZoomAnim("blob3");
     blob4Zoom.current = initializeZoomAnim("blob4");
-    blob1Tween.current = initializeTweenAnim("blob1-1", "blob1-2");
-    blob2Tween.current = initializeTweenAnim("blob2-1", "blob2-2");
-    blob3Tween.current = initializeTweenAnim("blob3-1", "blob3-2");
-    blob4Tween.current = initializeTweenAnim("blob4-1", "blob4-2");
+    // blob1Tween.current = initializeTweenAnim("blob1-1", "blob1-2");
+    // blob2Tween.current = initializeTweenAnim("blob2-1", "blob2-2");
+    // blob3Tween.current = initializeTweenAnim("blob3-1", "blob3-2");
+    // blob4Tween.current = initializeTweenAnim("blob4-1", "blob4-2");
     blobStart1Zoom.current = initializeZoomAnim("start-blob-1", zoomDuration.current, 0.001, 10, 100);
     blobStart2Zoom.current = initializeZoomAnim("start-blob-2", zoomDuration.current, 0.001, 10, 50);
     blobStart3Zoom.current = initializeZoomAnim("start-blob-3", zoomDuration.current, 0.001);
-    blobStart1Tween.current = initializeTweenAnim("start-blob-1-1", "start-blob-1-2", tweenDuration.current, 10);
-    blobStart2Tween.current = initializeTweenAnim("start-blob-2-1", "start-blob-2-2", tweenDuration.current, 10);
-    blobStart3Tween.current = initializeTweenAnim("start-blob-3-1", "start-blob-3-2", tweenDuration.current, 10);
-  }
+    // blobStart1Tween.current = initializeTweenAnim("start-blob-1-1", "start-blob-1-2", tweenDuration.current, 10);
+    // blobStart2Tween.current = initializeTweenAnim("start-blob-2-1", "start-blob-2-2", tweenDuration.current, 10);
+    // blobStart3Tween.current = initializeTweenAnim("start-blob-3-1", "start-blob-3-2", tweenDuration.current, 10);
+  }, [])
 
   const startPulseAnimations = () => {
     if(pulsePlayedEven.current) {
       blob1Zoom.current.start();
-      blob1Tween.current.start();
+      // blob1Tween.current.start();
       setTimeout(() => {
         blob2Zoom.current.start();
-        blob2Tween.current.start();
+        // blob2Tween.current.start();
       }, 300)
       pulsePlayedEven.current = false;
     }
     else {
       blob3Zoom.current.start();
-      blob3Tween.current.start();
+      // blob3Tween.current.start();
       setTimeout(() => {
-        blob4Tween.current.start();
         blob4Zoom.current.start();
+        // blob4Tween.current.start();
       }, 300)
       pulsePlayedEven.current = true;
     }
@@ -96,9 +98,9 @@ const Blobs = () => {
     blobStart1Zoom.current.start();
     blobStart2Zoom.current.start();
     blobStart3Zoom.current.start();
-    blobStart1Tween.current.start();
-    blobStart2Tween.current.start();
-    blobStart3Tween.current.start();
+    // blobStart1Tween.current.start();
+    // blobStart2Tween.current.start();
+    // blobStart3Tween.current.start();
   }
 
   const killBlobsAfter = (time = 0) => {

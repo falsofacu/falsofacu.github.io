@@ -29,6 +29,7 @@ body {
   color: #FFF;
   background-color: #000;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .reset-btn {
@@ -38,6 +39,10 @@ body {
 
 .reveal {
   opacity: 0;
+}
+
+.hidden {
+  display: none;
 }
 
 .non-selectable {
@@ -95,4 +100,11 @@ body {
 @font-face {
   font-family: "DexaRound";
   src: url("./media/fonts/DexaRound_ExtraBold.otf") format("opentype");
+}
+
+#loading-bg {
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  z-index: 100;
 }

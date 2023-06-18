@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext, useRef } from "react";
-import { clickedContext } from "../App";
+import { clickedContext, loadingContext } from "../App";
 import {initializeStartScrollAnim, initializeStartScrollAnimBackwards, initializeTextScrollAnim, initializeTextScrollAnimBackwards} from "./animations";
 import Blobs from "./Blobs/Blobs";
 
@@ -38,6 +38,7 @@ const Background = () => {
   
   //Context
   const [clicked, setClicked] = useContext(clickedContext);
+  const [isLoading, setIsLoading] = useContext(loadingContext);
 
   //Functions
   const initializeAnimations = () => {
@@ -119,6 +120,10 @@ const Background = () => {
   };
 
   useEffect(() => {
+    setIsLoading(false);
+  }, [isLoading])
+
+  useEffect(() => {
     if (started) {
       initializeAnimations();
       startAnimations();
@@ -142,12 +147,10 @@ const Background = () => {
           setColor(colors.current[1]);
         }, 2000)
         setChangeColorsInterval();
+        document.body.style.overflowY = "auto";
         break;
       case 2:
         clearInterval(colorsIntervalCode);
-        break;
-      case 3:
-        changeColors(); //!SIDOGJIDLGIHDGSHIODG
         break;
       default:
         changeColors();
