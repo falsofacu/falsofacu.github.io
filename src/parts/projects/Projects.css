@@ -161,17 +161,16 @@
 
 .proj-button {
   cursor: pointer;
-  font-size: 20px;
+  font-family: "MadeInfinity-Light", sans-serif;
+  font-size: 25px;
+  /* letter-spacing: -0.03rem; */
+  word-spacing: -0.3rem;
   text-decoration: underline;
-  font-weight: 400;
   transition: transform 0.2s;
 }
 
 .proj-button:hover {
-  cursor: pointer;
-  font-size: 20px;
   transform: scale(1.02);
-  text-decoration: underline;
 }
 
 @media (max-width: 1150px) {

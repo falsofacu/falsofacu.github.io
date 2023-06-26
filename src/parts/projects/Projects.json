@@ -8,7 +8,7 @@
   {
     "title": "Snake Game",
     "description": "A snake game built using JavaScript and <canvas> for rendering.",
-    "img": "placeholder.png",
+    "img": "snake-game.png",
     "alt": "Snake game thumbnail."
   },
   {
