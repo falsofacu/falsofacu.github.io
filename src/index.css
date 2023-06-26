@@ -34,6 +34,7 @@ body {
 
 .reset-btn {
   all: unset;
+  cursor: pointer;
   outline: revert;
 }
 
@@ -52,15 +53,8 @@ body {
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 0.5vw;
+  width: 6px;
   background-color: rgba(255, 255, 255, 0.5);
-}
-
-::-webkit-scrollbar-track {
-  margin-top: 10vh;
-  margin-bottom: 10vh;
-  border-radius: 3px;
-  background-color: rgba(0, 0, 0, 0.35);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -71,7 +65,7 @@ body {
 
 @supports (scrollbar-color: red blue) {
   * {
-    scrollbar-color: #707070 #404040;
+    scrollbar-color: #dfdfdf #cacaca;
     scrollbar-width: thin;
   }
 }

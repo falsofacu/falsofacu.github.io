@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Portfolio Page",
+    "description": "This portfolio page showcases my biggest project to date, it was built using React, HTML, CSS, JavaScript, and JSON.",
+    "img": "placeholder.png",
+    "alt": "A thumbnail for this page."
+  },
+  {
+    "title": "Snake Game",
+    "description": "A snake game made in JS using the <canvas> HTML5 element",
+    "img": "placeholder.png",
+    "alt": "Snake game thumbnail."
+  },
+  {
+    "title": "PROJ 3",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "img": "placeholder.png",
+    "alt": "Lorem ipsum dolor sit amet."
+  },
+  {
+    "title": "PROJ 4",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "img": "placeholder.png",
+    "alt": "Lorem ipsum dolor sit amet."
+  },
+  {
+    "title": "PROJ 5",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "img": "placeholder.png",
+    "alt": "Lorem ipsum dolor sit amet."
+  },
+  {
+    "title": "PROJ 6",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "img": "placeholder.png",
+    "alt": "Lorem ipsum dolor sit amet."
+  }
+]

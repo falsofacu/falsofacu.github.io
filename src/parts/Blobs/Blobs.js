@@ -55,7 +55,7 @@ const Blobs = () => {
   let [clicked, setClicked] = useContext(clickedContext);
 
   //Functions
-  //! Removed tween animations because they are too expensive
+  //! Removed tween animations for now because they are too expensive
   const initializeAnimations = useCallback(() => {
     blob1Zoom.current = initializeZoomAnim("blob1");
     blob2Zoom.current = initializeZoomAnim("blob2");
