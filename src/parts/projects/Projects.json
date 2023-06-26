@@ -1,13 +1,13 @@
 [
   {
     "title": "Portfolio Page",
-    "description": "This portfolio page showcases my biggest project to date, it was built using React, HTML, CSS, JavaScript, and JSON.",
-    "img": "placeholder.png",
+    "description": "This portfolio page showcases my biggest project to date. It was built using React, HTML, CSS, JavaScript, KUTE.js and JSON.",
+    "img": "portfolio.png",
     "alt": "A thumbnail for this page."
   },
   {
     "title": "Snake Game",
-    "description": "A snake game made in JS using the <canvas> HTML5 element",
+    "description": "A snake game built using JavaScript and <canvas> for rendering.",
     "img": "placeholder.png",
     "alt": "Snake game thumbnail."
   },

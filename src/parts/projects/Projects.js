@@ -60,7 +60,7 @@ const Projects = () => {
           className="proj-card"
           onClick={handleProjClick}
         >
-          <img src={require(`../../media/images/${projectsJSON[i].img}`)} className="proj-img" alt={projectsJSON[i].alt}></img>
+          <img src={require(`../../media/images/projects/${projectsJSON[i].img}`)} className="proj-img" alt={projectsJSON[i].alt}></img>
           <h2 className="proj-title">{projectsJSON[i].title}</h2>
           <p className="proj-description">{projectsJSON[i].description}</p>
           <button className="proj-button reset-btn">Try it out!</button>
