@@ -85,10 +85,10 @@ const Projects = () => {
     <section id="projects-section">
       {createProjHTML()}
       <button id="slider-prev-btn" className={"slider-btn reset-btn" + disablePrevBtn()} onClick={handleBtnClick}>
-        <i className="arrow left"></i>
+        <i className={"arrow left" + disablePrevBtn()}></i>
       </button>
       <button id="slider-next-btn" className={"slider-btn reset-btn" + disableNextBtn()} onClick={handleBtnClick}>
-        <i className="arrow right"></i>
+        <i className={"arrow right" + disableNextBtn()}></i>
       </button>
     </section>
   );
