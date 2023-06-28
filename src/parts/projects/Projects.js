@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { initializeTranslateYAnim } from "../animations";
 import projectsJSON from "./Projects.json";
 import "./Projects.css";
@@ -18,7 +18,7 @@ const Projects = () => {
     return focusedProj === projAmount.current ? " disabled" : "";
   };
 
-  const handleBtnClick = (event) => {
+  const handleSliderBtnClick = (event) => {
     if (event.currentTarget.id === "slider-prev-btn") {
       console.log(1);
       focusedProj > 0 && setFocusedProj((prevState) => prevState - 1);
@@ -28,11 +28,20 @@ const Projects = () => {
     }
   };
 
-  const handleProjClick = (event) => {
+  const handleProjCardClick = (event) => {
     setFocusedProj(Number(event.currentTarget.dataset.projNumber));
   };
 
-  const modifySliderStatus = (projNum) => {
+  //TODO: Complete this
+  const handleProjCardBtnClick = (event) => {
+    //! window.open(url, "_blank");
+    //Change state of element to active
+    setActiveProj(event.currentTarget.parentNode.dataset.projNumber);
+  };
+
+  const handleActiveProjClick = (event) => {};
+
+  const modifySliderFocusedStatus = (projNum) => {
     switch (true) {
       case projNum > 0 && projNum - 1 === focusedProj:
         return "after";
@@ -47,8 +56,7 @@ const Projects = () => {
     }
   };
 
-  //TODO: Add run button
-  const createProjHTML = () => {
+  const generateProjectCards = useCallback(() => {
     let elements = [];
     for (let i = 0; i < projectsJSON.length; i++) {
       elements.push(
@@ -56,19 +64,22 @@ const Projects = () => {
           key={`proj-${i}`}
           id={`proj-${i}`}
           data-proj-number={i}
-          data-status={modifySliderStatus(i)}
+          data-status={modifySliderFocusedStatus(i)}
+          data-url={projectsJSON[i].url}
           className="proj-card"
-          onClick={handleProjClick}
+          onClick={handleProjCardClick}
         >
           <img src={require(`../../media/images/projects/${projectsJSON[i].img}`)} className="proj-img" alt={projectsJSON[i].alt}></img>
-          <h2 className="proj-title">{projectsJSON[i].title}</h2>
+          <h3 className="proj-title">{projectsJSON[i].title}</h3>
           <p className="proj-description">{projectsJSON[i].description}</p>
-          <button className="proj-button reset-btn">Try it out!</button>
+          <button className="proj-button reset-btn" onClick={handleProjCardBtnClick}>
+            Try it out!
+          </button>
         </div>
       );
     }
     return elements;
-  };
+  }, [projectsJSON, modifySliderFocusedStatus]);
 
   const playAnimations = () => {
     initialAnim.current = initializeTranslateYAnim("projects-section", 1800, 800);
@@ -79,17 +90,36 @@ const Projects = () => {
     playAnimations();
   }, []);
 
-  useEffect(() => {}, [focusedProj]);
-
+  //TODO: Conditional rendering active proj
   return (
     <section id="projects-section">
-      {createProjHTML()}
-      <button id="slider-prev-btn" className={"slider-btn reset-btn" + disablePrevBtn()} onClick={handleBtnClick}>
-        <i className={"arrow left" + disablePrevBtn()}></i>
-      </button>
-      <button id="slider-next-btn" className={"slider-btn reset-btn" + disableNextBtn()} onClick={handleBtnClick}>
-        <i className={"arrow right" + disableNextBtn()}></i>
-      </button>
+      {activeProj === -1 ? (
+        <>
+          <div id="proj-slider">
+            <button id="prev-btn" className={"slider-btn reset-btn" + disablePrevBtn()} onClick={handleSliderBtnClick}>
+              <i className={"arrow left" + disablePrevBtn()}></i>
+            </button>
+            {generateProjectCards()}
+            <button id="next-btn" className={"slider-btn reset-btn" + disableNextBtn()} onClick={handleSliderBtnClick}>
+              <i className={"arrow right" + disableNextBtn()}></i>
+            </button>
+          </div>
+        </>
+      ) : (
+        <>
+          <h2 id="active-proj-title">{projectsJSON[activeProj].title}</h2>
+          <div id="active-proj">
+            <button id="prev-btn" className={"slider-btn reset-btn" + disablePrevBtn()} onClick={handleSliderBtnClick}>
+              <i className={"arrow left" + disablePrevBtn()}></i>
+            </button>
+            <iframe id="active-proj-iframe" src={projectsJSON[activeProj].url}></iframe>
+            <button id="next-btn" className={"slider-btn reset-btn" + disableNextBtn()} onClick={handleSliderBtnClick}>
+              <i className={"arrow right" + disableNextBtn()}></i>
+            </button>
+            <button id="active-proj-back-btn" className={"slider-btn reset-btn" + disablePrevBtn()} onClick={handleActiveProjClick}></button>
+          </div>
+        </>
+      )}
     </section>
   );
 };

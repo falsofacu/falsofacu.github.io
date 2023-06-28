@@ -3,36 +3,42 @@
     "title": "Portfolio Page",
     "description": "This portfolio page showcases my biggest project to date. It was built using React, HTML, CSS, JavaScript, KUTE.js and JSON.",
     "img": "portfolio.png",
-    "alt": "A thumbnail for this page."
+    "alt": "A thumbnail for this page.",
+    "url": "https://falsofacu.github.io/"
   },
   {
     "title": "Snake Game",
-    "description": "A snake game built using JavaScript and <canvas> for rendering.",
+    "description": "A snake game built using JavaScript and <canvas> for rendering. My record is 359, try breaking it!",
     "img": "snake-game.png",
-    "alt": "Snake game thumbnail."
+    "alt": "Snake game thumbnail.",
+    "url": "https://falsofacu.github.io/snake-game/"
   },
   {
     "title": "PROJ 3",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "img": "placeholder.png",
-    "alt": "Lorem ipsum dolor sit amet."
+    "alt": "Lorem ipsum dolor sit amet.",
+    "url": "https://falsofacu.github.io/"
   },
   {
     "title": "PROJ 4",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "img": "placeholder.png",
-    "alt": "Lorem ipsum dolor sit amet."
+    "alt": "Lorem ipsum dolor sit amet.",
+    "url": "https://falsofacu.github.io/"
   },
   {
     "title": "PROJ 5",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "img": "placeholder.png",
-    "alt": "Lorem ipsum dolor sit amet."
+    "alt": "Lorem ipsum dolor sit amet.",
+    "url": "https://falsofacu.github.io/"
   },
   {
     "title": "PROJ 6",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     "img": "placeholder.png",
-    "alt": "Lorem ipsum dolor sit amet."
+    "alt": "Lorem ipsum dolor sit amet.",
+    "url": "https://falsofacu.github.io/"
   }
 ]
