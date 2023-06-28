@@ -208,7 +208,7 @@
   width: 750px;
   border-radius: 6px;
   border: 0;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.35);
   opacity: 0;
   overflow: hidden;
   backdrop-filter: blur(10px);
