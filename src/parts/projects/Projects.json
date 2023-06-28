@@ -8,10 +8,10 @@
   },
   {
     "title": "Snake Game",
-    "description": "A snake game built using JavaScript and <canvas> for rendering. My record is 359, try breaking it!",
+    "description": "A snake game built using JavaScript and <canvas> for rendering. My record is 359, try to break it!",
     "img": "snake-game.png",
     "alt": "Snake game thumbnail.",
-    "url": "https://falsofacu.github.io/snake-game/"
+    "url": "http://127.0.0.1:3002/index.html"
   },
   {
     "title": "PROJ 3",

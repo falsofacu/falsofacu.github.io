@@ -157,6 +157,15 @@ const initializeTranslateYAnim = (id, duration, distance = 0, delay = 0) => {
   return translateYAnim;
 }
 
+const initializeDimensionAnim = (id, duration, [targetHeight, targetWidth], delay = 0) => {
+  const dimensionAnim = KUTE.to(
+    "#" + id,
+    {width: targetWidth},
+    {duration: duration, delay: delay, easing: KUTE.Easing.easingQuadraticOut }
+  )
+  return dimensionAnim;
+}
+
 export {
   initializeFadeInAnim,
   initializeFadeOutAnim,
@@ -170,5 +179,6 @@ export {
   initializeTextScrollAnimBackwards,
   initializeStartScrollAnim,
   initializeStartScrollAnimBackwards,
-  initializeTranslateYAnim
+  initializeTranslateYAnim,
+  initializeDimensionAnim
 };
