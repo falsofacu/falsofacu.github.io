@@ -2,13 +2,22 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { initializeTranslateYAnim, initializeDimensionAnim, initializeZoomAnim, initializeFadeInAnim, initializeFadeOutAnim } from "../animations";
 import projectsJSON from "./Projects.json";
 import "./Projects.css";
-import { act } from "react-dom/test-utils";
+
+//TODO: REMOVE OPEN WHEN SCREEN IS LITTLES
+//TODO: Adaptative Rendering
+//TODO: Adaptative ANIMATE HEIGHTWHEN OPEN
+//* Adaptative sizes
+//1
+// height: 495px;
+// width: 330px;
+//2
+// height: 375px;
+// width: 250px;
 
 const Projects = () => {
   //Information 
   const initialProjCardWidth = useRef(330);
   const activeProjCardWidth = useRef(750);
-
 
   const projAmount = useRef(projectsJSON.length - 1);
   const initialAnim = useRef();
@@ -37,10 +46,7 @@ const Projects = () => {
     setFocusedProj(Number(event.currentTarget.dataset.projNumber));
   };
 
-  //TODO: Complete this
   const handleProjCardBtnClick = (event) => {
-    //! window.open(url, "_blank");
-    //TODO: Only change state of element if focused
     const projNumber = Number(event.currentTarget.parentNode.dataset.projNumber);
     if (projNumber === focusedProj) {
       mountIframe(projNumber);
@@ -137,7 +143,6 @@ const Projects = () => {
     activeProj != -1 && playIframeMountAnim();
   }, [activeProj])
 
-  //TODO: Conditional rendering active proj
   return (
     <section id="projects-section">
       <>
@@ -164,5 +169,3 @@ const Projects = () => {
 };
 
 export default Projects;
-
-//TODO: BETTER ANIMATION

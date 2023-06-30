@@ -7,6 +7,7 @@
 
 #proj-slider {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 
@@ -104,7 +105,7 @@
 
 .proj-card[data-status="before"]:hover,
 .proj-card[data-status="after"]:hover {
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.75) !important;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.75);
 }
 
 .proj-card[data-status="hidden-right"] {
@@ -160,7 +161,6 @@
 
 .proj-description {
   height: 80px;
-  /* white-space: wrap; */
   font-family: "Roboto", sans-serif;
 }
 
@@ -265,5 +265,78 @@
 }
 
 /** Media Querys */
-@media (max-width: 1150px) {
+/*0,76 ratio*/
+@media (max-width: 1130px) {
+  .proj-card {
+    height: 375px;
+    width: 250px;
+    padding: 12px;
+  }
+  .proj-img {
+    border-radius: 50%;
+    height: 133px;
+    width: 133px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  }
+  .proj-title {
+    margin-top: -10px;
+    font-size: 24px;
+  }
+  .proj-description {
+    margin-top: -6px;
+    white-space: wrap;
+    height: 90px;
+  }
+  .proj-card[data-status="before"] {
+    transform: translateX(-250px) scale(0.65);
+  }
+  .proj-card[data-status="after"] {
+    transform: translateX(250px) scale(0.65);
+  }
+  #prev-btn {
+    left: 150px;
+  }
+  #next-btn {
+    right: 150px;
+  }
+@media (max-width: 830px) {
+  #projects-section {
+    height: auto;
+  }
+  #proj-slider {
+    flex-direction: column;
+    height: auto;
+    gap: 15px;
+  }
+  .proj-card {
+    height: 495px;
+    width: 90vw;
+    align-items: center;
+    position: relative;
+  }
+  .proj-card:hover {
+    transform: scale(1.035);
+  }
+  .proj-card[data-status="before"] {
+    transform: unset;
+    pointer-events: unset;
+    opacity: 1;
+    z-index: 0;
+  }
+  #prev-btn,
+  #next-btn{
+    display: none;
+  }
+/*to delete?*/
+  .proj-card[data-status="focused"],
+  .proj-card[data-status="before"],
+  .proj-card[data-status="after"],
+  .proj-card[data-status="hidden-left"],
+  .proj-card[data-status="hidden-right"] {
+    transform: unset;
+    pointer-events: unset;
+    opacity: unset;
+    z-index: unset;
+  }
+}
 }
