@@ -53,6 +53,10 @@
   letter-spacing: 1.25vw;
 }
 
+#first-name-1 {
+  top: 0;
+}
+
 #first-name-1,
 #last-name-1 {
   opacity: 1;
@@ -92,6 +96,11 @@
 
 /* Firefox interprets fonts differently so the sizes get out of wack */
 @-moz-document url-prefix() {
+  .first-name {
+    top: -4px;
+    font-size: 12.4vw;
+    letter-spacing: 0;
+  }
   .last-name {
     top: -10.6vw;
     left: 0;
@@ -100,24 +109,16 @@
     font-family: "MadeInfinity-Light", sans-serif;
     font-weight: 100;
   }
-
   #last-name-2 {
-    top: 4vw;
+    top: 3.7vw;
   }
-
-  #first-name-1 {
-    letter-spacing: -0.05vw;
-  }
-
   #first-name-2 {
-    width: 72.5vw;
+    width: 72.3vw;
     left: 0;
   }
-
   #im-reveal, #stuff-reveal {
     left: 0.75vw;
   }
-
   #stuff-reveal {
     top: 26.6vw;
   }
