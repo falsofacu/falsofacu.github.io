@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.3657c0ba.css",
-    "main.js": "/static/js/main.b91fd206.js",
+    "main.css": "/static/css/main.b7d81b3f.css",
+    "main.js": "/static/js/main.9af46867.js",
     "static/js/787.704add47.chunk.js": "/static/js/787.704add47.chunk.js",
     "static/media/Coolvetica.otf": "/static/media/Coolvetica.3d81d0e1fdbd5f69b232.otf",
     "static/media/snake-game.png": "/static/media/snake-game.302769141f3e7d5069e6.png",
@@ -16,12 +16,12 @@
     "static/media/linkedin.svg": "/static/media/linkedin.f29fb1c995f029059c165c87d209caf7.svg",
     "index.html": "/index.html",
     "static/media/envelope-solid.svg": "/static/media/envelope-solid.61a764023610cf60b7ec3e242aebe9ff.svg",
-    "main.3657c0ba.css.map": "/static/css/main.3657c0ba.css.map",
-    "main.b91fd206.js.map": "/static/js/main.b91fd206.js.map",
+    "main.b7d81b3f.css.map": "/static/css/main.b7d81b3f.css.map",
+    "main.9af46867.js.map": "/static/js/main.9af46867.js.map",
     "787.704add47.chunk.js.map": "/static/js/787.704add47.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3657c0ba.css",
-    "static/js/main.b91fd206.js"
+    "static/css/main.b7d81b3f.css",
+    "static/js/main.9af46867.js"
   ]
 }
