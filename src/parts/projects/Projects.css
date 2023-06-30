@@ -294,10 +294,10 @@
     transform: translateX(250px) scale(0.65);
   }
   #prev-btn {
-    left: 150px;
+    left: 130px;
   }
   #next-btn {
-    right: 150px;
+    right: 130px;
   }
 @media (max-width: 830px) {
   #projects-section {
@@ -327,7 +327,11 @@
   #next-btn{
     display: none;
   }
-/*to delete?*/
+
+  .proj-card[data-status="focused"]:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.75);
+  }
+
   .proj-card[data-status="focused"],
   .proj-card[data-status="before"],
   .proj-card[data-status="after"],

@@ -11,7 +11,7 @@
     "description": "A snake game built using JavaScript and <canvas> for rendering. My record is 446, try to break it!",
     "img": "snake-game.png",
     "alt": "Snake game thumbnail.",
-    "url": "https://falsofacu.github.io/snake-game/"
+    "url": "http://127.0.0.1:3002/index.html"
   },
   {
     "title": "PROJ 3",
@@ -36,7 +36,7 @@
   },
   {
     "title": "PROJ 6",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "img": "placeholder.png",
     "alt": "Lorem ipsum dolor sit amet.",
     "url": "https://falsofacu.github.io/"

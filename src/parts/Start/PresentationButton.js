@@ -7,7 +7,6 @@ import { initializeHeightAnim, initializePulseAnim } from "../animations";
 const PresentationButton = () => {
   let [clicked, setClicked] = useContext(clickedContext);
 
-  // TODO: For when I add this
   // let [timesPulsePlayed, setTimesPulsePlayed] = useState(0);
   let [pulseTimeoutCode, setPulseTimeoutCode] = useState(0);
   let [pulseIntervalCode, setPulseIntervalCode] = useState(0);
@@ -25,9 +24,9 @@ const PresentationButton = () => {
   };
 
   const initializeAnimations = () => {
-      const parentElement = document.getElementById("btn-wrap"); 
-      reduceHeightAnim.current = initializeHeightAnim("presentation-btn", (0.5 * parentElement.clientHeight), slideAllUpDuration.current, slideAllUpDelay.current);
-      pulseAnim.current = initializePulseAnim("presentation-btn");
+      const element = document.getElementById("btn-wrap");
+      reduceHeightAnim.current = initializeHeightAnim(element.id, (0.5 * element.clientHeight), slideAllUpDuration.current, slideAllUpDelay.current);
+      pulseAnim.current = initializePulseAnim(element.id);
   }
 
   const setPulseInterval = () => {
