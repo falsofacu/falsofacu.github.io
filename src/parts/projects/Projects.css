@@ -1,10 +1,8 @@
 #projects-section {
-  transform:translateY(100%);
+  transform: translateY(100%);
 }
 
-
 /** Slider */
-
 #proj-slider {
   display: flex;
   flex-direction: row;
@@ -264,8 +262,8 @@
   transform: rotate(-45deg);
 }
 
-/** Media Querys */
-/*0,76 ratio*/
+/** Media Queries */
+/* 0.76 ratio */
 @media (max-width: 1130px) {
   .proj-card {
     height: 375px;
@@ -299,6 +297,8 @@
   #next-btn {
     right: 130px;
   }
+}
+
 @media (max-width: 830px) {
   #projects-section {
     height: auto;
@@ -342,5 +342,4 @@
     opacity: unset;
     z-index: unset;
   }
-}
 }

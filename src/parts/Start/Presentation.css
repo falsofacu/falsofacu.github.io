@@ -13,7 +13,8 @@
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.35));
 }
 
-#presentation-btn, #loading-anim{
+#presentation-btn, 
+#loading-anim {
   text-decoration: underline 1px;
   text-underline-offset: 2px;
   font-size: 25px;
@@ -116,7 +117,8 @@
     width: 72.3vw;
     left: 0;
   }
-  #im-reveal, #stuff-reveal {
+  #im-reveal, 
+  #stuff-reveal {
     left: 0.75vw;
   }
   #stuff-reveal {
