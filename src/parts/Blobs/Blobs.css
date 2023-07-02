@@ -15,9 +15,9 @@
 
 .blob {
   position: relative;
-  transform: scale(0.01);
+  transform: scale(0);
 }
 
 .start-blob {
-  transform: scale(0.001);
+  transform: scale(0);
 }
