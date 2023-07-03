@@ -120,8 +120,11 @@
   #stuff-reveal {
     left: 0.75vw;
   }
+  #im-reveal {
+    top: -5.3vw;
+  }
   #stuff-reveal {
-    top: 26.6vw;
+    top: 25.8vw;
   }
 }
 
