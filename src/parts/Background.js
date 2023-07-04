@@ -25,7 +25,7 @@ const Background = () => {
   //Animation options
   const startDuration = useRef(1000);
   const startDelay = useRef(1500);
-  const textSpeed = useRef(40000);
+  const textSpeed = useRef(50000);
   const colorChangeDelay = useRef(2667); //mtmspeed * 4
   const stopAfterChanges = useRef(3);
   
