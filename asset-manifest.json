@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.38a348ba.css",
-    "main.js": "/static/js/main.d1e5c3b1.js",
+    "main.js": "/static/js/main.23abf2ff.js",
     "static/js/787.704add47.chunk.js": "/static/js/787.704add47.chunk.js",
     "static/media/quote-machine.png": "/static/media/quote-machine.d0fce41cc3e3b741e1c3.png",
     "static/media/Coolvetica.otf": "/static/media/Coolvetica.3d81d0e1fdbd5f69b232.otf",
@@ -19,11 +19,11 @@
     "index.html": "/index.html",
     "static/media/envelope-solid.svg": "/static/media/envelope-solid.61a764023610cf60b7ec.svg",
     "main.38a348ba.css.map": "/static/css/main.38a348ba.css.map",
-    "main.d1e5c3b1.js.map": "/static/js/main.d1e5c3b1.js.map",
+    "main.23abf2ff.js.map": "/static/js/main.23abf2ff.js.map",
     "787.704add47.chunk.js.map": "/static/js/787.704add47.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.38a348ba.css",
-    "static/js/main.d1e5c3b1.js"
+    "static/js/main.23abf2ff.js"
   ]
 }
