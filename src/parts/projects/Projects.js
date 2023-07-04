@@ -3,10 +3,7 @@ import { initializeTranslateYAnim, initializeDimensionAnim, initializeZoomAnim, 
 import projectsJSON from "./Projects.json";
 import "./Projects.css";
 
-//TODO: REMOVE OPEN WHEN SCREEN IS LITTLE
-//TODO: Adaptative Rendering
-//TODO: Adaptative ANIMATE HEIGHTWHEN OPEN
-//* Adaptative sizes
+//* Responsive sizes
 //1
 // height: 495px;
 // width: 330px;
