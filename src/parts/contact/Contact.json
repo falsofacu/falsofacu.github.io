@@ -1,0 +1,42 @@
+[
+  {
+    "id": "mail",
+    "name": "Mail",
+    "href": "mailto:facundotabarez0@gmail.com",
+    "title": "facundotabarez0@gmail.com",
+    "img": "envelope-solid.svg",
+    "visible": true
+  },
+  {
+    "id": "in",
+    "name": "LinkedIn",
+    "href": "https://www.linkedin.com/in/facundotabarez/",
+    "title": "in/facundotabarez",
+    "img": "linkedin.svg",
+    "visible": false
+  },
+  {
+    "id": "gh",
+    "name": "GitHub",
+    "href": "https://github.com/falsofacu",
+    "title": "GitHub: falsofacu",
+    "img": "github.svg",
+    "visible": true
+  },
+  {
+    "id": "codepen",
+    "name": "CodePen",
+    "href": "https://codepen.io/falsofacu/",
+    "title": "CodePen: falsofacu",
+    "img": "codepen.svg",
+    "visible": true
+  },
+  {
+    "id": "fcc",
+    "name": "freeCodeCamp",
+    "href": "https://www.freecodecamp.org/falsofacu",
+    "title": "freeCodeCap Certifications",
+    "img": "free-code-camp.svg",
+    "visible": true
+  }
+]
