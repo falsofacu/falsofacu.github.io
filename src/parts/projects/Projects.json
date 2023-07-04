@@ -15,7 +15,7 @@
   },
   {
     "title": "Quote Machine",
-    "description": "A random quote machine I originally did for a freeCodeCamp project. Now remade in jQuerry instead of React.",
+    "description": "A random quote machine I originally made for a freeCodeCamp project. Now remade in jQuery instead of React.",
     "img": "quote-machine.png",
     "alt": "Quote Machine thumbnail.",
     "url": "https://falsofacu.github.io/quote-machine"
