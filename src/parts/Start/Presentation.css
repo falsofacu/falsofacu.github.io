@@ -35,7 +35,6 @@
 }
 
 /* Text */
-
 .first-name {
   top: 0;
   left: 0;
@@ -130,6 +129,9 @@
 
 /* Webkit (Safari) */
 @supports (-webkit-hyphens: none) {
+  .last-name {
+    font-size: 20.25vw;
+  }
   #first-name-2 {
     top: -0.5vw;
     width: 77vw;
