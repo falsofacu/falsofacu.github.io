@@ -28,8 +28,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #FFF;
   background-color: #000;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .reset-btn {
