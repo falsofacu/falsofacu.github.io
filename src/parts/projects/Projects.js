@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { initializeTranslateYAnim, initializeDimensionAnim, initializeZoomAnim, initializeFadeInAnim, initializeFadeOutAnim } from "../animations";
+import { initializeTranslateYAnim, initializeDimensionAnim, initializeFadeInAnim } from "../animations";
 import projectsJSON from "./Projects.json";
 import "./Projects.css";
 
