@@ -1,7 +1,5 @@
 import React, { useEffect, useContext, useRef, useState } from "react";
 import { clickedContext } from "../../App";
-//Audio
-//Animations
 import { initializeHeightAnim, initializePulseAnim } from "../animations";
 
 const PresentationButton = () => {
