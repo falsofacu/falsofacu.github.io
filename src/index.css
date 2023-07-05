@@ -32,6 +32,13 @@ body {
   overflow: hidden;
 }
 
+#loading-bg {
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  z-index: 100;
+}
+
 .reset-btn {
   all: unset;
   cursor: pointer;
@@ -94,11 +101,4 @@ body {
 @font-face {
   font-family: "DexaRound";
   src: url("./media/fonts/DexaRound_ExtraBold.otf") format("opentype");
-}
-
-#loading-bg {
-  height: 100vh;
-  width: 100vw;
-  background-color: black;
-  z-index: 100;
 }
