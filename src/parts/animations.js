@@ -21,13 +21,14 @@ const initializeZoomAnim = (
   duration = 1200,
   initialScale = 0.01,
   targetScale = 10,
-  delay = 0
+  delay = 0,
+  easing = KUTE.Easing.easingQuadraticIn
 ) => {
   const zoomAnim = KUTE.fromTo(
     "#" + id,
     { transform: { scale: initialScale } },
     { transform: { scale: targetScale } },
-    { duration: duration, delay: delay, easing: KUTE.Easing.easingCircularIn }
+    { duration: duration, delay: delay, easing: easing }
   );
   return zoomAnim;
 };
