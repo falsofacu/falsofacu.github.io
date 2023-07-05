@@ -131,6 +131,10 @@ const Background = () => {
   }, [started]);
 
   useEffect(() => {
+    document.body.style.backgroundColor = color;
+  }, [color]);
+
+  useEffect(() => {
     if (colorChangedTimes >= stopAfterChanges.current){
       setClicked(prevState => prevState + 1)
       clearInterval(colorsIntervalCode);
