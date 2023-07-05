@@ -1,46 +1,31 @@
 import React, { useState, useEffect, useContext, useRef, useCallback } from "react";
 import "./Blobs.css"
 import { clickedContext } from "../../App";
-import {
-  createBlobType1,
-  createBlobType2,
-  createBlobTypeS1,
-  createBlobTypeS2,
-  createBlobTypeS3,
-} from "../../media/images/allBlobs";
-import { initializeZoomAnim, initializeTweenAnim } from "../animations";
-
-import { stringify, parse } from "flatted";
+import { initializeZoomAnim } from "../animations";
+import KUTE from "kute.js";
 
 const Blobs = () => {
   
   //Blobs
-  const blob1 = useRef(createBlobType1("blob1"));
-  const blob2 = useRef(createBlobType1("blob2"));
-  const blob3 = useRef(createBlobType2("blob3"));
-  const blob4 = useRef(createBlobType2("blob4"));
-  const startBlob1 = useRef(createBlobTypeS1("start-blob-1"));
-  const startBlob2 = useRef(createBlobTypeS2("start-blob-2"));
-  const startBlob3 = useRef(createBlobTypeS3("start-blob-3"));
+  const blob1 = useRef(require('../../media/images/blobs/1.svg'));
+  const blob2 = useRef(require('../../media/images/blobs/1.svg'));
+  const blob3 = useRef(require('../../media/images/blobs/2.svg'));
+  const blob4 = useRef(require('../../media/images/blobs/2.svg'));
+  const startBlob1 = useRef(require('../../media/images/blobs/S1.svg'));
+  const startBlob2 = useRef(require('../../media/images/blobs/S2.svg'));
+  const startBlob3 = useRef(require('../../media/images/blobs/S3.svg'));
   
   //Animations
   let blob1Zoom = useRef();
   let blob2Zoom = useRef();
   let blob3Zoom = useRef();
   let blob4Zoom = useRef();
-  // let blob1Tween = useRef();
-  // let blob2Tween = useRef();
-  // let blob3Tween = useRef();
-  // let blob4Tween = useRef();
   let blobStart1Zoom = useRef();
   let blobStart2Zoom = useRef();
   let blobStart3Zoom = useRef();
-  // let blobStart1Tween = useRef();
-  // let blobStart2Tween = useRef();
-  // let blobStart3Tween = useRef();
   //Animation options
-  const zoomDuration = useRef(1200);
-  const tweenDuration = useRef(500);
+  const zoomDuration = useRef(2000);
+  const startZoomDuration = useRef(1400);
   const killBlobsDelay = useRef(2667);
   
   //Hybrid
@@ -55,41 +40,25 @@ const Blobs = () => {
   let [clicked, setClicked] = useContext(clickedContext);
 
   //Functions
-  //! Removed tween animations for now because they are too expensive
   const initializeAnimations = useCallback(() => {
-    blob1Zoom.current = initializeZoomAnim("blob1");
-    blob2Zoom.current = initializeZoomAnim("blob2");
-    blob3Zoom.current = initializeZoomAnim("blob3");
-    blob4Zoom.current = initializeZoomAnim("blob4");
-    // blob1Tween.current = initializeTweenAnim("blob1-1", "blob1-2");
-    // blob2Tween.current = initializeTweenAnim("blob2-1", "blob2-2");
-    // blob3Tween.current = initializeTweenAnim("blob3-1", "blob3-2");
-    // blob4Tween.current = initializeTweenAnim("blob4-1", "blob4-2");
-    blobStart1Zoom.current = initializeZoomAnim("start-blob-1", zoomDuration.current, 0.001, 10, 100);
-    blobStart2Zoom.current = initializeZoomAnim("start-blob-2", zoomDuration.current, 0.001, 10, 50);
-    blobStart3Zoom.current = initializeZoomAnim("start-blob-3", zoomDuration.current, 0.001);
-    // blobStart1Tween.current = initializeTweenAnim("start-blob-1-1", "start-blob-1-2", tweenDuration.current, 10);
-    // blobStart2Tween.current = initializeTweenAnim("start-blob-2-1", "start-blob-2-2", tweenDuration.current, 10);
-    // blobStart3Tween.current = initializeTweenAnim("start-blob-3-1", "start-blob-3-2", tweenDuration.current, 10);
+    blob1Zoom.current = initializeZoomAnim("blob1", zoomDuration.current);
+    blob2Zoom.current = initializeZoomAnim("blob2", zoomDuration.current, 0.01, 10, 300);
+    blob3Zoom.current = initializeZoomAnim("blob3", zoomDuration.current);
+    blob4Zoom.current = initializeZoomAnim("blob4", zoomDuration.current, 0.01, 10, 300);
+    blobStart1Zoom.current = initializeZoomAnim("start-blob-1", startZoomDuration.current, 0.001, 10, 100, KUTE.Easing.easingExponentialIn);
+    blobStart2Zoom.current = initializeZoomAnim("start-blob-2", startZoomDuration.current, 0.001, 10, 50, KUTE.Easing.easingExponentialIn);
+    blobStart3Zoom.current = initializeZoomAnim("start-blob-3", startZoomDuration.current, 0.001, 10, 0, KUTE.Easing.easingExponentialIn);
   }, [])
 
   const startPulseAnimations = () => {
     if(pulsePlayedEven.current) {
       blob1Zoom.current.start();
-      // blob1Tween.current.start();
-      setTimeout(() => {
-        blob2Zoom.current.start();
-        // blob2Tween.current.start();
-      }, 300)
+      blob2Zoom.current.start();
       pulsePlayedEven.current = false;
     }
     else {
       blob3Zoom.current.start();
-      // blob3Tween.current.start();
-      setTimeout(() => {
-        blob4Zoom.current.start();
-        // blob4Tween.current.start();
-      }, 300)
+      blob4Zoom.current.start();
       pulsePlayedEven.current = true;
     }
   }
@@ -98,9 +67,6 @@ const Blobs = () => {
     blobStart1Zoom.current.start();
     blobStart2Zoom.current.start();
     blobStart3Zoom.current.start();
-    // blobStart1Tween.current.start();
-    // blobStart2Tween.current.start();
-    // blobStart3Tween.current.start();
   }
 
   const killBlobsAfter = (time = 0) => {
@@ -142,13 +108,27 @@ const Blobs = () => {
   <>
     {blobLife && (
       <div id="blobs">
-        <div className="blob-wrap">{blob1.current}</div>
-        <div className="blob-wrap">{blob2.current}</div>
-        <div className="blob-wrap">{blob3.current}</div>
-        <div className="blob-wrap">{blob4.current}</div>
-        <div className="start-blob-wrap blob-wrap">{startBlob3.current}</div>
-        <div className="start-blob-wrap blob-wrap">{startBlob2.current}</div>
-        <div className="start-blob-wrap blob-wrap">{startBlob1.current}</div>
+        <div className="blob-wrap">
+          <div id="blob1" className="blob shapeshifter" style={{backgroundImage: `url(${blob1.current.default})`}}></div>
+        </div>
+        <div className="blob-wrap">
+          <div id="blob2" className="blob shapeshifter" style={{backgroundImage: `url(${blob2.current.default})`}}></div>
+        </div>
+        <div className="blob-wrap">
+          <div id="blob3" className="blob shapeshifter" style={{backgroundImage: `url(${blob3.current.default})`}}></div>
+        </div>
+        <div className="blob-wrap">
+          <div id="blob4" className="blob shapeshifter" style={{backgroundImage: `url(${blob4.current.default})`}}></div>
+        </div>
+        <div className="blob-wrap">
+          <div id="start-blob-3" className="blob shapeshifter" style={{backgroundImage: `url(${startBlob3.current.default})`}}></div>  
+        </div>
+        <div className="blob-wrap">
+          <div id="start-blob-2" className="blob shapeshifter" style={{backgroundImage: `url(${startBlob2.current.default})`}}></div>  
+        </div>
+        <div className="blob-wrap">
+          <div id="start-blob-1" className="blob shapeshifter" style={{backgroundImage: `url(${startBlob1.current.default})`}}></div>  
+        </div>
       </div>
     )}
   </>

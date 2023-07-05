@@ -4,20 +4,28 @@
 
 .blob-wrap {
   position: absolute;
-  top: 17%;
+  top: 16%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.start-blob-wrap {
-  position: absolute;
-}
-
 .blob {
-  position: relative;
   transform: scale(0);
 }
 
-.start-blob {
-  transform: scale(0);
+/* Morph animation 15fps */
+.shapeshifter {
+  animation: play15 500ms steps(15) infinite;
+  width: 900px;
+  height: 600px;
+  background-repeat: no-repeat;
+}
+
+@keyframes play15 {
+  0% {
+    background-position: 0px 0px;
+  }
+  50% {
+    background-position: -13500px 0px;
+  }
 }
