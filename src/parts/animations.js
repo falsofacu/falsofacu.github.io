@@ -32,28 +32,6 @@ const initializeZoomAnim = (
   return zoomAnim;
 };
 
-const initializeTweenAnim = (id, id2, duration = 400, repeat = 2) => {
-  const tweenAnim = KUTE.fromTo(
-    "#" + id,
-    { path: "#" + id },
-    { path: "#" + id2 },
-    { duration: duration, repeat: repeat, yoyo: true }
-  );
-  return tweenAnim;
-};
-
-//TODO: Implement this?
-const initializeLoadAnim = (id, duration, delay = 0) => {
-  const loadAnim = KUTE.fromTo(
-    "#" + id,
-    {},
-    {},
-    { duration: duration, delay: delay, easing: "linear", repeat: Infinity }
-  );
-
-  return loadAnim;
-};
-
 const initializeFadeInAnim = (id, duration, delay = 0) => {
   const fadeInAnim = KUTE.to(
     "#" + id,
@@ -172,9 +150,7 @@ export {
   initializeHeightAnim,
   initializeSlideAnim,
   initializePulseAnim,
-  initializeTweenAnim,
   initializeZoomAnim,
-  initializeLoadAnim,
   initializeTextScrollAnim,
   initializeTextScrollAnimBackwards,
   initializeStartScrollAnim,
