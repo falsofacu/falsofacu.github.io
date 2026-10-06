@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hustle · Wishlists</title>
+  <meta name="description" content="How close is Hustle to 1,000 wishlists on Steam?">
+  <meta property="og:title" content="Hustle · Wishlists">
+  <meta property="og:description" content="Help us reach 1,000 wishlists on Steam.">
+  <meta property="og:image" content="https://falsofacu.github.io/hustle/logo_full.png">
+  <link rel="icon" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: "uni05";
+      src: url("uni05_64.ttf") format("truetype");
+      font-display: swap;
+    }
+
+    :root {
+      --accent: #ffd735;
+      --accent-2: #ff9f1c;
+      --bg: #0b0b0d;
+      --track: rgba(255, 255, 255, .08);
+      --text: #f5f3ee;
+      --muted: rgba(245, 243, 238, .55);
+      --steam: #66c0f4;
+      /* One layout unit: 1% of the height on 16:9, 1% of a 9:16 frame on tall screens. */
+      --u: min(1vh, 1.78vw);
+    }
+
+    @supports (height: 1dvh) {
+      :root { --u: min(1dvh, 1.78vw); }
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      background:
+        radial-gradient(ellipse 70% 45% at 50% -5%, rgba(255, 215, 53, .14), transparent 70%),
+        var(--bg);
+      color: var(--text);
+      font-family: "Inter", system-ui, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: calc(var(--u) * 3) 16px;
+    }
+
+    main {
+      width: 100%;
+      max-width: calc(var(--u) * 115);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .logo {
+      height: calc(var(--u) * 20);
+      width: auto;
+      image-rendering: pixelated;
+      filter: drop-shadow(0 calc(var(--u) * 1.5) calc(var(--u) * 4) rgba(255, 215, 53, .18));
+    }
+
+    .store {
+      width: 100%;
+      margin-top: calc(var(--u) * 3);
+      display: grid;
+      grid-template-columns: minmax(0, 46fr) minmax(0, 54fr);
+      background: linear-gradient(135deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .025));
+      border: 1px solid rgba(255, 255, 255, .09);
+      border-radius: calc(var(--u) * 2);
+      overflow: hidden;
+      box-shadow: 0 calc(var(--u) * 2.4) calc(var(--u) * 6) rgba(0, 0, 0, .45);
+    }
+
+    .store .art {
+      display: block;
+      background: #000;
+    }
+
+    .store .art img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: left center;
+      aspect-ratio: 460 / 215;
+      transition: transform .4s;
+    }
+
+    .store .art:hover img { transform: scale(1.03); }
+
+    .store .info {
+      padding: calc(var(--u) * 2) calc(var(--u) * 2.4);
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--u) * 1.1);
+      min-width: 0;
+    }
+
+    .store h1 {
+      margin: 0;
+      font-family: "Space Grotesk", "Inter", sans-serif;
+      font-size: calc(var(--u) * 3.4);
+      line-height: 1.1;
+    }
+
+    .store .desc {
+      margin: 0;
+      font-size: calc(var(--u) * 1.75);
+      line-height: 1.45;
+      color: var(--muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: calc(var(--u) * .6);
+    }
+
+    .tags span {
+      font-size: calc(var(--u) * 1.5);
+      padding: calc(var(--u) * .4) calc(var(--u) * 1.1);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .07);
+      color: var(--muted);
+    }
+
+    .store .row {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: calc(var(--u) * 1.2);
+    }
+
+    .release {
+      font-size: calc(var(--u) * 1.5);
+      color: var(--muted);
+      min-width: 0;
+    }
+
+    .release b {
+      display: block;
+      font-size: calc(var(--u) * 1.9);
+      color: var(--text);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .mobile-release {
+      display: none;
+      margin-top: calc(var(--u) * .4);
+      font-size: calc(var(--u) * 1.6);
+      color: var(--muted);
+    }
+
+    .cta {
+      flex: none;
+      padding: calc(var(--u) * 1.2) calc(var(--u) * 2.2);
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: calc(var(--u) * 1.8);
+      color: #111;
+      white-space: nowrap;
+      background: var(--accent);
+      text-decoration: none;
+      transition: transform .15s, box-shadow .15s;
+      box-shadow: 0 calc(var(--u) * .8) calc(var(--u) * 2.4) rgba(255, 215, 53, .25);
+    }
+
+    .cta:hover { transform: translateY(-2px); box-shadow: 0 calc(var(--u) * 1.2) calc(var(--u) * 3.2) rgba(255, 215, 53, .35); }
+    .cta:focus-visible { outline: 3px solid var(--steam); outline-offset: 3px; }
+
+    .stats {
+      width: 100%;
+      margin-top: calc(var(--u) * 4);
+      text-align: center;
+    }
+
+    .count {
+      font-family: "Space Grotesk", "Inter", sans-serif;
+      font-weight: 700;
+      line-height: .9;
+      letter-spacing: -.04em;
+      font-variant-numeric: tabular-nums;
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      gap: .08em;
+    }
+
+    .count .now {
+      font-size: calc(var(--u) * 15);
+      background: linear-gradient(180deg, #fff3b0, var(--accent) 45%, var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .count .goal {
+      font-size: calc(var(--u) * 6);
+      color: var(--muted);
+    }
+
+    .unit {
+      margin-top: calc(var(--u) * 1);
+      font-size: calc(var(--u) * 2.2);
+      font-weight: 500;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .bar {
+      width: 100%;
+      height: calc(var(--u) * 3);
+      margin-top: calc(var(--u) * 3);
+      border-radius: 999px;
+      background: var(--track);
+      overflow: hidden;
+    }
+
+    .fill {
+      position: relative;
+      height: 100%;
+      width: 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent-2), var(--accent));
+      box-shadow: 0 0 calc(var(--u) * 3) rgba(255, 215, 53, .45);
+      transition: width 1.6s cubic-bezier(.2, .8, .2, 1);
+      overflow: hidden;
+    }
+
+    .fill::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .45), transparent);
+      transform: translateX(-100%);
+      animation: shine 2.8s ease-in-out 1.8s infinite;
+    }
+
+    @keyframes shine { to { transform: translateX(100%); } }
+
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      margin-top: calc(var(--u) * 1);
+      font-size: calc(var(--u) * 1.8);
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .meta .pct { color: var(--text); font-weight: 600; }
+    .meta #remainingShort { text-transform: uppercase; letter-spacing: .08em; font-weight: 600; }
+
+    .foot {
+      margin-top: calc(var(--u) * 2.4);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: calc(var(--u) * .4) calc(var(--u) * 1.6);
+      font-size: calc(var(--u) * 1.6);
+      color: var(--muted);
+    }
+
+    .foot #remaining { color: var(--text); }
+
+    .foot button {
+      font: inherit;
+      color: var(--muted);
+      background: none;
+      border: 0;
+      cursor: pointer;
+      padding: 0;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .foot button:hover { color: var(--text); }
+
+    .studio {
+      margin-top: calc(var(--u) * 2.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: calc(var(--u) * 1);
+      font-family: "uni05", ui-monospace, monospace;
+      font-size: calc(var(--u) * 2.2);
+      letter-spacing: .1em;
+      color: var(--muted);
+      -webkit-font-smoothing: none;
+    }
+
+    .studio img {
+      height: calc(var(--u) * 3.6);
+      width: auto;
+      border-radius: calc(var(--u) * .6);
+      image-rendering: pixelated;
+    }
+
+    /* Tall screens: art on top, only name, date and button below it. */
+    @media (max-aspect-ratio: 1/1) {
+      .logo { height: calc(var(--u) * 13); }
+      .stats { margin-top: calc(var(--u) * 3); }
+      .studio { margin-top: calc(var(--u) * 1.6); }
+      .store { grid-template-columns: 1fr; }
+      .store .art img { height: auto; }
+      .store .info {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: calc(var(--u) * 1.6) calc(var(--u) * 2);
+      }
+      .store h1 { font-size: calc(var(--u) * 3); }
+      .store .desc, .tags, .release { display: none; }
+      .store .row { margin-top: 0; }
+      .mobile-release { display: block; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fill { transition: none; }
+      .fill::after { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="logo" src="logo_full.png" alt="Hustle" width="1050" height="600">
+
+    <article class="store">
+      <a class="art" href="https://store.steampowered.com/app/5218590/" target="_blank" rel="noopener">
+        <img id="header" alt="" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5218590/2678bcb6ff76cb8173c2d3c469b2b4285e269d45/header.jpg">
+      </a>
+      <div class="info">
+        <div>
+          <h1 id="name">Hustle</h1>
+          <div class="mobile-release" id="mobileRelease"></div>
+        </div>
+        <p class="desc" data-i18n="desc"></p>
+        <div class="tags" id="tags"></div>
+        <div class="row">
+          <div class="release"><span data-i18n="releaseLabel">Release</span><b id="release"></b></div>
+          <a class="cta" href="https://store.steampowered.com/app/5218590/" target="_blank" rel="noopener" data-i18n="cta">Add to wishlist</a>
+        </div>
+      </div>
+    </article>
+
+    <section class="stats" aria-live="polite">
+      <div class="count">
+        <span class="now" id="count">0</span><span class="goal">/<span id="goal">1000</span></span>
+      </div>
+      <div class="unit" data-i18n="unit">wishlists</div>
+
+      <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="1000" aria-valuenow="0" id="bar">
+        <div class="fill" id="fill"></div>
+      </div>
+      <div class="meta"><span class="pct" id="pct">0%</span><span id="remainingShort"></span></div>
+
+      <div class="foot">
+        <span id="remaining"></span>
+        <span id="updated"></span>
+      </div>
+
+      <div class="studio">
+        <img src="blanes.png" alt="" width="512" height="512">
+        <span>B-LANES</span>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const STEAM_ASSETS = "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5218590/";
+    const RELEASE = new Date(2026, 9, 19);
+
+    const STRINGS = {
+      en: {
+        name: "Hustle",
+        header: STEAM_ASSETS + "2678bcb6ff76cb8173c2d3c469b2b4285e269d45/header.jpg",
+        desc: "Hustle is an open-world survival-crafting game and top-down shooter set on a tiny planet. You're a dude hunting down the guy who stole your red cap, exposing your ugly, putrid, bald head. Shoot, gather, craft, build, expand your map, dodge bullets and fight bosses to seek revenge.",
+        tags: ["Action", "Adventure", "Casual", "Indie"],
+        releaseLabel: "Release",
+        unit: "wishlists",
+        cta: "Add to wishlist",
+        left: n => `${n} to go`,
+        remaining: "Add yours on Steam!",
+        reached: "Goal reached! Thank you.",
+        updated: d => `Updated ${d}`,
+        error: "Couldn't load the counter.",
+      },
+    };
+
+    // English-only page (the Spanish one lives at /turrakata).
+    const lang = "en";
+
+    let data = null;
+    let counted = false;
+    const $ = id => document.getElementById(id);
+    const locale = () => "en-US";
+    const fmt = n => n.toLocaleString(locale());
+
+    function applyLang() {
+      const s = STRINGS[lang];
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        el.textContent = s[el.dataset.i18n];
+      });
+      renderStoreCard();
+      if (data) renderText();
+    }
+
+    function renderStoreCard() {
+      const card = STRINGS.en;
+      $("name").textContent = card.name;
+      $("header").src = card.header;
+      $("header").alt = card.name;
+      document.querySelector('.store [data-i18n="desc"]').textContent = card.desc;
+      document.querySelector('.store [data-i18n="releaseLabel"]').textContent = card.releaseLabel;
+      document.querySelector('.store [data-i18n="cta"]').textContent = card.cta;
+      $("tags").replaceChildren(...card.tags.map(t => Object.assign(document.createElement("span"), { textContent: t })));
+      const release = RELEASE.toLocaleDateString("en-US", { day: "numeric", month: "long", year: "numeric" });
+      $("release").textContent = release;
+      $("mobileRelease").textContent = card.releaseLabel + ": " + release;
+    }
+
+    function renderText() {
+      const s = STRINGS[lang];
+      const left = Math.max(0, data.goal - data.wishlists);
+      if (counted) $("count").textContent = fmt(data.wishlists);
+      $("goal").textContent = fmt(data.goal);
+      $("remainingShort").textContent = left > 0 ? s.left(fmt(left)) : "";
+      $("remaining").textContent = left > 0 ? s.remaining : s.reached;
+      if (data.updated) {
+        const hasTime = data.updated.includes("T");
+        const d = new Date(hasTime ? data.updated : data.updated + "T12:00:00");        const date = d.toLocaleDateString(locale(), { day: "numeric", month: "long" });
+        const time = d.toLocaleTimeString(locale(), { hour: "2-digit", minute: "2-digit", hourCycle: "h23" });
+        $("updated").textContent = s.updated(hasTime ? `${date}, ${time}` : date);
+      }
+    }
+
+    function countUp(target) {
+      const done = () => { counted = true; $("count").textContent = fmt(target); };
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches || target === 0) { done(); return; }
+      const start = performance.now();
+      const dur = 1600;
+      const step = now => {
+        const t = Math.min(1, (now - start) / dur);
+        $("count").textContent = fmt(Math.round(target * (1 - Math.pow(1 - t, 3))));
+        if (t < 1) requestAnimationFrame(step); else done();
+      };
+      requestAnimationFrame(step);
+    }
+
+    async function load() {
+      try {
+        const res = await fetch("wishlists.json?t=" + Date.now(), { cache: "no-store" });
+        const json = await res.json();
+        data = {
+          wishlists: Math.max(0, Number(json.wishlists) || 0),
+          goal: Math.max(1, Number(json.goal) || 1000),
+          // Last time Steam was asked; falls back to the last change for older files.
+          updated: json.checked || json.updated || "",
+        };
+      } catch (e) {
+        $("remaining").textContent = STRINGS[lang].error;
+        return;
+      }
+
+      const pct = Math.min(100, (data.wishlists / data.goal) * 100);
+      renderText();
+      countUp(data.wishlists);
+      $("bar").setAttribute("aria-valuemax", data.goal);
+      $("bar").setAttribute("aria-valuenow", data.wishlists);
+      $("pct").textContent = Math.floor(pct) + "%";
+      requestAnimationFrame(() => { $("fill").style.width = pct + "%"; });
+    }
+
+    applyLang();
+    load();
+  </script>
+</body>
+</html>
