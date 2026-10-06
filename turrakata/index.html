@@ -13,6 +13,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
   <style>
+    @font-face {
+      font-family: "uni05";
+      src: url("uni05_64.ttf") format("truetype");
+      font-display: swap;
+    }
+
     :root {
       --accent: #ffd735;
       --accent-2: #ff9f1c;
@@ -284,9 +290,31 @@
 
     .foot button:hover { color: var(--text); }
 
+    .studio {
+      margin-top: calc(var(--u) * 2.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: calc(var(--u) * 1);
+      font-family: "uni05", ui-monospace, monospace;
+      font-size: calc(var(--u) * 2.2);
+      letter-spacing: .1em;
+      color: var(--muted);
+      -webkit-font-smoothing: none;
+    }
+
+    .studio img {
+      height: calc(var(--u) * 3.6);
+      width: auto;
+      border-radius: calc(var(--u) * .6);
+      image-rendering: pixelated;
+    }
+
     /* Tall screens: art on top, only name, date and button below it. */
     @media (max-aspect-ratio: 1/1) {
-      .logo { height: calc(var(--u) * 16); }
+      .logo { height: calc(var(--u) * 13); }
+      .stats { margin-top: calc(var(--u) * 3); }
+      .studio { margin-top: calc(var(--u) * 1.6); }
       .store { grid-template-columns: 1fr; }
       .store .art img { height: auto; }
       .store .info {
@@ -313,7 +341,7 @@
 
     <article class="store">
       <a class="art" href="https://store.steampowered.com/app/5218590/" target="_blank" rel="noopener">
-        <img id="header" alt="" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5218590/6057df016ec12b04b538016019be33cd78c6bbc2/header_spanish.jpg">
+        <img id="header" alt="" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5218590/6057df016ec12b04b538016019be33cd78c6bbc2/header_latam.jpg">
       </a>
       <div class="info">
         <div>
@@ -345,6 +373,11 @@
         <span id="updated"></span>
         <button type="button" id="lang">English</button>
       </div>
+
+      <div class="studio">
+        <img src="blanes.png" alt="" width="512" height="512">
+        <span>B-LANES</span>
+      </div>
     </section>
   </main>
 
@@ -355,8 +388,8 @@
     const STRINGS = {
       es: {
         name: "Turrakata",
-        header: STEAM_ASSETS + "6057df016ec12b04b538016019be33cd78c6bbc2/header_spanish.jpg",
-        desc: "Supervivencia y crafteo de mundo abierto y shooter 2D en un planeta chiquito. Alguien te robó la gorra y dejó al aire tu fea, repugnante y putrefacta cabeza pelada. Disparar, craftear, construir y expandir para vengarte.",
+        header: STEAM_ASSETS + "6057df016ec12b04b538016019be33cd78c6bbc2/header_latam.jpg",
+        desc: "Turrakata es un juego de supervivencia y crafteo de mundo abierto y shooter 2D ambientado en un pequeño planeta. Estás buscando al que te robó la gorra y dejó al descubierto tu fea, repugnante y putrefacta cabeza pelada. Dispará, crafteá, construí, expandí y peleá para conseguir tu venganza.",
         tags: ["Acción", "Aventura", "Casual", "Indie"],
         releaseLabel: "Lanzamiento",
         unit: "wishlists",
@@ -371,7 +404,7 @@
       en: {
         name: "Hustle",
         header: STEAM_ASSETS + "2678bcb6ff76cb8173c2d3c469b2b4285e269d45/header.jpg",
-        desc: "An open-world survival-crafting game and top-down shooter set on a tiny planet. Someone stole your red cap, exposing your ugly, putrid, bald head. Shoot, gather, craft, build and expand to seek revenge.",
+        desc: "Hustle is an open-world survival-crafting game and top-down shooter set on a tiny planet. You're a dude hunting down the guy who stole your red cap, exposing your ugly, putrid, bald head. Shoot, gather, craft, build, expand your map, dodge bullets and fight bosses to seek revenge.",
         tags: ["Action", "Adventure", "Casual", "Indie"],
         releaseLabel: "Release",
         unit: "wishlists",
