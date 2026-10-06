@@ -21,6 +21,12 @@
       --text: #f5f3ee;
       --muted: rgba(245, 243, 238, .55);
       --steam: #66c0f4;
+      /* One layout unit: 1% of the height on 16:9, 1% of a 9:16 frame on tall screens. */
+      --u: min(1vh, 1.78vw);
+    }
+
+    @supports (height: 1dvh) {
+      :root { --u: min(1dvh, 1.78vw); }
     }
 
     * { box-sizing: border-box; }
@@ -28,47 +34,47 @@
 
     body {
       min-height: 100vh;
+      min-height: 100dvh;
       background:
-        radial-gradient(900px 500px at 50% -10%, rgba(255, 215, 53, .14), transparent 70%),
+        radial-gradient(ellipse 70% 45% at 50% -5%, rgba(255, 215, 53, .14), transparent 70%),
         var(--bg);
       color: var(--text);
       font-family: "Inter", system-ui, sans-serif;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      padding: 48px 16px 32px;
+      padding: calc(var(--u) * 3) 16px;
     }
 
     main {
       width: 100%;
-      max-width: 820px;
+      max-width: calc(var(--u) * 115);
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
     .logo {
-      width: min(300px, 64vw);
-      height: auto;
+      height: calc(var(--u) * 20);
+      width: auto;
       image-rendering: pixelated;
-      filter: drop-shadow(0 16px 40px rgba(255, 215, 53, .18));
+      filter: drop-shadow(0 calc(var(--u) * 1.5) calc(var(--u) * 4) rgba(255, 215, 53, .18));
     }
 
     .store {
       width: 100%;
-      margin-top: 48px;
+      margin-top: calc(var(--u) * 3);
       display: grid;
       grid-template-columns: minmax(0, 46fr) minmax(0, 54fr);
       background: linear-gradient(135deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .025));
       border: 1px solid rgba(255, 255, 255, .09);
-      border-radius: 20px;
+      border-radius: calc(var(--u) * 2);
       overflow: hidden;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, .45);
+      box-shadow: 0 calc(var(--u) * 2.4) calc(var(--u) * 6) rgba(0, 0, 0, .45);
     }
 
     .store .art {
       display: block;
-      position: relative;
       background: #000;
     }
 
@@ -85,27 +91,27 @@
     .store .art:hover img { transform: scale(1.03); }
 
     .store .info {
-      padding: 22px 24px;
+      padding: calc(var(--u) * 2) calc(var(--u) * 2.4);
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: calc(var(--u) * 1.1);
       min-width: 0;
     }
 
     .store h1 {
       margin: 0;
       font-family: "Space Grotesk", "Inter", sans-serif;
-      font-size: 26px;
+      font-size: calc(var(--u) * 3.4);
       line-height: 1.1;
     }
 
     .store .desc {
       margin: 0;
-      font-size: 14px;
-      line-height: 1.5;
+      font-size: calc(var(--u) * 1.75);
+      line-height: 1.45;
       color: var(--muted);
       display: -webkit-box;
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
@@ -113,12 +119,12 @@
     .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: calc(var(--u) * .6);
     }
 
     .tags span {
-      font-size: 12px;
-      padding: 4px 10px;
+      font-size: calc(var(--u) * 1.5);
+      padding: calc(var(--u) * .4) calc(var(--u) * 1.1);
       border-radius: 999px;
       background: rgba(255, 255, 255, .07);
       color: var(--muted);
@@ -129,30 +135,50 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
+      gap: calc(var(--u) * 1.2);
     }
 
     .release {
-      font-size: 13px;
+      font-size: calc(var(--u) * 1.5);
       color: var(--muted);
+      min-width: 0;
     }
 
     .release b {
       display: block;
-      font-size: 15px;
+      font-size: calc(var(--u) * 1.9);
       color: var(--text);
       font-weight: 600;
+      white-space: nowrap;
     }
 
-    @media (max-width: 640px) {
-      .store { grid-template-columns: 1fr; }
-      .store .art img { height: auto; }
+    .mobile-release {
+      display: none;
+      margin-top: calc(var(--u) * .4);
+      font-size: calc(var(--u) * 1.6);
+      color: var(--muted);
     }
+
+    .cta {
+      flex: none;
+      padding: calc(var(--u) * 1.2) calc(var(--u) * 2.2);
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: calc(var(--u) * 1.8);
+      color: #111;
+      white-space: nowrap;
+      background: var(--accent);
+      text-decoration: none;
+      transition: transform .15s, box-shadow .15s;
+      box-shadow: 0 calc(var(--u) * .8) calc(var(--u) * 2.4) rgba(255, 215, 53, .25);
+    }
+
+    .cta:hover { transform: translateY(-2px); box-shadow: 0 calc(var(--u) * 1.2) calc(var(--u) * 3.2) rgba(255, 215, 53, .35); }
+    .cta:focus-visible { outline: 3px solid var(--steam); outline-offset: 3px; }
 
     .stats {
       width: 100%;
-      margin-top: 72px;
+      margin-top: calc(var(--u) * 4);
       text-align: center;
     }
 
@@ -166,11 +192,10 @@
       justify-content: center;
       align-items: baseline;
       gap: .08em;
-      flex-wrap: wrap;
     }
 
     .count .now {
-      font-size: clamp(88px, 22vw, 200px);
+      font-size: calc(var(--u) * 15);
       background: linear-gradient(180deg, #fff3b0, var(--accent) 45%, var(--accent-2));
       -webkit-background-clip: text;
       background-clip: text;
@@ -178,13 +203,13 @@
     }
 
     .count .goal {
-      font-size: clamp(40px, 9vw, 80px);
+      font-size: calc(var(--u) * 6);
       color: var(--muted);
     }
 
     .unit {
-      margin-top: 12px;
-      font-size: clamp(16px, 3.4vw, 22px);
+      margin-top: calc(var(--u) * 1);
+      font-size: calc(var(--u) * 2.2);
       font-weight: 500;
       letter-spacing: .2em;
       text-transform: uppercase;
@@ -192,10 +217,9 @@
     }
 
     .bar {
-      position: relative;
       width: 100%;
-      height: 28px;
-      margin-top: 48px;
+      height: calc(var(--u) * 3);
+      margin-top: calc(var(--u) * 3);
       border-radius: 999px;
       background: var(--track);
       overflow: hidden;
@@ -207,7 +231,7 @@
       width: 0;
       border-radius: inherit;
       background: linear-gradient(90deg, var(--accent-2), var(--accent));
-      box-shadow: 0 0 32px rgba(255, 215, 53, .45);
+      box-shadow: 0 0 calc(var(--u) * 3) rgba(255, 215, 53, .45);
       transition: width 1.6s cubic-bezier(.2, .8, .2, 1);
       overflow: hidden;
     }
@@ -226,62 +250,56 @@
     .meta {
       display: flex;
       justify-content: space-between;
-      margin-top: 12px;
-      font-size: 14px;
+      margin-top: calc(var(--u) * 1);
+      font-size: calc(var(--u) * 1.8);
       color: var(--muted);
       font-variant-numeric: tabular-nums;
     }
 
     .meta .pct { color: var(--text); font-weight: 600; }
+    .meta #remainingShort { text-transform: uppercase; letter-spacing: .08em; font-weight: 600; }
 
-    .remaining {
-      margin: 40px 0 0;
-      font-size: clamp(17px, 3.6vw, 20px);
-    }
-
-    .remaining b { color: var(--accent); font-weight: 600; }
-
-    .cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 20px;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 15px;
-      color: #111;
-      white-space: nowrap;
-      background: var(--accent);
-      text-decoration: none;
-      transition: transform .15s, box-shadow .15s;
-      box-shadow: 0 8px 24px rgba(255, 215, 53, .25);
-    }
-
-    .cta:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(255, 215, 53, .35); }
-    .cta:focus-visible { outline: 3px solid var(--steam); outline-offset: 3px; }
-
-    .updated {
-      margin-top: 20px;
-      font-size: 13px;
+    .foot {
+      margin-top: calc(var(--u) * 2.4);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: calc(var(--u) * .4) calc(var(--u) * 1.6);
+      font-size: calc(var(--u) * 1.6);
       color: var(--muted);
     }
 
-    footer {
-      margin-top: auto;
-      padding-top: 48px;
-      font-size: 13px;
-    }
+    .foot #remaining { color: var(--text); }
 
-    footer button {
+    .foot button {
       font: inherit;
       color: var(--muted);
       background: none;
       border: 0;
       cursor: pointer;
       padding: 0;
+      text-decoration: underline;
+      text-underline-offset: 2px;
     }
 
-    footer button:hover { color: var(--text); }
+    .foot button:hover { color: var(--text); }
+
+    /* Tall screens: art on top, only name, date and button below it. */
+    @media (max-aspect-ratio: 1/1) {
+      .logo { height: calc(var(--u) * 16); }
+      .store { grid-template-columns: 1fr; }
+      .store .art img { height: auto; }
+      .store .info {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: calc(var(--u) * 1.6) calc(var(--u) * 2);
+      }
+      .store h1 { font-size: calc(var(--u) * 3); }
+      .store .desc, .tags, .release { display: none; }
+      .store .row { margin-top: 0; }
+      .mobile-release { display: block; }
+    }
 
     @media (prefers-reduced-motion: reduce) {
       .fill { transition: none; }
@@ -298,7 +316,10 @@
         <img id="header" alt="" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5218590/6057df016ec12b04b538016019be33cd78c6bbc2/header_spanish.jpg">
       </a>
       <div class="info">
-        <h1 id="name">Turrakata</h1>
+        <div>
+          <h1 id="name">Turrakata</h1>
+          <div class="mobile-release" id="mobileRelease"></div>
+        </div>
         <p class="desc" data-i18n="desc"></p>
         <div class="tags" id="tags"></div>
         <div class="row">
@@ -319,14 +340,13 @@
       </div>
       <div class="meta"><span class="pct" id="pct">0%</span><span id="remainingShort"></span></div>
 
-      <p class="remaining" id="remaining"></p>
-      <p class="updated" id="updated"></p>
+      <div class="foot">
+        <span id="remaining"></span>
+        <span id="updated"></span>
+        <button type="button" id="lang">English</button>
+      </div>
     </section>
   </main>
-
-  <footer>
-    <button type="button" id="lang">English</button>
-  </footer>
 
   <script>
     const STEAM_ASSETS = "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5218590/";
@@ -396,7 +416,9 @@
       document.querySelector('.store [data-i18n="releaseLabel"]').textContent = es.releaseLabel;
       document.querySelector('.store [data-i18n="cta"]').textContent = es.cta;
       $("tags").replaceChildren(...es.tags.map(t => Object.assign(document.createElement("span"), { textContent: t })));
-      $("release").textContent = RELEASE.toLocaleDateString("es-UY", { day: "numeric", month: "long", year: "numeric" });
+      const release = RELEASE.toLocaleDateString("es-UY", { day: "numeric", month: "long", year: "numeric" });
+      $("release").textContent = release;
+      $("mobileRelease").textContent = es.releaseLabel + ": " + release;
     }
 
     function renderText() {
