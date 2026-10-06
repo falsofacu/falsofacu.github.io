@@ -463,10 +463,9 @@
       $("remaining").textContent = left > 0 ? s.remaining : s.reached;
       if (data.updated) {
         const hasTime = data.updated.includes("T");
-        const d = new Date(hasTime ? data.updated : data.updated + "T12:00:00");
-        const opts = { day: "numeric", month: "long", year: "numeric" };
-        if (hasTime) Object.assign(opts, { hour: "2-digit", minute: "2-digit" });
-        $("updated").textContent = s.updated(d.toLocaleString(locale(), opts));
+        const d = new Date(hasTime ? data.updated : data.updated + "T12:00:00");        const date = d.toLocaleDateString(locale(), { day: "numeric", month: "long" });
+        const time = d.toLocaleTimeString(locale(), { hour: "2-digit", minute: "2-digit", hourCycle: "h23" });
+        $("updated").textContent = s.updated(hasTime ? `${date}, ${time}` : date);
       }
     }
 
@@ -490,7 +489,8 @@
         data = {
           wishlists: Math.max(0, Number(json.wishlists) || 0),
           goal: Math.max(1, Number(json.goal) || 1000),
-          updated: json.updated || "",
+          // Last time Steam was asked; falls back to the last change for older files.
+          updated: json.checked || json.updated || "",
         };
       } catch (e) {
         $("remaining").textContent = STRINGS[lang].error;
