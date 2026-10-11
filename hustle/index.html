@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hustle · Wishlists</title>
-  <meta name="description" content="How close is Hustle to 1,000 wishlists on Steam?">
+  <meta name="description" content="How close is Hustle to 3,000 wishlists on Steam?">
   <meta property="og:title" content="Hustle · Wishlists">
-  <meta property="og:description" content="Help us reach 1,000 wishlists on Steam.">
+  <meta property="og:description" content="Help us reach 3,000 wishlists on Steam.">
   <meta property="og:image" content="https://falsofacu.github.io/hustle/logo_full.png">
   <link rel="icon" href="logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -359,11 +359,11 @@
 
     <section class="stats" aria-live="polite">
       <div class="count">
-        <span class="now" id="count">0</span><span class="goal">/<span id="goal">1000</span></span>
+        <span class="now" id="count">0</span><span class="goal">/<span id="goal">3000</span></span>
       </div>
       <div class="unit" data-i18n="unit">wishlists</div>
 
-      <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="1000" aria-valuenow="0" id="bar">
+      <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="3000" aria-valuenow="0" id="bar">
         <div class="fill" id="fill"></div>
       </div>
       <div class="meta"><span class="pct" id="pct">0%</span><span id="remainingShort"></span></div>
@@ -468,7 +468,7 @@
         const json = await res.json();
         data = {
           wishlists: Math.max(0, Number(json.wishlists) || 0),
-          goal: Math.max(1, Number(json.goal) || 1000),
+          goal: Math.max(1, Number(json.goal) || 3000),
           // Last time Steam was asked; falls back to the last change for older files.
           updated: json.checked || json.updated || "",
         };
