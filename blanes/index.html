@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>B-LANES</title>
+  <meta name="description" content="B-LANES: nuestros juegos y juegos amigos. Turrákata, disponible en Steam." data-i18n-content="meta.description">
+  <meta name="theme-color" content="#000000">
+  <link rel="canonical" href="https://falsofacu.github.io/blanes/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://falsofacu.github.io/blanes/">
+  <meta property="og:title" content="B-LANES">
+  <meta property="og:description" content="Nuestros juegos y juegos amigos.">
+  <meta property="og:image" content="https://falsofacu.github.io/blanes/assets/media/turrakata_capsule.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/cat_open.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/cat_closed.png" as="image">
+  <link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+
+  <header class="nav">
+    <a class="studio nav__brand" href="#top" aria-label="B-LANES">
+      <img src="assets/blanes.png" alt="" width="512" height="512">
+      <span>B-LANES</span>
+    </a>
+    <nav class="nav__links" aria-label="Secciones" data-i18n-aria="nav.label">
+      <a href="#juegos" data-i18n="nav.ours">Nuestros juegos</a>
+      <a href="#amigos" data-i18n="nav.friends">Juegos amigos</a>
+      <div class="lang" role="group" aria-label="Idioma" data-i18n-aria="lang.label">
+        <button type="button" data-lang="es" lang="es" aria-pressed="true">ES</button><button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- BANNER -->
+    <section class="banner" aria-label="B-LANES">
+      <div class="banner__band" aria-hidden="true"></div>
+
+      <div class="banner__inner">
+        <div class="lockup">
+          <button class="cat" type="button" aria-label="B-LANES">
+            <img class="cat__img" src="assets/cat_open.png" alt="" width="512" height="512">
+          </button>
+          <h1 class="lockup__word">B-LANES</h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- NUESTROS JUEGOS -->
+    <section class="game" id="juegos">
+      <div class="game__bg" aria-hidden="true">
+        <img src="assets/media/hustle_bg.jpg" alt="" decoding="async">
+      </div>
+
+      <div class="wrap">
+        <header class="section-head">
+          <span class="section-head__num">01</span>
+          <h2 class="section-head__title" data-i18n="ours.title">Nuestros juegos</h2>
+          <span class="checker-rule" aria-hidden="true"></span>
+        </header>
+
+        <div class="game__grid">
+          <a class="game__capsule" href="https://store.steampowered.com/app/5218590/Turrakata/" data-href-es="https://store.steampowered.com/app/5218590/Turrakata/" data-href-en="https://store.steampowered.com/app/5218590/Hustle/" target="_blank" rel="noopener">
+            <img src="assets/media/turrakata_capsule.jpg" data-src-es="assets/media/turrakata_capsule.jpg" data-src-en="assets/media/hustle_capsule.jpg"
+                 alt="Turrákata" data-i18n-alt="game.name" width="616" height="353">
+          </a>
+
+          <div class="game__info">
+            <ul class="chips">
+              <li data-i18n="game.tag1">Supervivencia</li><li data-i18n="game.tag2">Fabricación</li><li data-i18n="game.tag3">Exploración</li>
+            </ul>
+            <h3 class="game__title" data-i18n="game.name">Turrákata</h3>
+            <p class="game__desc" data-i18n="game.desc">Turrákata es un juego de supervivencia y crafteo de mundo abierto y shooter 2D ambientado en un pequeño planeta. Estás buscando al que te robó la gorra y dejó al descubierto tu fea, repugnante y putrefacta cabeza pelada. Dispará, crafteá, construí, expandí y peleá para conseguir tu venganza.</p>
+
+            <dl class="facts">
+              <div><dt data-i18n="game.reviews">Reseñas</dt><dd><strong>100%</strong> <span data-i18n="game.positive">positivas</span></dd></div>
+              <div><dt data-i18n="game.release">Lanzamiento</dt><dd data-i18n="game.date">19 oct 2026</dd></div>
+              <div><dt data-i18n="game.platform">Plataforma</dt><dd>PC · Steam</dd></div>
+            </dl>
+
+            <a class="btn btn--solid btn--lg" href="https://store.steampowered.com/app/5218590/Turrakata/" data-href-es="https://store.steampowered.com/app/5218590/Turrakata/" data-href-en="https://store.steampowered.com/app/5218590/Hustle/" target="_blank" rel="noopener">
+              <span data-i18n="game.buy">Jugar</span> <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <ul class="shots">
+          <li><button type="button" data-full="assets/media/hustle_ss1.jpg"><img src="assets/media/hustle_ss1_thumb.jpg" width="800" height="450" alt="" data-i18n-alt="game.shot1" loading="lazy"></button></li>
+          <li><button type="button" data-full="assets/media/hustle_ss3.jpg"><img src="assets/media/hustle_ss3_thumb.jpg" width="800" height="450" alt="" data-i18n-alt="game.shot2" loading="lazy"></button></li>
+          <li><button type="button" data-full="assets/media/hustle_ss4.jpg"><img src="assets/media/hustle_ss4_thumb.jpg" width="800" height="450" alt="" data-i18n-alt="game.shot3" loading="lazy"></button></li>
+          <li><button type="button" data-full="assets/media/hustle_ss5.jpg"><img src="assets/media/hustle_ss5_thumb.jpg" width="800" height="450" alt="" data-i18n-alt="game.shot4" loading="lazy"></button></li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="checker-divider" aria-hidden="true"></div>
+
+    <!-- JUEGOS AMIGOS -->
+    <section class="friends" id="amigos">
+      <div class="wrap">
+        <header class="section-head">
+          <span class="section-head__num">02</span>
+          <h2 class="section-head__title" data-i18n="friends.title">Juegos amigos</h2>
+          <span class="checker-rule" aria-hidden="true"></span>
+        </header>
+        <p class="section-sub" data-i18n="friends.sub">Demos jugables y gratis.</p>
+
+        <div class="cards">
+          <!-- Para sumar un juego: duplicá este <a class="card">, cambiá link, imágenes y textos, y agregá sus claves en script.js -->
+          <a class="card" href="https://antho582.itch.io/pixelaria" target="_blank" rel="noopener">
+            <div class="card__media">
+              <img src="assets/media/pixelaria_cover.png" alt="Pixelaria" loading="lazy">
+              <img class="card__alt" src="assets/media/pixelaria_ss3_thumb.jpg" alt="" loading="lazy">
+              <span class="card__play"><span data-i18n="friends.play">Jugar demo</span> <span aria-hidden="true">↗</span></span>
+            </div>
+            <div class="card__body">
+              <div class="card__row">
+                <h3 class="card__title">Pixelaria</h3>
+                <span class="card__badge" data-i18n="friends.free">Gratis</span>
+              </div>
+              <p class="card__dev">Anthony Lopez</p>
+              <p class="card__desc" data-i18n="pixelaria.desc">Un sandbox 2D con generación de mundos infinitas.</p>
+              <p class="card__meta">Windows · Linux · Android · itch.io</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__checker" aria-hidden="true"></div>
+    <div class="wrap footer__inner">
+      <a class="studio" href="#top" aria-label="B-LANES">
+        <img src="assets/blanes.png" alt="" width="512" height="512">
+        <span>B-LANES</span>
+      </a>
+      <nav class="footer__links" aria-label="Pie" data-i18n-aria="footer.label">
+        <a href="#juegos" data-i18n="nav.ours">Nuestros juegos</a>
+        <a href="#amigos" data-i18n="nav.friends">Juegos amigos</a>
+        <a href="https://store.steampowered.com/app/5218590/Turrakata/" data-href-es="https://store.steampowered.com/app/5218590/Turrakata/" data-href-en="https://store.steampowered.com/app/5218590/Hustle/" target="_blank" rel="noopener" data-i18n="footer.steam">Turrákata en Steam</a>
+      </nav>
+      <p class="footer__meta">© <span id="year">2026</span> B-LANES</p>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" aria-label="Captura ampliada" data-i18n-aria="lightbox.label">
+    <img src="" alt="">
+    <button class="lightbox__btn lightbox__close" type="button" aria-label="Cerrar" data-i18n-aria="lightbox.close">✕</button>
+    <button class="lightbox__btn lightbox__prev" type="button" aria-label="Anterior" data-i18n-aria="lightbox.prev">←</button>
+    <button class="lightbox__btn lightbox__next" type="button" aria-label="Siguiente" data-i18n-aria="lightbox.next">→</button>
+    <p class="lightbox__count" aria-live="polite"></p>
+  </dialog>
+
+  <script src="script.js?v=3"></script>
+</body>
+</html>
