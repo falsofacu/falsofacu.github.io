@@ -87,8 +87,11 @@ function savedLang() {
   try { return localStorage.getItem("blanes-lang"); } catch { return null; }
 }
 
+// Prioridad: ?lang= en la URL (para compartir links en un idioma) > elección guardada > idioma del navegador
+const url = new URL(window.location.href);
+const urlLang = (url.searchParams.get("lang") || "").toLowerCase();
 const browserLang = (navigator.language || "es").toLowerCase().startsWith("es") ? "es" : "en";
-let currentLang = I18N[savedLang()] ? savedLang() : browserLang;
+let currentLang = I18N[urlLang] ? urlLang : I18N[savedLang()] ? savedLang() : browserLang;
 applyLang(currentLang);
 
 document.querySelectorAll(".lang [data-lang]").forEach((btn) => {
@@ -96,6 +99,11 @@ document.querySelectorAll(".lang [data-lang]").forEach((btn) => {
     if (btn.dataset.lang === currentLang) return;
     currentLang = btn.dataset.lang;
     try { localStorage.setItem("blanes-lang", currentLang); } catch {}
+    // si se entró con ?lang=, se actualiza para que recargar no vuelva al idioma anterior
+    if (url.searchParams.has("lang")) {
+      url.searchParams.set("lang", currentLang);
+      history.replaceState(null, "", url);
+    }
     applyLang(currentLang);
   });
 });
